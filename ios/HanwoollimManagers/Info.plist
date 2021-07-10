@@ -22,6 +22,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -37,8 +39,17 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/NotoSansKR-Regular.otf</string>
+		<string>Fonts/NotoSansKR-Thin.otf</string>
+		<string>Fonts/NotoSansKR-Black.otf</string>
+		<string>Fonts/NotoSansKR-Bold.otf</string>
+		<string>Fonts/NotoSansKR-Medium.otf</string>
+		<string>Fonts/NotoSansKR-Light.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

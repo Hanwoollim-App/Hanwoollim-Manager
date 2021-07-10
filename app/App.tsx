@@ -1,12 +1,8 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import MainNavigator from './components/navigator/MainNavigator';
 
 function App() {
-  return (
-    <View>
-      <Text>Hello World!</Text>
-    </View>
-  );
+  return <MainNavigator />;
 }
 
 export default App;
