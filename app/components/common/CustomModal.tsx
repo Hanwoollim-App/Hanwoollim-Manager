@@ -7,34 +7,36 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../utils/constant/common/design/Responsive';
+import {ModalsProps} from '../../utils/constant/custom/customModalUtils';
 
 const styles = StyleSheet.create({
   modalView: {
     width: widthPercentage(250),
-    height: heightPercentage(159),
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: heightPercentage(327),
+    marginTop: heightPercentage(264),
     marginLeft: widthPercentage(63),
+    backgroundColor: 'transparent',
+  },
+  content: {
+    width: widthPercentage(250),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopLeftRadius: widthPercentage(15),
+    borderTopRightRadius: widthPercentage(15),
     backgroundColor: 'white',
     elevation: 5,
   },
-  contentContainer: {
-    height: heightPercentage(115),
+  oneBtnContent: {
+    width: widthPercentage(250),
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: widthPercentage(15),
     backgroundColor: 'white',
-  },
-  btnContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: heightPercentage(44),
-    backgroundColor: 'white',
+    elevation: 5,
   },
   titleStyle: {
     marginTop: heightPercentage(25),
-    fontFamily: 'NotoSansKR-Regular',
+    fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(15),
     letterSpacing: 1,
     fontStyle: 'normal',
@@ -49,80 +51,104 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'gray',
   },
-  firstBtnStyle: {
-    flex: 1,
+  BtnListStyle: {
+    width: widthPercentage(250),
     height: heightPercentage(44),
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: color.mainColor,
-  },
-  secondBtnStyle: {
-    flex: 1,
-    height: heightPercentage(44),
+    marginTop: heightPercentage(0.5),
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
+    elevation: 5,
   },
-  firstBtnTitleStyle: {
+  BtnListTitleStyle: {
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(15),
-    fontStyle: 'normal',
     textAlign: 'center',
-    color: '#ffffff',
+    color: color.mainColor,
   },
-  secondBtnTitleStyle: {
+  whiteLastBtn: {
+    width: widthPercentage(250),
+    height: heightPercentage(44),
+    marginTop: heightPercentage(0.5),
+    borderBottomLeftRadius: widthPercentage(15),
+    borderBottomRightRadius: widthPercentage(15),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    elevation: 5,
+  },
+  blueLastBtn: {
+    width: widthPercentage(250),
+    height: heightPercentage(44),
+    marginTop: heightPercentage(10),
+    borderRadius: widthPercentage(15),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: color.mainColor,
+    elevation: 5,
+  },
+  blueLastBtnTitle: {
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(15),
-    fontStyle: 'normal',
     textAlign: 'center',
-    color: '#000000',
+    color: 'white',
   },
 });
-
-interface ModalsProps {
-  mdVisible: boolean;
-  title: string;
-  subtitle?: string;
-  firstButton: Function;
-  secondButton?: Function;
-  firstBtnTitle: string;
-  secondBtnTitle?: string;
-}
 
 function CustomModal({
   mdVisible,
   title,
-  subtitle = null,
-  firstButton,
-  secondButton = null,
-  firstBtnTitle,
-  secondBtnTitle = null,
+  subtitle = '',
+  buttonList,
 }: ModalsProps) {
+  const last = buttonList.pop();
+  const second = buttonList.pop(); // if the array is empty, return undefined
+
   return (
     <Modal animationType="slide" visible={mdVisible} transparent={true}>
       <View style={styles.modalView}>
-        <View style={styles.contentContainer}>
-          <Text style={styles.titleStyle}>{title}</Text>
-          <Text style={styles.subtitleStyle}>{subtitle}</Text>
-        </View>
-        <View style={styles.btnContainer}>
-          <CustomBtn
-            title={firstBtnTitle}
-            onClickListener={firstButton}
-            titleStyle={styles.firstBtnTitleStyle}
-            btnStyle={styles.firstBtnStyle}
-          />
-          {secondButton ? (
+        {second === undefined ? (
+          <View style={styles.oneBtnContent}>
+            <Text style={styles.titleStyle}>{title}</Text>
+            <Text style={styles.subtitleStyle}>{subtitle}</Text>
+          </View>
+        ) : (
+          <View style={styles.content}>
+            <Text style={styles.titleStyle}>{title}</Text>
+            <Text style={styles.subtitleStyle}>{subtitle}</Text>
+          </View>
+        )}
+        {buttonList.map((result, i) => {
+          return (
             <CustomBtn
-              title={secondBtnTitle}
-              onClickListener={secondButton}
-              titleStyle={styles.secondBtnTitleStyle}
-              btnStyle={styles.secondBtnStyle}
+              key={i}
+              title={result.buttonText}
+              onClickListener={result.buttonClickListener}
+              titleStyle={styles.BtnListTitleStyle}
+              btnStyle={styles.BtnListStyle}
             />
-          ) : (
-            <View />
-          )}
-        </View>
+          );
+        })}
+        {second !== undefined ? (
+          <CustomBtn
+            title={second.buttonText}
+            onClickListener={second.buttonClickListener}
+            titleStyle={styles.BtnListTitleStyle}
+            btnStyle={styles.whiteLastBtn}
+          />
+        ) : (
+          <View />
+        )}
+        {last !== undefined ? (
+          <CustomBtn
+            title={last.buttonText}
+            onClickListener={last.buttonClickListener}
+            titleStyle={styles.blueLastBtnTitle}
+            btnStyle={styles.blueLastBtn}
+          />
+        ) : (
+          <View />
+        )}
       </View>
     </Modal>
   );
