@@ -14,11 +14,10 @@ import {
 
 const styles = StyleSheet.create({
   modalView: {
-    width: widthPercentage(250),
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: heightPercentage(264),
-    marginLeft: widthPercentage(63),
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   content: {
     width: widthPercentage(250),
