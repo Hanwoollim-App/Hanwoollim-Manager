@@ -14,7 +14,7 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import color from '../../../utils/constant/common/design/Color';
-import BtnWithIcon from '../../common/BtnWithIcon';
+import Banner from '../../common/Banner';
 import {MAIN_MENU, TITLE} from '../../../utils/constant/main/mainUtils';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
@@ -131,7 +131,7 @@ function Home() {
         </View>
         {menuList.map((list, i) => {
           return (
-            <BtnWithIcon
+            <Banner
               key={i}
               title={list.menuTitle}
               titleStyle={styles.btnTextStyle}
@@ -142,7 +142,7 @@ function Home() {
             />
           );
         })}
-        <BtnWithIcon
+        <Banner
           title={'모달 테스트'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
