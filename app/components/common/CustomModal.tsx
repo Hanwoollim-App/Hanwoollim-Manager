@@ -7,7 +7,10 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../utils/constant/common/design/Responsive';
-import {ModalsProps} from '../../utils/constant/custom/customModalUtils';
+import {
+  customBtnType,
+  ModalsProps,
+} from '../../utils/constant/custom/customModalUtils';
 
 const styles = StyleSheet.create({
   modalView: {
@@ -114,8 +117,9 @@ function CustomModal({
   subtitle = '',
   buttonList,
 }: ModalsProps) {
-  const last = buttonList.pop();
-  const second = buttonList.pop(); // if the array is empty, return undefined
+  const [last, second, ...args]: Array<customBtnType | undefined> = [
+    ...buttonList,
+  ].reverse();
 
   return (
     <Modal animationType="slide" visible={mdVisible} transparent={true}>
@@ -131,15 +135,17 @@ function CustomModal({
             <Text style={styles.subtitle}>{subtitle}</Text>
           </View>
         )}
-        {buttonList.map((result, i) => {
+        {args.map((result, i) => {
           return (
-            <CustomBtn
-              key={i}
-              title={result.buttonText}
-              onClickListener={result.buttonClickListener}
-              titleStyle={styles.btnListTitle}
-              btnStyle={styles.btnList}
-            />
+            result !== undefined && (
+              <CustomBtn
+                key={i}
+                title={result.buttonText}
+                onClickListener={result.buttonClickListener}
+                titleStyle={styles.btnListTitle}
+                btnStyle={styles.btnList}
+              />
+            )
           );
         })}
         {second !== undefined ? (
