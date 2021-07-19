@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: '#000',
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowOpacity: widthPercentage(0.25),
+        shadowRadius: widthPercentage(3.84),
         shadowOffset: {
-          height: 2,
+          height: heightPercentage(2),
           width: 0,
         },
       },
@@ -48,7 +48,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: widthPercentage(15),
     backgroundColor: 'white',
-    elevation: 5,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: widthPercentage(0.25),
+        shadowRadius: widthPercentage(3.84),
+        shadowOffset: {
+          height: heightPercentage(2),
+          width: 0,
+        },
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
   title: {
     marginTop: heightPercentage(25),
@@ -74,7 +87,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    elevation: 5,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: widthPercentage(0.25),
+        shadowRadius: widthPercentage(3.84),
+        shadowOffset: {
+          height: heightPercentage(2),
+          width: 0,
+        },
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
   btnListTitle: {
     fontFamily: 'NotoSansKR-Regular',
@@ -91,7 +117,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    elevation: 5,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: widthPercentage(0.25),
+        shadowRadius: widthPercentage(3.84),
+        shadowOffset: {
+          height: heightPercentage(2),
+          width: 0,
+        },
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
   blueLastBtn: {
     width: widthPercentage(250),
@@ -101,7 +140,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: color.mainColor,
-    elevation: 5,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: widthPercentage(0.25),
+        shadowRadius: widthPercentage(3.84),
+        shadowOffset: {
+          height: heightPercentage(2),
+          width: 0,
+        },
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
   blueLastBtnTitle: {
     fontFamily: 'NotoSansKR-Regular',
