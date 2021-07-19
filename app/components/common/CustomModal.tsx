@@ -124,20 +124,20 @@ function CustomModal({
   return (
     <Modal animationType="slide" visible={mdVisible} transparent={true}>
       <View style={styles.modalView}>
-        {second === undefined ? (
-          <View style={styles.oneBtnContent}>
+        {second ? (
+          <View style={styles.content}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.subtitle}>{subtitle}</Text>
           </View>
         ) : (
-          <View style={styles.content}>
+          <View style={styles.oneBtnContent}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.subtitle}>{subtitle}</Text>
           </View>
         )}
         {args.map((result, i) => {
           return (
-            result !== undefined && (
+            result! && (
               <CustomBtn
                 key={i}
                 title={result.buttonText}
@@ -148,7 +148,7 @@ function CustomModal({
             )
           );
         })}
-        {second !== undefined && (
+        {second! && (
           <CustomBtn
             title={second.buttonText}
             onClickListener={second.buttonClickListener}
@@ -156,7 +156,7 @@ function CustomModal({
             btnStyle={styles.whiteLastBtn}
           />
         )}
-        {last !== undefined && (
+        {last! && (
           <CustomBtn
             title={last.buttonText}
             onClickListener={last.buttonClickListener}
