@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
+import {View, StyleSheet, TextInput, Image} from 'react-native';
 import {
   NavigationProp,
   ParamListBase,
@@ -15,7 +15,6 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
-import searchIcon from '../../../assets/images';
 
 const styles = StyleSheet.create({
   root: {
