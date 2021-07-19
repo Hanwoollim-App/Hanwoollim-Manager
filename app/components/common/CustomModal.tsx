@@ -169,7 +169,7 @@ function CustomModal({
   subtitle = '',
   buttonList,
 }: ModalsProps) {
-  const [last, second, ...args]: Array<customBtnType | undefined> = [
+  const [last, second, ...first]: Array<customBtnType | undefined> = [
     ...buttonList,
   ].reverse();
 
@@ -187,7 +187,7 @@ function CustomModal({
             <Text style={styles.subtitle}>{subtitle}</Text>
           </View>
         )}
-        {args.map((result, i) => {
+        {first.map((result, i) => {
           return (
             result! && (
               <CustomBtn
