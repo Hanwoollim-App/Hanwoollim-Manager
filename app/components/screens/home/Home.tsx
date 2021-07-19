@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  BackHandler,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, BackHandler, StyleSheet, Image} from 'react-native';
 import {useAndroidBackHandler} from 'react-navigation-backhandler';
 import {
   NavigationProp,
