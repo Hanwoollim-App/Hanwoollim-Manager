@@ -148,25 +148,21 @@ function CustomModal({
             )
           );
         })}
-        {second !== undefined ? (
+        {second !== undefined && (
           <CustomBtn
             title={second.buttonText}
             onClickListener={second.buttonClickListener}
             titleStyle={styles.btnListTitle}
             btnStyle={styles.whiteLastBtn}
           />
-        ) : (
-          <View />
         )}
-        {last !== undefined ? (
+        {last !== undefined && (
           <CustomBtn
             title={last.buttonText}
             onClickListener={last.buttonClickListener}
             titleStyle={styles.blueLastBtnTitle}
             btnStyle={styles.blueLastBtn}
           />
-        ) : (
-          <View />
         )}
       </View>
     </Modal>
