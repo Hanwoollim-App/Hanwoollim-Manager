@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   ListStyle: {
     width: widthPercentage(335),
-    height: heightPercentage(609),
+    height: heightPercentage(670),
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
@@ -167,25 +167,7 @@ function Notice() {
           leftIcon={icon}
           leftIconClickListner={navigation.goBack}
         />
-        <View style={styles.SectionStyle}>
-          <TextInput
-            style={styles.searchTextInput}
-            placeholder="검색"
-            placeholderTextColor="#a2a2a2"
-          />
-          <Image
-            source={require('../../../assets/images/searchIcon.png')}
-            style={styles.ImageStyle}
-          />
-        </View>
-        <View style={styles.SectionStyle2}>
-          <View style={styles.RedSquare} />
-          <Text style={styles.roleTextStyle}>관리자</Text>
-          <View style={styles.BlueSquare} />
-          <Text style={styles.roleTextStyle}>집행기</Text>
-          <View style={styles.BlackSquare} />
-          <Text style={styles.roleTextStyle}>일반 부원</Text>
-        </View>
+
         <View style={styles.ListStyle}>
           <FlatList
             data={DATA}
