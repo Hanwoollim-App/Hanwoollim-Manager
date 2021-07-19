@@ -173,7 +173,7 @@ function CustomModal({
   ].reverse();
 
   return (
-    <Modal animationType="slide" visible={mdVisible} transparent={true}>
+    <Modal animationType="fade" visible={mdVisible} transparent={true}>
       <View style={styles.modalView}>
         {second ? (
           <View style={styles.content}>
