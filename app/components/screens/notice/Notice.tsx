@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, Image} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Image, FlatList} from 'react-native';
 import {
   NavigationProp,
   ParamListBase,
@@ -81,13 +81,81 @@ const styles = StyleSheet.create({
     marginTop: heightPercentage(-4),
     marginLeft: widthPercentage(6),
   },
+  ListStyle: {
+    width: widthPercentage(335),
+    height: heightPercentage(609),
+    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    marginTop: heightPercentage(15),
+    marginLeft: widthPercentage(20),
+  },
+  item: {
+    width: widthPercentage(307),
+    height: heightPercentage(50),
+    backgroundColor: '#808080',
+    padding: 5,
+    marginVertical: 5,
+    marginHorizontal: 14,
+  },
+  title: {
+    fontSize: 32,
+  },
 });
+
+const DATA = [
+  {
+    id: '1',
+    title: 'First Item',
+  },
+  {
+    id: '2',
+    title: 'Second Item',
+  },
+  {
+    id: '3',
+    title: 'Third Item',
+  },
+  {
+    id: '4',
+    title: 'Forth Item',
+  },
+  {
+    id: '5',
+    title: 'Fifth Item',
+  },
+  {
+    id: '6',
+    title: 'Sixth Item',
+  },
+  {
+    id: '7',
+    title: 'Seventh Item',
+  },
+  {
+    id: '8',
+    title: 'Eighth Item',
+  },
+  {
+    id: '9',
+    title: 'Ninth Item',
+  },
+  {
+    id: '10',
+    title: 'Tenth Item',
+  },
+];
+const Item = ({title}) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
 function Notice() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
+  const renderItem = ({item}) => <Item title={item.title} />;
 
   return (
     <>
@@ -117,6 +185,13 @@ function Notice() {
           <Text style={styles.roleTextStyle}>집행기</Text>
           <View style={styles.BlackSquare} />
           <Text style={styles.roleTextStyle}>일반 부원</Text>
+        </View>
+        <View style={styles.ListStyle}>
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+          />
         </View>
       </View>
     </>
