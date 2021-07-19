@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   whiteLastBtn: {
     width: widthPercentage(250),
     height: heightPercentage(44),
-    marginTop: heightPercentage(0.5),
+    marginTop: heightPercentage(0.3),
     borderBottomLeftRadius: widthPercentage(15),
     borderBottomRightRadius: widthPercentage(15),
     justifyContent: 'center',
