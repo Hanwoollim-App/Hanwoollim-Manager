@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Modal, StyleSheet} from 'react-native';
+import {Text, View, Modal, StyleSheet, Platform} from 'react-native';
 import color from '../../utils/constant/common/design/Color';
 import CustomBtn from './CustomBtn';
 import {
@@ -24,7 +24,20 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: widthPercentage(15),
     borderTopRightRadius: widthPercentage(15),
     backgroundColor: 'white',
-    elevation: 5,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        shadowOffset: {
+          height: 2,
+          width: 0,
+        },
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
   oneBtnContent: {
     width: widthPercentage(250),
