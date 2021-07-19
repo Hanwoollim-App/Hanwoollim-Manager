@@ -9,7 +9,7 @@ interface CustomBtnProps {
   icon: React.ReactNode;
   iconStyle: Object;
 }
-function Banner({
+function NavigationBlock({
   title,
   onClickListener,
   titleStyle,
@@ -25,4 +25,4 @@ function Banner({
   );
 }
 
-export default React.memo(Banner);
+export default React.memo(NavigationBlock);
