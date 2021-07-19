@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     elevation: 5,
   },
-  titleStyle: {
+  title: {
     marginTop: heightPercentage(25),
     fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(15),
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#000000',
   },
-  subtitleStyle: {
+  subtitle: {
     marginTop: heightPercentage(15),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(10),
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'gray',
   },
-  BtnListStyle: {
+  btnList: {
     width: widthPercentage(250),
     height: heightPercentage(44),
     marginTop: heightPercentage(0.5),
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     elevation: 5,
   },
-  BtnListTitleStyle: {
+  btnListTitle: {
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(15),
     textAlign: 'center',
@@ -122,13 +122,13 @@ function CustomModal({
       <View style={styles.modalView}>
         {second === undefined ? (
           <View style={styles.oneBtnContent}>
-            <Text style={styles.titleStyle}>{title}</Text>
-            <Text style={styles.subtitleStyle}>{subtitle}</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subtitle}>{subtitle}</Text>
           </View>
         ) : (
           <View style={styles.content}>
-            <Text style={styles.titleStyle}>{title}</Text>
-            <Text style={styles.subtitleStyle}>{subtitle}</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.subtitle}>{subtitle}</Text>
           </View>
         )}
         {buttonList.map((result, i) => {
@@ -137,8 +137,8 @@ function CustomModal({
               key={i}
               title={result.buttonText}
               onClickListener={result.buttonClickListener}
-              titleStyle={styles.BtnListTitleStyle}
-              btnStyle={styles.BtnListStyle}
+              titleStyle={styles.btnListTitle}
+              btnStyle={styles.btnList}
             />
           );
         })}
@@ -146,7 +146,7 @@ function CustomModal({
           <CustomBtn
             title={second.buttonText}
             onClickListener={second.buttonClickListener}
-            titleStyle={styles.BtnListTitleStyle}
+            titleStyle={styles.btnListTitle}
             btnStyle={styles.whiteLastBtn}
           />
         ) : (
