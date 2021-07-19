@@ -1,5 +1,12 @@
-import React from 'react';
-import {View, Text, BackHandler, StyleSheet, Image} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  BackHandler,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {useAndroidBackHandler} from 'react-navigation-backhandler';
 import {
   NavigationProp,
@@ -17,6 +24,8 @@ import color from '../../../utils/constant/common/design/Color';
 import BtnWithIcon from '../../common/BtnWithIcon';
 import {MAIN_MENU, TITLE} from '../../../utils/constant/main/mainUtils';
 import CustomStatusBar from '../../common/CustomStatusBar';
+import CustomModal from '../../common/CustomModal';
+import {customBtnType} from '../../../utils/constant/custom/customModalUtils';
 
 const styles = StyleSheet.create({
   root: {
@@ -89,10 +98,36 @@ function Home() {
     {menuTitle: MAIN_MENU.Reservation, menuNavigating: 'Reservation'},
   ];
 
+  const [modalVisible, setModalVisible] = useState(false);
+
+  function changeVisible() {
+    setModalVisible(!modalVisible);
+  }
+  const modalBtn: Array<customBtnType> = [
+    {
+      buttonText: '1번',
+      buttonClickListener: changeVisible,
+    },
+    {
+      buttonText: '2번',
+      buttonClickListener: changeVisible,
+    },
+    {
+      buttonText: '3번',
+      buttonClickListener: changeVisible,
+    },
+  ];
+
   return (
     <>
       <CustomStatusBar />
       <View style={styles.root}>
+        <CustomModal
+          mdVisible={modalVisible}
+          title={'타이틀 테스트'}
+          subtitle={'서브타이틀 테스트'}
+          buttonList={modalBtn}
+        />
         <View style={styles.header}>
           <View>
             <Image style={styles.headerImg} source={headerLogo} />
@@ -114,6 +149,14 @@ function Home() {
             />
           );
         })}
+        <BtnWithIcon
+          title={'모달 테스트'}
+          titleStyle={styles.btnTextStyle}
+          btnStyle={styles.btnStyle}
+          onClickListener={changeVisible}
+          icon={icon}
+          iconStyle={styles.iconStyle}
+        />
       </View>
     </>
   );
