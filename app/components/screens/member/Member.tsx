@@ -31,7 +31,7 @@ function Member() {
           headerTitle={HEADER_TITLE.Member}
           headerLeft={true}
           leftIcon={icon}
-          leftIconClickListner={navigation.goBack}
+          leftIconClickListener={navigation.goBack}
         />
         <Text>{'회원목록 화면입니다.'}</Text>
       </View>

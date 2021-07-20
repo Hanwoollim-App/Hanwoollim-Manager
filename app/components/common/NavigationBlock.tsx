@@ -9,7 +9,7 @@ interface CustomBtnProps {
   icon: React.ReactNode;
   iconStyle: Object;
 }
-function BtnWithIcon({
+function NavigationBlock({
   title,
   onClickListener,
   titleStyle,
@@ -25,4 +25,4 @@ function BtnWithIcon({
   );
 }
 
-export default React.memo(BtnWithIcon);
+export default React.memo(NavigationBlock);
