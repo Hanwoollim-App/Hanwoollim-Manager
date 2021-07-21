@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, TextInput, Image, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import {
   NavigationProp,
   ParamListBase,
@@ -33,53 +33,6 @@ const styles = StyleSheet.create({
     fontSize: fontPercentage(20),
     fontFamily: 'NotoSansKR-Bold',
     paddingLeft: 13,
-  },
-  ImageStyle: {
-    width: widthPercentage(25),
-    height: heightPercentage(25),
-    marginTop: heightPercentage(37),
-    marginLeft: widthPercentage(-40),
-  },
-  SectionStyle: {
-    flexDirection: 'row',
-  },
-  SectionStyle2: {
-    flexDirection: 'row',
-    marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(23),
-  },
-  RedSquare: {
-    width: 10,
-    height: 10,
-    backgroundColor: '#ff0000',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: '#707070',
-  },
-  BlueSquare: {
-    width: 10,
-    height: 10,
-    backgroundColor: '#1400ff',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: '#707070',
-    marginLeft: widthPercentage(15),
-  },
-  BlackSquare: {
-    width: 10,
-    height: 10,
-    backgroundColor: '#000000',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: '#707070',
-    marginLeft: widthPercentage(15),
-  },
-  roleTextStyle: {
-    fontFamily: 'NotoSansKR-Regular',
-    fontSize: 12,
-    color: '#00203f',
-    marginTop: heightPercentage(-4),
-    marginLeft: widthPercentage(6),
   },
   ListStyle: {
     width: widthPercentage(335),

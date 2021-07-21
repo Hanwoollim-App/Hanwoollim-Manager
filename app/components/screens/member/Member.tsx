@@ -34,21 +34,21 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansKR-Bold',
     paddingLeft: 13,
   },
-  ImageStyle: {
+  imageStyle: {
     width: widthPercentage(25),
     height: heightPercentage(25),
     marginTop: heightPercentage(37),
     marginLeft: widthPercentage(-40),
   },
-  SectionStyle: {
+  searchSection: {
     flexDirection: 'row',
   },
-  SectionStyle2: {
+  roleSection: {
     flexDirection: 'row',
     marginTop: heightPercentage(15),
     marginLeft: widthPercentage(23),
   },
-  RedSquare: {
+  redSquare: {
     width: 10,
     height: 10,
     backgroundColor: '#ff0000',
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#707070',
   },
-  BlueSquare: {
+  blueSquare: {
     width: 10,
     height: 10,
     backgroundColor: '#1400ff',
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     borderColor: '#707070',
     marginLeft: widthPercentage(15),
   },
-  BlackSquare: {
+  blackSquare: {
     width: 10,
     height: 10,
     backgroundColor: '#000000',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: heightPercentage(-4),
     marginLeft: widthPercentage(6),
   },
-  ListStyle: {
+  listStyle: {
     width: widthPercentage(335),
     height: heightPercentage(609),
     borderRadius: 10,
@@ -168,23 +168,23 @@ function Member() {
           leftIcon={icon}
           leftIconClickListner={navigation.goBack}
         />
-        <View style={styles.SectionStyle}>
+        <View style={styles.searchSection}>
           <TextInput
             style={styles.searchTextInput}
             placeholder="검색"
             placeholderTextColor="#a2a2a2"
           />
-          <Image source={searchIcon} style={styles.ImageStyle} />
+          <Image source={searchIcon} style={styles.imageStyle} />
         </View>
-        <View style={styles.SectionStyle2}>
-          <View style={styles.RedSquare} />
+        <View style={styles.roleSection}>
+          <View style={styles.redSquare} />
           <Text style={styles.roleTextStyle}>관리자</Text>
-          <View style={styles.BlueSquare} />
+          <View style={styles.blueSquare} />
           <Text style={styles.roleTextStyle}>집행기</Text>
-          <View style={styles.BlackSquare} />
+          <View style={styles.blackSquare} />
           <Text style={styles.roleTextStyle}>일반 부원</Text>
         </View>
-        <View style={styles.ListStyle}>
+        <View style={styles.listStyle}>
           <FlatList
             data={DATA}
             renderItem={renderItem}
