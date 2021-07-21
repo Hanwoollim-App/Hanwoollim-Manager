@@ -20,28 +20,30 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  searchTextInput: {
-    width: widthPercentage(335),
-    height: heightPercentage(58),
+  searchSection: {
     marginTop: heightPercentage(20),
     marginLeft: widthPercentage(20),
+    width: widthPercentage(335),
+    height: heightPercentage(58),
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: widthPercentage(10),
     backgroundColor: 'white',
+  },
+  searchTextInput: {
+    width: '85%',
+    height: '80%',
     fontSize: fontPercentage(20),
+    lineHeight: fontPercentage(25),
     fontFamily: 'NotoSansKR-Bold',
     paddingLeft: widthPercentage(13),
   },
   imageStyle: {
     width: widthPercentage(25),
     height: heightPercentage(25),
-    marginTop: heightPercentage(37),
-    marginLeft: widthPercentage(-40),
-  },
-  searchSection: {
-    flexDirection: 'row',
+    resizeMode: 'contain',
+    marginRight: widthPercentage(18),
   },
   roleSection: {
     flexDirection: 'row',
