@@ -144,7 +144,7 @@ const DATA = [
     title: 'Tenth Item',
   },
 ];
-const Item = ({title}) => (
+const Item = ({title}: {title: string}) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
   </View>
@@ -156,7 +156,9 @@ function Member() {
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
-  const renderItem = ({item}) => <Item title={item.title} />;
+  const renderItem: ({item}: {item: Array}) => any = ({item}) => (
+    <Item title={item.title} />
+  );
 
   return (
     <>
