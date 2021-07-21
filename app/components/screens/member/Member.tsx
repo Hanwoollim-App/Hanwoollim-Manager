@@ -149,6 +149,7 @@ const Item = ({title}) => (
     <Text style={styles.title}>{title}</Text>
   </View>
 );
+const searchIcon = require('../../../assets/images/searchIcon.png');
 
 function Member() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
@@ -173,10 +174,7 @@ function Member() {
             placeholder="검색"
             placeholderTextColor="#a2a2a2"
           />
-          <Image
-            source={require('../../../assets/images/searchIcon.png')}
-            style={styles.ImageStyle}
-          />
+          <Image source={searchIcon} style={styles.ImageStyle} />
         </View>
         <View style={styles.SectionStyle2}>
           <View style={styles.RedSquare} />
