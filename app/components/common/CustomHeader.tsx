@@ -43,8 +43,8 @@ interface HeaderInterface {
   headerRight?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  leftIconClickListner?: Function;
-  rightIconClickLister?: Function;
+  leftIconClickListener?: Function;
+  rightIconClickListener?: Function;
 }
 function CustomHeader({
   headerTitle,
@@ -52,14 +52,14 @@ function CustomHeader({
   headerRight = false,
   leftIcon,
   rightIcon,
-  leftIconClickListner = () => {},
-  rightIconClickLister = () => {},
+  leftIconClickListener = () => {},
+  rightIconClickListener = () => {},
 }: HeaderInterface) {
   return (
     <View style={styles.header}>
       {headerLeft ? (
         <TouchableOpacity
-          onPress={() => leftIconClickListner()}
+          onPress={() => leftIconClickListener()}
           style={styles.headerLeft}>
           {leftIcon}
         </TouchableOpacity>
@@ -71,7 +71,7 @@ function CustomHeader({
       </View>
       {headerRight ? (
         <TouchableOpacity
-          onPress={() => leftIconClickListner()}
+          onPress={() => leftIconClickListener()}
           style={styles.headerRight}>
           {rightIcon}
         </TouchableOpacity>

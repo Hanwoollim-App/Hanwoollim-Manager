@@ -106,7 +106,7 @@ function Notice() {
           headerTitle={HEADER_TITLE.Notice}
           headerLeft={true}
           leftIcon={icon}
-          leftIconClickListner={navigation.goBack}
+          leftIconClickListener={navigation.goBack}
         />
 
         <View style={styles.ListStyle}>

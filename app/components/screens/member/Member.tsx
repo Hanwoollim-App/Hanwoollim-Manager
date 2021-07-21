@@ -168,7 +168,7 @@ function Member() {
           headerTitle={HEADER_TITLE.Member}
           headerLeft={true}
           leftIcon={icon}
-          leftIconClickListner={navigation.goBack}
+          leftIconClickListener={navigation.goBack}
         />
         <View style={styles.searchSection}>
           <TextInput
