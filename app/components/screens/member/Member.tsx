@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansKR-Bold',
     paddingLeft: widthPercentage(13),
   },
-  imageStyle: {
+  searchIcon: {
     width: widthPercentage(25),
     height: heightPercentage(25),
     resizeMode: 'contain',
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
   },
   roleSection: {
     flexDirection: 'row',
+    alignItems: 'center',
     marginTop: heightPercentage(15),
     marginLeft: widthPercentage(23),
   },
@@ -76,14 +77,13 @@ const styles = StyleSheet.create({
     borderColor: '#707070',
     marginLeft: widthPercentage(15),
   },
-  roleTextStyle: {
+  roleText: {
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
-    color: '#00203f',
-    marginTop: heightPercentage(-4),
     marginLeft: widthPercentage(6),
+    color: '#00203f',
   },
-  listStyle: {
+  list: {
     width: widthPercentage(335),
     height: heightPercentage(609),
     borderRadius: 10,
@@ -178,17 +178,17 @@ function Member() {
             placeholder="검색"
             placeholderTextColor="#a2a2a2"
           />
-          <Image source={searchIcon} style={styles.imageStyle} />
+          <Image source={searchIcon} style={styles.searchIcon} />
         </View>
         <View style={styles.roleSection}>
           <View style={styles.redSquare} />
-          <Text style={styles.roleTextStyle}>관리자</Text>
+          <Text style={styles.roleText}>관리자</Text>
           <View style={styles.blueSquare} />
-          <Text style={styles.roleTextStyle}>집행기</Text>
+          <Text style={styles.roleText}>집행기</Text>
           <View style={styles.blackSquare} />
-          <Text style={styles.roleTextStyle}>일반 부원</Text>
+          <Text style={styles.roleText}>일반 부원</Text>
         </View>
-        <View style={styles.listStyle}>
+        <View style={styles.list}>
           <FlatList
             data={DATA}
             renderItem={renderItem}
