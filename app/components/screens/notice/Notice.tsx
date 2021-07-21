@@ -20,20 +20,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  searchTextInput: {
-    width: widthPercentage(335),
-    height: heightPercentage(58),
-    marginTop: heightPercentage(20),
-    marginLeft: widthPercentage(20),
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    borderRadius: widthPercentage(10),
-    backgroundColor: 'white',
-    fontSize: fontPercentage(20),
-    fontFamily: 'NotoSansKR-Bold',
-    paddingLeft: 13,
-  },
   ListStyle: {
     width: widthPercentage(335),
     height: heightPercentage(670),
@@ -51,7 +37,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 14,
   },
   title: {
-    fontSize: 32,
+    fontSize: fontPercentage(32),
   },
 });
 
