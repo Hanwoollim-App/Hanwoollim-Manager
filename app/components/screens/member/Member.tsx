@@ -94,61 +94,110 @@ const styles = StyleSheet.create({
   item: {
     width: widthPercentage(307),
     height: heightPercentage(50),
-    backgroundColor: '#808080',
-    padding: 5,
-    marginVertical: 5,
+    marginTop: 5,
     marginHorizontal: 14,
   },
-  title: {
-    fontSize: fontPercentage(32),
+  name: {
+    width: widthPercentage(44),
+    height: heightPercentage(24),
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(16),
+    textAlign: 'left',
+    color: '#000000',
+  },
+  itemSeparator: {
+    marginLeft: widthPercentage(14),
+    height: heightPercentage(1),
+    width: widthPercentage(307),
+    backgroundColor: '#c2c2c2',
+  },
+  major: {
+    width: widthPercentage(55),
+    height: heightPercentage(17),
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(12),
+    color: '#808080',
+  },
+  studentCode: {
+    width: widthPercentage(67),
+    height: heightPercentage(17),
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(12),
+    marginLeft: widthPercentage(185),
+    color: '#808080',
+  },
+  itemSection: {
+    flexDirection: 'row',
   },
 });
 
 const DATA = [
   {
-    id: '1',
-    title: 'First Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '2',
-    title: 'Second Item',
+    name: '정재헌',
+    major: '기계공학과',
+    studentCode: '2019024357',
   },
   {
-    id: '3',
-    title: 'Third Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '4',
-    title: 'Forth Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '5',
-    title: 'Fifth Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '6',
-    title: 'Sixth Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '7',
-    title: 'Seventh Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '8',
-    title: 'Eighth Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '9',
-    title: 'Ninth Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
   {
-    id: '10',
-    title: 'Tenth Item',
+    name: '조성진',
+    major: '산업공학과',
+    studentCode: '2021086326',
   },
 ];
-const Item = ({title}: {title: string}) => (
+const Student = ({
+  name,
+  major,
+  studentCode,
+}: {
+  name: string;
+  major: string;
+  studentCode: number;
+}) => (
   <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
+    <Text style={styles.name}>{name}</Text>
+    <View style={styles.itemSection}>
+      <Text style={styles.major}>{major}</Text>
+      <Text style={styles.studentCode}>{studentCode}</Text>
+    </View>
   </View>
 );
 const searchIcon = require('../../../assets/images/searchIcon.png');
@@ -159,8 +208,15 @@ function Member() {
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
   const renderItem: ({item}: {item: Array}) => any = ({item}) => (
-    <Item title={item.title} />
+    <Student
+      name={item.name}
+      major={item.major}
+      studentCode={item.studentCode}
+    />
   );
+  const renderSeparator = () => {
+    return <View style={styles.itemSeparator} />;
+  };
 
   return (
     <>
@@ -192,7 +248,8 @@ function Member() {
           <FlatList
             data={DATA}
             renderItem={renderItem}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.studentCode}
+            ItemSeparatorComponent={renderSeparator}
           />
         </View>
       </View>
