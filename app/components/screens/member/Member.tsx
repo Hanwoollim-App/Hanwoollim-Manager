@@ -154,9 +154,6 @@ const DATA = [
 ];
 const searchIcon = require('../../../assets/images/searchIcon.png');
 
-const renderItem: ({item}: {item: Array}) => any = ({item}) => (
-  <Student name={item.name} major={item.major} studentCode={item.studentCode} />
-);
 const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
 };
@@ -196,7 +193,13 @@ function Member() {
         <View style={styles.list}>
           <FlatList
             data={DATA}
-            renderItem={renderItem}
+            renderItem={({item}) => (
+              <Student
+                name={item.name}
+                major={item.major}
+                studentCode={item.studentCode}
+              />
+            )}
             keyExtractor={(item) => item.studentCode}
             ItemSeparatorComponent={renderSeparator}
           />

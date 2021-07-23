@@ -5,6 +5,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../utils/constant/common/design/Responsive';
+import {StudentType} from '../common/StudentType';
 
 const styles = StyleSheet.create({
   item: {
@@ -41,14 +42,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const Student = ({
+const Student: React.FC<StudentType> = ({
   name,
   major,
   studentCode,
 }: {
   name: string;
   major: string;
-  studentCode: number;
+  studentCode: string;
 }) => (
   <View style={styles.item}>
     <Text style={styles.name}>{name}</Text>

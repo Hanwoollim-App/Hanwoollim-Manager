@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList} from 'react-native';
 import {
   NavigationProp,
   ParamListBase,
@@ -16,6 +16,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
+import NoticeItem from '../../common/NoticeItem';
 
 const styles = StyleSheet.create({
   root: {
@@ -29,31 +30,11 @@ const styles = StyleSheet.create({
     marginTop: heightPercentage(15),
     marginLeft: widthPercentage(20),
   },
-  item: {
-    width: widthPercentage(307),
-    height: heightPercentage(50),
-    marginTop: 5,
-    marginHorizontal: 14,
-  },
   itemSeparator: {
     marginLeft: widthPercentage(14),
     height: heightPercentage(1),
     width: widthPercentage(307),
     backgroundColor: '#c2c2c2',
-  },
-  title: {
-    height: heightPercentage(24),
-    fontFamily: 'NotoSansKR-Regular',
-    fontSize: fontPercentage(16),
-    textAlign: 'left',
-    color: '#000000',
-  },
-  date: {
-    height: heightPercentage(17),
-    fontFamily: 'NotoSansKR-Regular',
-    fontSize: fontPercentage(12),
-    textAlign: 'left',
-    color: '#808080',
   },
   btnStyle: {
     width: widthPercentage(290),
@@ -150,15 +131,7 @@ const DATA = [
     date: '2021.01.01',
   },
 ];
-const Item = ({title, date}: {title: string; date: number}) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-    <Text style={styles.date}>{date}</Text>
-  </View>
-);
-const renderItem: ({item}: {item: Array}) => any = ({item}) => (
-  <Item title={item.title} date={item.date} />
-);
+
 const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
 };
@@ -183,7 +156,9 @@ function Notice() {
         <View style={styles.list}>
           <FlatList
             data={DATA}
-            renderItem={renderItem}
+            renderItem={({item}) => (
+              <NoticeItem title={item.title} date={item.date} />
+            )}
             keyExtractor={(item) => item.id}
             ItemSeparatorComponent={renderSeparator}
           />
