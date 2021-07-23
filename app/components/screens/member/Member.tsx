@@ -16,7 +16,7 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import Student from '../../common/Student';
-import {StudentInterface} from '../../common/StudentInterface';
+import {StudentInterface} from '../../../utils/constant/common/customType';
 
 const styles = StyleSheet.create({
   root: {
