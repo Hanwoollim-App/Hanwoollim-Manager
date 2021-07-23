@@ -6,8 +6,8 @@ interface CustomBtnProps {
   onClickListener: Function;
   titleStyle: Object;
   btnStyle: Object;
-  icon: React.ReactNode;
-  iconStyle: Object;
+  icon?: React.ReactNode;
+  iconStyle?: Object;
 }
 function BtnWithIcon({
   title,
