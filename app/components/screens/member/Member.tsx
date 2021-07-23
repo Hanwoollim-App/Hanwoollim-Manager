@@ -202,21 +202,18 @@ const Student = ({
 );
 const searchIcon = require('../../../assets/images/searchIcon.png');
 
+const renderItem: ({item}: {item: Array}) => any = ({item}) => (
+  <Student name={item.name} major={item.major} studentCode={item.studentCode} />
+);
+const renderSeparator = () => {
+  return <View style={styles.itemSeparator} />;
+};
+
 function Member() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
-  const renderItem: ({item}: {item: Array}) => any = ({item}) => (
-    <Student
-      name={item.name}
-      major={item.major}
-      studentCode={item.studentCode}
-    />
-  );
-  const renderSeparator = () => {
-    return <View style={styles.itemSeparator} />;
-  };
 
   return (
     <>

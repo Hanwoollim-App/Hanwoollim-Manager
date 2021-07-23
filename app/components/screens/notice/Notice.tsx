@@ -156,18 +156,18 @@ const Item = ({title, date}: {title: string; date: number}) => (
     <Text style={styles.date}>{date}</Text>
   </View>
 );
+const renderItem: ({item}: {item: Array}) => any = ({item}) => (
+  <Item title={item.title} date={item.date} />
+);
+const renderSeparator = () => {
+  return <View style={styles.itemSeparator} />;
+};
 
 function Notice() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
-  const renderItem: ({item}: {item: Array}) => any = ({item}) => (
-    <Item title={item.title} date={item.date} />
-  );
-  const renderSeparator = () => {
-    return <View style={styles.itemSeparator} />;
-  };
 
   return (
     <>
