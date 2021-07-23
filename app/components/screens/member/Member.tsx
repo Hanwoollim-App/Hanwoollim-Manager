@@ -16,6 +16,7 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import Student from '../../common/Student';
+import {StudentInterface} from '../../common/StudentInterface';
 
 const styles = StyleSheet.create({
   root: {
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const DATA = [
+const tempData: Array<StudentInterface> = [
   {
     name: '조성진',
     major: '산업공학과',
@@ -158,11 +159,10 @@ const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
 };
 
+const icon = <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />;
+
 function Member() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const icon = (
-    <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
-  );
 
   return (
     <>
@@ -192,12 +192,12 @@ function Member() {
         </View>
         <View style={styles.list}>
           <FlatList
-            data={DATA}
-            renderItem={({item}) => (
+            data={tempData}
+            renderItem={({item: student}: {item: StudentInterface}) => (
               <Student
-                name={item.name}
-                major={item.major}
-                studentCode={item.studentCode}
+                name={student.name}
+                major={student.major}
+                studentCode={student.studentCode}
               />
             )}
             keyExtractor={(item) => item.studentCode}

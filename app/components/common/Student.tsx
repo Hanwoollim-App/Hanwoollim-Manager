@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {
   fontPercentage,
@@ -54,4 +54,4 @@ function Student({name, major, studentCode}: StudentInterface) {
   );
 }
 
-export default React.memo(Student);
+export default memo(Student);
