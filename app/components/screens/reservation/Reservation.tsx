@@ -11,7 +11,7 @@ import CustomHeader from '../../common/CustomHeader';
 import HEADER_TITLE from '../../../utils/constant/naviagation/NavigationheaderUtils';
 import CustomStatusBar from '../../common/CustomStatusBar';
 
-const sytles = StyleSheet.create({
+const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
@@ -26,12 +26,12 @@ function Reservation() {
   return (
     <>
       <CustomStatusBar />
-      <View style={sytles.root}>
+      <View style={styles.root}>
         <CustomHeader
           headerTitle={HEADER_TITLE.Reservation}
-          headerLeft={true}
+          headerLeft
           leftIcon={icon}
-          leftIconClickListner={navigation.goBack}
+          leftIconClickListener={navigation.goBack}
         />
         <Text>{'예약 화면입니다.'}</Text>
       </View>

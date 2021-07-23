@@ -148,7 +148,7 @@ function Notice() {
       <View style={styles.root}>
         <CustomHeader
           headerTitle={HEADER_TITLE.Notice}
-          headerLeft={true}
+          headerLeft
           leftIcon={icon}
           leftIconClickListener={navigation.goBack}
         />

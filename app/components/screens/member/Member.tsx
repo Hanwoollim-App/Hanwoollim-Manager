@@ -170,7 +170,7 @@ function Member() {
       <View style={styles.root}>
         <CustomHeader
           headerTitle={HEADER_TITLE.Member}
-          headerLeft={true}
+          headerLeft
           leftIcon={icon}
           leftIconClickListener={navigation.goBack}
         />
