@@ -5,7 +5,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../utils/constant/common/design/Responsive';
-import {StudentType} from '../common/StudentType';
+import {StudentInterface} from './StudentInterface';
 
 const styles = StyleSheet.create({
   item: {
@@ -42,22 +42,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const Student: React.FC<StudentType> = ({
-  name,
-  major,
-  studentCode,
-}: {
-  name: string;
-  major: string;
-  studentCode: string;
-}) => (
-  <View style={styles.item}>
-    <Text style={styles.name}>{name}</Text>
-    <View style={styles.itemSection}>
-      <Text style={styles.major}>{major}</Text>
-      <Text style={styles.studentCode}>{studentCode}</Text>
+function Student({name, major, studentCode}: StudentInterface) {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.name}>{name}</Text>
+      <View style={styles.itemSection}>
+        <Text style={styles.major}>{major}</Text>
+        <Text style={styles.studentCode}>{studentCode}</Text>
+      </View>
     </View>
-  </View>
-);
+  );
+}
 
 export default React.memo(Student);

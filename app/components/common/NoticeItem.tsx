@@ -5,7 +5,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../utils/constant/common/design/Responsive';
-import {NoticeItemType} from './NoticeItemType';
+import {NoticeItemInterface} from './NoticeItemInterface';
 
 const styles = StyleSheet.create({
   root: {
@@ -40,17 +40,14 @@ const styles = StyleSheet.create({
     color: '#808080',
   },
 });
-const NoticeItem: React.FC<NoticeItemType> = ({
-  title,
-  date,
-}: {
-  title: string;
-  date: string;
-}) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-    <Text style={styles.date}>{date}</Text>
-  </View>
-);
+
+function NoticeItem({title, date}: NoticeItemInterface) {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.date}>{date}</Text>
+    </View>
+  );
+}
 
 export default React.memo(NoticeItem);

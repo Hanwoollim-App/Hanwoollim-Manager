@@ -1,4 +1,4 @@
-export interface StudentType {
+export interface StudentInterface {
   name: string;
   major: string;
   studentCode: string;
