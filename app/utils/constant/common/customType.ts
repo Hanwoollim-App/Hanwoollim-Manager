@@ -3,3 +3,7 @@ export interface StudentInterface {
   major: string;
   studentCode: string;
 }
+export interface NoticeItemInterface {
+  title: string;
+  date: string;
+}

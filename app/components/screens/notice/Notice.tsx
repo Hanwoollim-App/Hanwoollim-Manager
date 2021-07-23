@@ -17,6 +17,7 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import NoticeItem from '../../common/NoticeItem';
+import {NoticeItemInterface} from '../../../utils/constant/common/customType';
 
 const styles = StyleSheet.create({
   root: {
@@ -156,8 +157,8 @@ function Notice() {
         <View style={styles.list}>
           <FlatList
             data={DATA}
-            renderItem={({item}) => (
-              <NoticeItem title={item.title} date={item.date} />
+            renderItem={({item: notice}: {item: NoticeItemInterface}) => (
+              <NoticeItem title={notice.title} date={notice.date} />
             )}
             keyExtractor={(item) => item.id}
             ItemSeparatorComponent={renderSeparator}
