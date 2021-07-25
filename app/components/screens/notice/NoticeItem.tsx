@@ -4,8 +4,8 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../utils/constant/common/design/Responsive';
-import {NoticeItemInterface} from '../../utils/constant/common/customType';
+} from '../../../utils/constant/common/design/Responsive';
+import {NoticeItemInterface} from '../../../utils/constant/common/customType';
 
 const styles = StyleSheet.create({
   root: {

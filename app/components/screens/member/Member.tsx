@@ -15,8 +15,8 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
-import Student from '../../common/Student';
 import {StudentInterface} from '../../../utils/constant/common/customType';
+import StudentItem from './StudentItem';
 
 const styles = StyleSheet.create({
   root: {
@@ -194,7 +194,7 @@ function Member() {
           <FlatList
             data={tempData}
             renderItem={({item: student}: {item: StudentInterface}) => (
-              <Student
+              <StudentItem
                 name={student.name}
                 major={student.major}
                 studentCode={student.studentCode}
