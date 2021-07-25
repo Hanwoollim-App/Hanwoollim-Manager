@@ -8,15 +8,15 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import CustomHeader from '../../common/CustomHeader';
-import HEADER_TITLE from '../../../utils/constant/naviagation/NavigationheaderUtils';
+import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
-import Student from '../../common/Student';
-import {StudentInterface} from '../../../utils/constant/common/customType';
+import StudentInterface from '../../../utils/types/studentItem';
+import StudentItem from './StudentItem';
 
 const styles = StyleSheet.create({
   root: {
@@ -194,7 +194,7 @@ function Member() {
           <FlatList
             data={tempData}
             renderItem={({item: student}: {item: StudentInterface}) => (
-              <Student
+              <StudentItem
                 name={student.name}
                 major={student.major}
                 studentCode={student.studentCode}

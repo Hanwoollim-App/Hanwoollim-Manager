@@ -7,10 +7,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../utils/constant/common/design/Responsive';
-import {
-  customBtnType,
-  ModalsProps,
-} from '../../utils/constant/custom/customModalUtils';
+import {customBtnType, ModalsProps} from '../../utils/types/customModal';
 
 const styles = StyleSheet.create({
   modalView: {

@@ -15,10 +15,10 @@ import {
 } from '../../../utils/constant/common/design/Responsive';
 import color from '../../../utils/constant/common/design/Color';
 import NavigationBlock from '../../common/NavigationBlock';
-import {MAIN_MENU, TITLE} from '../../../utils/constant/main/mainUtils';
+import {MAIN_MENU, TITLE} from '../../../utils/constant/main';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
-import {customBtnType} from '../../../utils/constant/custom/customModalUtils';
+import {customBtnType} from '../../../utils/types/customModal';
 
 const styles = StyleSheet.create({
   root: {

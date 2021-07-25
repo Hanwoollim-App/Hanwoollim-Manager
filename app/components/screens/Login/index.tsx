@@ -23,7 +23,7 @@ import color from '../../../utils/constant/common/design/Color';
 import {
   LOGIN_BUTTON_TEXT,
   LOGIN_SUB_TEXT,
-} from '../../../utils/constant/login/LoginScreenUtils';
+} from '../../../utils/constant/login/loginScreen';
 import {
   fontPercentage,
   heightPercentage,

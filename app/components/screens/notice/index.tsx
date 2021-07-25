@@ -8,16 +8,16 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import CustomHeader from '../../common/CustomHeader';
-import HEADER_TITLE from '../../../utils/constant/naviagation/NavigationheaderUtils';
+import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
-import BtnWithIcon from '../../common/BtnWithIcon';
+import CustomBtn from '../../common/CustomBtn';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
-import NoticeItem from '../../common/NoticeItem';
-import {NoticeItemInterface} from '../../../utils/constant/common/customType';
+import NoticeItem from './NoticeItem';
+import NoticeItemInterface from '../../../utils/types/noticeItem';
 
 const styles = StyleSheet.create({
   root: {
@@ -164,7 +164,7 @@ function Notice() {
             ItemSeparatorComponent={renderSeparator}
           />
         </View>
-        <BtnWithIcon
+        <CustomBtn
           title={'공지사항 등록하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}

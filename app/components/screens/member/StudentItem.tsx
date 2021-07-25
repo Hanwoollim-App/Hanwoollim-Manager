@@ -4,8 +4,8 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../utils/constant/common/design/Responsive';
-import {StudentInterface} from '../../utils/constant/common/customType';
+} from '../../../utils/constant/common/design/Responsive';
+import StudentInterface from '../../../utils/types/studentItem';
 
 const styles = StyleSheet.create({
   item: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Student({name, major, studentCode}: StudentInterface) {
+function StudentItem({name, major, studentCode}: StudentInterface) {
   return (
     <View style={styles.item}>
       <Text style={styles.name}>{name}</Text>
@@ -54,4 +54,4 @@ function Student({name, major, studentCode}: StudentInterface) {
   );
 }
 
-export default memo(Student);
+export default memo(StudentItem);

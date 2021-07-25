@@ -8,7 +8,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import CustomHeader from '../../common/CustomHeader';
-import HEADER_TITLE from '../../../utils/constant/naviagation/NavigationheaderUtils';
+import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 
 const styles = StyleSheet.create({
