@@ -8,7 +8,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import CustomHeader from '../../common/CustomHeader';
-import HEADER_TITLE from '../../../utils/constant/naviagation/NavigationheaderUtils';
+import HEADER_TITLE from '../../../utils/constant/naviagation/Navigationheader';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import BtnWithIcon from '../../common/BtnWithIcon';
 import {
@@ -17,7 +17,7 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import NoticeItem from './NoticeItem';
-import {NoticeItemInterface} from '../../../utils/constant/common/customType';
+import {NoticeItemInterface} from '../../../utils/types/customType';
 
 const styles = StyleSheet.create({
   root: {

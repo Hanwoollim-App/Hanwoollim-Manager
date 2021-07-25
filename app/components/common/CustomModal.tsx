@@ -10,7 +10,7 @@ import {
 import {
   customBtnType,
   ModalsProps,
-} from '../../utils/constant/custom/customModalUtils';
+} from '../../utils/constant/custom/customModal';
 
 const styles = StyleSheet.create({
   modalView: {
