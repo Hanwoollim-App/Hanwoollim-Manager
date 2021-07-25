@@ -18,7 +18,7 @@ import NavigationBlock from '../../common/NavigationBlock';
 import {MAIN_MENU, TITLE} from '../../../utils/constant/main/main';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
-import {customBtnType} from '../../../utils/constant/custom/customModal';
+import {customBtnType} from '../../../utils/types/customModal';
 
 const styles = StyleSheet.create({
   root: {

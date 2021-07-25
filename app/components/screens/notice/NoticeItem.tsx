@@ -5,7 +5,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
-import {NoticeItemInterface} from '../../../utils/types/customType';
+import NoticeItemInterface from '../../../utils/types/noticeItem';
 
 const styles = StyleSheet.create({
   root: {

@@ -5,7 +5,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
-import {StudentInterface} from '../../../utils/types/customType';
+import StudentInterface from '../../../utils/types/studentItem';
 
 const styles = StyleSheet.create({
   item: {
