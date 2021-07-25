@@ -29,7 +29,7 @@ function Reservation() {
       <View style={styles.root}>
         <CustomHeader
           headerTitle={HEADER_TITLE.Reservation}
-          headerLeft={true}
+          headerLeft
           leftIcon={icon}
           leftIconClickListener={navigation.goBack}
         />

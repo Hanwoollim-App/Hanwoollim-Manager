@@ -8,6 +8,8 @@ export class ReservationInfo {
   }
 }
 
-const ReservationContext = createContext<ReservationInfo | undefined>(null);
+const ReservationContext = createContext<ReservationInfo | undefined>(
+  undefined,
+);
 
 export default ReservationContext;
