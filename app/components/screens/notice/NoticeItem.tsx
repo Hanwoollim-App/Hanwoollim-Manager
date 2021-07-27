@@ -1,10 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
+
 import NoticeItemInterface from '../../../utils/types/noticeItem';
 
 const styles = StyleSheet.create({
@@ -42,11 +48,19 @@ const styles = StyleSheet.create({
 });
 
 function NoticeItem({title, date}: NoticeItemInterface) {
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+
+  const NoticeClickListener = async () => {
+    navigation.navigate('NoticeNavigator');
+  };
+
   return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.date}>{date}</Text>
-    </View>
+    <TouchableOpacity onPress={NoticeClickListener}>
+      <View style={styles.item}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.date}>{date}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
