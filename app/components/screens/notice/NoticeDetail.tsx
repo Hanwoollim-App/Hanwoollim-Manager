@@ -16,6 +16,7 @@ import {
 import CustomHeader from '../../common/CustomHeader';
 import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
+import CustomBtn from '../../common/CustomBtn';
 
 const styles = StyleSheet.create({
   root: {
@@ -59,6 +60,49 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  postBox: {
+    width: widthPercentage(335),
+    height: heightPercentage(223),
+    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    marginTop: heightPercentage(15),
+    marginLeft: widthPercentage(20),
+  },
+  post: {
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(12),
+    textAlign: 'left',
+    marginTop: heightPercentage(13),
+    marginLeft: widthPercentage(16),
+    color: '#000000',
+  },
+  btnStyle: {
+    width: widthPercentage(290),
+    height: heightPercentage(53),
+    borderRadius: 21,
+    backgroundColor: '#00203f',
+    shadowColor: 'rgba(0, 0, 0, 0.16)',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowRadius: 6,
+    shadowOpacity: 1,
+    marginTop: heightPercentage(316),
+    marginBottom: heightPercentage(46),
+    marginLeft: widthPercentage(43),
+  },
+  btnTextStyle: {
+    width: widthPercentage(152),
+    height: heightPercentage(29),
+    marginTop: heightPercentage(12),
+    marginLeft: widthPercentage(69),
+    fontFamily: 'NotoSansKR-Bold',
+    fontSize: fontPercentage(20),
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#ffffff',
+  },
 });
 
 function NoticeDetail() {
@@ -84,6 +128,15 @@ function NoticeDetail() {
             <Text style={styles.writer}>작성자 관리자</Text>
           </View>
         </View>
+        <View style={styles.postBox}>
+          <Text style={styles.post}>ㅁㄴㅇㄹ</Text>
+        </View>
+        <CustomBtn
+          title={'삭제하기'}
+          titleStyle={styles.btnTextStyle}
+          btnStyle={styles.btnStyle}
+          onClickListener={() => {}}
+        />
       </View>
     </>
   );
