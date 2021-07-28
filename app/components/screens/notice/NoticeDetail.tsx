@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import {
   NavigationProp,
   ParamListBase,
@@ -33,6 +33,7 @@ function NoticeDetail() {
           leftIcon={icon}
           leftIconClickListener={navigation.goBack}
         />
+        <Text>공지사항 게시글 확인 창입니다.</Text>
       </View>
     </>
   );

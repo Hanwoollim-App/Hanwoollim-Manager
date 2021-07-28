@@ -168,7 +168,9 @@ function Notice() {
           title={'공지사항 등록하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
-          onClickListener={() => {}}
+          onClickListener={() => {
+            navigation.navigate('NoticeNavigator', {screen: 'NoticeUpload'});
+          }}
         />
       </View>
     </>
