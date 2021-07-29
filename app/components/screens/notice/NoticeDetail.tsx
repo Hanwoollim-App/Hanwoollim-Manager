@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,8 @@ import CustomHeader from '../../common/CustomHeader';
 import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomBtn from '../../common/CustomBtn';
+import CustomModal from '../../common/CustomModal';
+import {customBtnType} from '../../../utils/types/customModal';
 
 const styles = StyleSheet.create({
   root: {
@@ -110,11 +112,30 @@ function NoticeDetail() {
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
+  const [modalVisible, setModalVisible] = useState(false);
+
+  function changeVisible() {
+    setModalVisible(!modalVisible);
+  }
+  function returnToMain() {
+    navigation.navigate('HomeNavigator');
+  }
+  const modalBtn: Array<customBtnType> = [
+    {
+      buttonText: '확인',
+      buttonClickListener: returnToMain,
+    },
+  ];
 
   return (
     <>
       <CustomStatusBar />
       <View style={styles.root}>
+        <CustomModal
+          mdVisible={modalVisible}
+          title={'삭제되었습니다!'}
+          buttonList={modalBtn}
+        />
         <CustomHeader
           headerTitle={HEADER_TITLE.Notice}
           headerLeft
@@ -135,7 +156,7 @@ function NoticeDetail() {
           title={'삭제하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
-          onClickListener={() => {}}
+          onClickListener={changeVisible}
         />
       </View>
     </>
