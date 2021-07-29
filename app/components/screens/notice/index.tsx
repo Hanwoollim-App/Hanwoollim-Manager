@@ -22,6 +22,7 @@ import NoticeItemInterface from '../../../utils/types/noticeItem';
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    alignItems: 'center',
   },
   list: {
     width: widthPercentage(335),
@@ -29,7 +30,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(20),
   },
   itemSeparator: {
     marginLeft: widthPercentage(14),
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     shadowOpacity: 1,
     marginTop: heightPercentage(18),
-    marginLeft: widthPercentage(43),
   },
   btnTextStyle: {
     width: widthPercentage(152),

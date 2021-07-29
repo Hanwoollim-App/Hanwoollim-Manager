@@ -17,14 +17,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  list: {
-    width: widthPercentage(335),
-    height: heightPercentage(618),
-    borderRadius: 10,
-    backgroundColor: '#ffffff',
-    marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(20),
-  },
   item: {
     width: widthPercentage(307),
     height: heightPercentage(50),
