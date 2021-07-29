@@ -136,7 +136,7 @@ function NoticeDetail() {
             container="avoiding-view"
             editor={_editor}
             options="basic"
-            theme="light"
+            theme={{size: 23}}
           />
           <QuillEditor
             style={styles.editor}
