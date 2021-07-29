@@ -24,6 +24,7 @@ import {customBtnType} from '../../../utils/types/customModal';
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    alignItems: 'center',
   },
   postTitleBox: {
     width: widthPercentage(335),
@@ -31,7 +32,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(20),
-    marginLeft: widthPercentage(20),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(19),
-    marginLeft: widthPercentage(20),
   },
   btnStyle: {
     width: widthPercentage(290),
@@ -65,7 +64,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     marginTop: heightPercentage(290),
     marginBottom: heightPercentage(46),
-    marginLeft: widthPercentage(43),
   },
   btnTextStyle: {
     width: widthPercentage(152),
