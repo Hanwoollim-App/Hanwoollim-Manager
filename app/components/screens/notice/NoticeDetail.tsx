@@ -23,6 +23,7 @@ import {customBtnType} from '../../../utils/types/customModal';
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    alignItems: 'center',
   },
   titleBox: {
     width: widthPercentage(335),
@@ -30,7 +31,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(20),
-    marginLeft: widthPercentage(20),
   },
   title: {
     width: widthPercentage(107),
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(20),
   },
   post: {
     fontFamily: 'NotoSansKR-Regular',
@@ -92,7 +91,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     marginTop: heightPercentage(316),
     marginBottom: heightPercentage(46),
-    marginLeft: widthPercentage(43),
   },
   btnTextStyle: {
     width: widthPercentage(152),
