@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(16),
     marginLeft: widthPercentage(12),
-    color: '#a2a2a2',
   },
   postBox: {
     width: widthPercentage(335),
@@ -95,11 +94,7 @@ function NoticeDetail() {
           leftIconClickListener={navigation.goBack}
         />
         <View style={styles.postTitleBox}>
-          <TextInput
-            style={styles.postTitleBoxText}
-            placeholder="제목"
-            placeholderTextColor="#a2a2a2"
-          />
+          <TextInput style={styles.postTitleBoxText} placeholder="제목" />
         </View>
         <View style={styles.postBox}></View>
         <CustomBtn
