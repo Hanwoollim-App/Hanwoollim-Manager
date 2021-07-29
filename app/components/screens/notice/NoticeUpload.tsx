@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
@@ -18,6 +18,8 @@ import CustomHeader from '../../common/CustomHeader';
 import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomBtn from '../../common/CustomBtn';
+import CustomModal from '../../common/CustomModal';
+import {customBtnType} from '../../../utils/types/customModal';
 
 const styles = StyleSheet.create({
   root: {
@@ -93,11 +95,30 @@ function NoticeDetail() {
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
   const _editor = React.createRef();
+  const [modalVisible, setModalVisible] = useState(false);
+
+  function changeVisible() {
+    setModalVisible(!modalVisible);
+  }
+  function returnToMain() {
+    navigation.navigate('HomeNavigator');
+  }
+  const modalBtn: Array<customBtnType> = [
+    {
+      buttonText: '확인',
+      buttonClickListener: returnToMain,
+    },
+  ];
 
   return (
     <>
       <CustomStatusBar />
       <View style={styles.root}>
+        <CustomModal
+          mdVisible={modalVisible}
+          title={'등록되었습니다!'}
+          buttonList={modalBtn}
+        />
         <CustomHeader
           headerTitle={HEADER_TITLE.NoticeUpload}
           headerLeft
@@ -124,7 +145,7 @@ function NoticeDetail() {
           title={'공지사항 등록하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
-          onClickListener={() => {}}
+          onClickListener={changeVisible}
         />
       </View>
     </>
