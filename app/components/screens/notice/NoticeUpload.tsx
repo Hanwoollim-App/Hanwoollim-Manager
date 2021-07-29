@@ -95,7 +95,7 @@ function NoticeDetail() {
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
   const _editor = React.createRef();
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   function changeVisible() {
     setModalVisible(!modalVisible);
@@ -126,7 +126,11 @@ function NoticeDetail() {
           leftIconClickListener={navigation.goBack}
         />
         <View style={styles.postTitleBox}>
-          <TextInput style={styles.postTitleBoxText} placeholder="제목" />
+          <TextInput
+            style={styles.postTitleBoxText}
+            placeholder="제목"
+            placeholderTextColor="#a2a2a2"
+          />
         </View>
         <View style={styles.postBox}>
           <QuillToolbar

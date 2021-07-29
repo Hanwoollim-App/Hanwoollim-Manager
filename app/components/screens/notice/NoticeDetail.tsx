@@ -112,7 +112,7 @@ function NoticeDetail() {
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   function changeVisible() {
     setModalVisible(!modalVisible);
