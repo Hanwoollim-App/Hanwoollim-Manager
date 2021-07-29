@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import QuillEditor, {QuillToolbar} from 'react-native-cn-quill';
 import {
   NavigationProp,
   ParamListBase,
@@ -75,6 +76,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
   },
+  editor: {
+    flex: 1,
+    padding: 0,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginHorizontal: 5,
+    marginVertical: 5,
+    backgroundColor: 'white',
+  },
 });
 
 function NoticeDetail() {
@@ -82,6 +92,7 @@ function NoticeDetail() {
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
+  const _editor = React.createRef();
 
   return (
     <>
@@ -96,7 +107,19 @@ function NoticeDetail() {
         <View style={styles.postTitleBox}>
           <TextInput style={styles.postTitleBoxText} placeholder="제목" />
         </View>
-        <View style={styles.postBox}></View>
+        <View style={styles.postBox}>
+          <QuillToolbar
+            container="avoiding-view"
+            editor={_editor}
+            options="basic"
+            theme="light"
+          />
+          <QuillEditor
+            style={styles.editor}
+            ref={_editor}
+            initialHtml="<h1>Quill Editor for react-native</h1>"
+          />
+        </View>
         <CustomBtn
           title={'공지사항 등록하기'}
           titleStyle={styles.btnTextStyle}
