@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {
   NavigationProp,
   ParamListBase,
@@ -49,6 +49,22 @@ const styles = StyleSheet.create({
     includeFontPadding: false,
     color: 'white',
   },
+  timeIndex: {
+    flexDirection: 'row',
+  },
+  time: {
+    width: widthPercentage(14),
+    height: heightPercentage(46),
+    alignItems: 'flex-end',
+    borderTopWidth: 0,
+    borderWidth: 1,
+    borderColor: 'gray',
+  },
+  timeText: {
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(10),
+    includeFontPadding: false,
+  },
 });
 
 function Reservation() {
@@ -79,6 +95,7 @@ function Reservation() {
           leftIcon={icon}
           leftIconClickListener={navigation.goBack}
         />
+        <ScrollView>
           <View style={styles.timeTable}>
             <View style={styles.dayColumns}>
               <View style={styles.cornerBox} />
@@ -88,7 +105,15 @@ function Reservation() {
                 </View>
               ))}
             </View>
+            {times.map((time) => (
+              <View key={time} style={styles.timeIndex}>
+                <View style={styles.time}>
+                  <Text style={styles.timeText}>{time}</Text>
+                </View>
+              </View>
+            ))}
           </View>
+        </ScrollView>
       </View>
     </>
   );
