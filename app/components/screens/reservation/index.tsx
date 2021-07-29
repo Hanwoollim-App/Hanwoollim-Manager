@@ -23,6 +23,18 @@ function Reservation() {
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
 
+  const generateTimes = (startTime: number, endTime: number) => {
+    const times = [];
+
+    for (let i = startTime; i < endTime; i += 1) {
+      times.push(i);
+    }
+    return times;
+  };
+
+  const times = generateTimes(0, 24);
+  const week = ['MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAT', 'SUN'];
+
   return (
     <>
       <CustomStatusBar />
