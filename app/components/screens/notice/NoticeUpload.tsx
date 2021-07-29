@@ -15,7 +15,7 @@ import {
 } from '../../../utils/constant/common/design/Responsive';
 
 import CustomHeader from '../../common/CustomHeader';
-import HEADER_TITLE from '../../../utils/constant/naviagation';
+import HEADER_TITLE from '../../../utils/constant/navigation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomBtn from '../../common/CustomBtn';
 import CustomModal from '../../common/CustomModal';
