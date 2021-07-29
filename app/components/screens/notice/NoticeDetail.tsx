@@ -114,12 +114,13 @@ function NoticeDetail() {
   );
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-  function changeVisible() {
+  const changeVisible = () => {
     setModalVisible(!modalVisible);
-  }
-  function returnToMain() {
+  };
+
+  const returnToMain = () => {
     navigation.navigate('HomeNavigator');
-  }
+  };
   const modalBtn: Array<customBtnType> = [
     {
       buttonText: '확인',
