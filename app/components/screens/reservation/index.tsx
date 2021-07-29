@@ -7,13 +7,47 @@ import {
 } from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+import {
+  heightPercentage,
+  widthPercentage,
+  fontPercentage,
+} from '../../../utils/constant/common/design/Responsive';
 import CustomHeader from '../../common/CustomHeader';
+import color from '../../../utils/constant/common/design/Color';
 import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+  },
+  timeTable: {
+    width: widthPercentage(336),
+    marginBottom: heightPercentage(30),
+  },
+  dayColumns: {
+    height: heightPercentage(20),
+    flexDirection: 'row',
+  },
+  cornerBox: {
+    width: widthPercentage(14),
+    borderWidth: 1,
+    borderColor: 'gray',
+    backgroundColor: color.mainColor,
+  },
+  day: {
+    width: widthPercentage(46),
+    alignItems: 'center',
+    borderLeftWidth: 0,
+    borderWidth: 1,
+    borderColor: 'gray',
+    backgroundColor: color.mainColor,
+  },
+  dayText: {
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(10),
+    includeFontPadding: false,
+    color: 'white',
   },
 });
 
@@ -45,7 +79,16 @@ function Reservation() {
           leftIcon={icon}
           leftIconClickListener={navigation.goBack}
         />
-        <Text>{'예약 화면입니다.'}</Text>
+          <View style={styles.timeTable}>
+            <View style={styles.dayColumns}>
+              <View style={styles.cornerBox} />
+              {week.map((day) => (
+                <View key={day} style={styles.day}>
+                  <Text style={styles.dayText}>{day}</Text>
+                </View>
+              ))}
+            </View>
+          </View>
       </View>
     </>
   );
