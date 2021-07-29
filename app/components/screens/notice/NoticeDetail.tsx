@@ -70,12 +70,18 @@ const styles = StyleSheet.create({
     marginTop: heightPercentage(15),
   },
   post: {
+    width: widthPercentage(303),
+    height: heightPercentage(207),
+    marginLeft: widthPercentage(16),
+    marginTop: heightPercentage(13),
+    color: '#000000',
+  },
+  postText: {
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
+    justifyContent: 'center',
     textAlign: 'left',
-    marginTop: heightPercentage(13),
-    marginLeft: widthPercentage(16),
-    color: '#000000',
+    alignItems: 'center',
   },
   btnStyle: {
     width: widthPercentage(290),
@@ -149,7 +155,9 @@ function NoticeDetail() {
           </View>
         </View>
         <View style={styles.postBox}>
-          <Text style={styles.post}>ㅁㄴㅇㄹ</Text>
+          <View style={styles.post}>
+            <Text style={styles.postText}>ㅁㄴㅇㄹ</Text>
+          </View>
         </View>
         <CustomBtn
           title={'삭제하기'}
