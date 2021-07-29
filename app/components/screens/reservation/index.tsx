@@ -65,6 +65,13 @@ const styles = StyleSheet.create({
     fontSize: fontPercentage(10),
     includeFontPadding: false,
   },
+  blankBox: {
+    width: widthPercentage(46),
+    height: heightPercentage(46),
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: 'gray',
+  },
 });
 
 function Reservation() {
@@ -110,6 +117,9 @@ function Reservation() {
                 <View style={styles.time}>
                   <Text style={styles.timeText}>{time}</Text>
                 </View>
+                {week.map((index) => (
+                  <View key={index} style={styles.blankBox} />
+                ))}
               </View>
             ))}
           </View>
