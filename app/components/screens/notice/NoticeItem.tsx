@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   item: {
     width: widthPercentage(307),
     height: heightPercentage(50),
-    marginTop: 5,
+    marginTop: heightPercentage(5),
     marginHorizontal: 14,
   },
   title: {
