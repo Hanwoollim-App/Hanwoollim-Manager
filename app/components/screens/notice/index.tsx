@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   list: {
     width: widthPercentage(335),
-    height: heightPercentage(618),
+    height: heightPercentage(600),
     borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
