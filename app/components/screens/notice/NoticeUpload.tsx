@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   postTitleBox: {
     width: widthPercentage(335),
     height: heightPercentage(46),
-    borderRadius: 10,
+    borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(20),
     flexDirection: 'row',
@@ -46,14 +46,14 @@ const styles = StyleSheet.create({
   postBox: {
     width: widthPercentage(335),
     height: heightPercentage(274),
-    borderRadius: 10,
+    borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(19),
   },
   btnStyle: {
     width: widthPercentage(290),
     height: heightPercentage(53),
-    borderRadius: 21,
+    borderRadius: widthPercentage(21),
     backgroundColor: '#00203f',
     shadowColor: 'rgba(0, 0, 0, 0.16)',
     shadowOffset: {

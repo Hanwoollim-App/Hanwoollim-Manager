@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   list: {
     width: widthPercentage(335),
     height: heightPercentage(618),
-    borderRadius: 10,
+    borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
   },
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   btnStyle: {
     width: widthPercentage(290),
     height: heightPercentage(53),
-    borderRadius: 21,
+    borderRadius: widthPercentage(21),
     backgroundColor: '#00203f',
     shadowColor: 'rgba(0, 0, 0, 0.16)',
     shadowOffset: {

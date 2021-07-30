@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   list: {
     width: widthPercentage(335),
     height: heightPercentage(609),
-    borderRadius: 10,
+    borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
     marginLeft: widthPercentage(20),
