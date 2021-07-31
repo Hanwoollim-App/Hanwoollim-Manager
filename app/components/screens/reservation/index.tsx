@@ -7,70 +7,22 @@ import {
 } from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
-import {
-  heightPercentage,
-  widthPercentage,
-  fontPercentage,
-} from '../../../utils/constant/common/design/Responsive';
+// import {
+//   heightPercentage,
+//   widthPercentage,
+//   fontPercentage,
+// } from '../../../utils/constant/common/design/Responsive';
 import CustomHeader from '../../common/CustomHeader';
-import color from '../../../utils/constant/common/design/Color';
 import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
+import TimeTable from './timeTable';
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  timeTable: {
-    width: widthPercentage(336),
-    marginBottom: heightPercentage(30),
-  },
-  dayColumns: {
-    height: heightPercentage(20),
-    flexDirection: 'row',
-  },
-  cornerBox: {
-    width: widthPercentage(14),
-    borderWidth: 1,
-    borderColor: 'gray',
-    backgroundColor: color.mainColor,
-  },
-  day: {
-    width: widthPercentage(46),
+  body: {
     alignItems: 'center',
-    borderLeftWidth: 0,
-    borderWidth: 1,
-    borderColor: 'gray',
-    backgroundColor: color.mainColor,
-  },
-  dayText: {
-    fontFamily: 'NotoSansKR-Regular',
-    fontSize: fontPercentage(10),
-    includeFontPadding: false,
-    color: 'white',
-  },
-  timeIndex: {
-    flexDirection: 'row',
-  },
-  time: {
-    width: widthPercentage(14),
-    height: heightPercentage(46),
-    alignItems: 'flex-end',
-    borderTopWidth: 0,
-    borderWidth: 1,
-    borderColor: 'gray',
-  },
-  timeText: {
-    fontFamily: 'NotoSansKR-Regular',
-    fontSize: fontPercentage(10),
-    includeFontPadding: false,
-  },
-  blankBox: {
-    width: widthPercentage(46),
-    height: heightPercentage(46),
-    borderRightWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: 'gray',
   },
 });
 
@@ -79,18 +31,6 @@ function Reservation() {
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
   );
-
-  const generateTimes = (startTime: number, endTime: number) => {
-    const times = [];
-
-    for (let i = startTime; i < endTime; i += 1) {
-      times.push(i);
-    }
-    return times;
-  };
-
-  const times = generateTimes(0, 24);
-  const week = ['MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAT', 'SUN'];
 
   return (
     <>
@@ -102,28 +42,12 @@ function Reservation() {
           leftIcon={icon}
           leftIconClickListener={navigation.goBack}
         />
-        <ScrollView>
-          <View style={styles.timeTable}>
-            <View style={styles.dayColumns}>
-              <View style={styles.cornerBox} />
-              {week.map((day) => (
-                <View key={day} style={styles.day}>
-                  <Text style={styles.dayText}>{day}</Text>
-                </View>
-              ))}
-            </View>
-            {times.map((time) => (
-              <View key={time} style={styles.timeIndex}>
-                <View style={styles.time}>
-                  <Text style={styles.timeText}>{time}</Text>
-                </View>
-                {week.map((index) => (
-                  <View key={index} style={styles.blankBox} />
-                ))}
-              </View>
-            ))}
-          </View>
-        </ScrollView>
+        <View style={styles.body}>
+          <ScrollView>
+            <Text>버튼 있는 자리</Text>
+            <TimeTable />
+          </ScrollView>
+        </View>
       </View>
     </>
   );
