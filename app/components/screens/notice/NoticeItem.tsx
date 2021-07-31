@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     width: widthPercentage(307),
     height: heightPercentage(50),
     marginTop: heightPercentage(5),
-    marginHorizontal: 14,
+    marginHorizontal: widthPercentage(14),
   },
   title: {
     height: heightPercentage(24),
