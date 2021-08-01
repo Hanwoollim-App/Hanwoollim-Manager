@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginNavigator from './LoginNavigator';
 import HomeNavigator from './HomeNavigator';
+import NoticeNavigator from './NoticeNavigator';
 
 const MainStackNavigator = createStackNavigator();
 
@@ -20,6 +21,13 @@ function MainNavigator() {
         <MainStackNavigator.Screen
           name="HomeNavigator"
           component={HomeNavigator}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStackNavigator.Screen
+          name="NoticeNavigator"
+          component={NoticeNavigator}
           options={{
             headerShown: false,
           }}

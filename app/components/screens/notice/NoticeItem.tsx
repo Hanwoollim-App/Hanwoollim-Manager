@@ -1,29 +1,27 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
+
 import NoticeItemInterface from '../../../utils/types/noticeItem';
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
-  list: {
-    width: widthPercentage(335),
-    height: heightPercentage(618),
-    borderRadius: 10,
-    backgroundColor: '#ffffff',
-    marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(20),
-  },
   item: {
     width: widthPercentage(307),
     height: heightPercentage(50),
-    marginTop: 5,
-    marginHorizontal: 14,
+    marginTop: heightPercentage(5),
+    marginHorizontal: widthPercentage(14),
   },
   title: {
     height: heightPercentage(24),
@@ -42,11 +40,19 @@ const styles = StyleSheet.create({
 });
 
 function NoticeItem({title, date}: NoticeItemInterface) {
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+
+  const NoticeClickListener = () => {
+    navigation.navigate('NoticeNavigator', {screen: 'NoticeDetail'});
+  };
+
   return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.date}>{date}</Text>
-    </View>
+    <TouchableOpacity onPress={NoticeClickListener}>
+      <View style={styles.item}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.date}>{date}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 
