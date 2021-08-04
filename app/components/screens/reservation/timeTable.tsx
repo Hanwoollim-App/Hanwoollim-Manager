@@ -73,6 +73,43 @@ function TimeTable() {
   const times = generateTimes(0, 24);
   const week = ['MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAT', 'SUN'];
 
+  const schedule = [
+    [
+      {
+        // 월
+        name: '이재만',
+        startTime: '08:00',
+        endTime: '09:00',
+        session: '기타',
+      },
+      {
+        name: '고병찬',
+        startTime: '15:00',
+        endTime: '15:30',
+        session: '베이스',
+      },
+      {
+        name: '홍길동',
+        startTime: '16:30',
+        endTime: '17:30',
+        session: '베이스',
+      },
+    ],
+    [
+      {
+        // 화
+        name: '이재만',
+        startTime: '10:30',
+        endTime: '11:00',
+        session: '보컬',
+      },
+    ],
+    [], // 수
+    [], // 목
+    [], // 금
+    [], // 토
+    [], // 일
+  ];
   return (
     <View style={styles.timeTable}>
       <View style={styles.dayColumns}>
