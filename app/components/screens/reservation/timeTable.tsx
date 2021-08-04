@@ -6,6 +6,8 @@ import {
   fontPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import color from '../../../utils/constant/common/design/Color';
+import CustomModal from '../../common/CustomModal';
+import {customBtnType} from '../../../utils/types/customModal';
 
 const styles = StyleSheet.create({
   timeTable: {
@@ -184,8 +186,28 @@ function TimeTable() {
       : heightPercentage(46);
   }
 
+  const [mdVisible, setMdVisible] = React.useState(false);
+  const [mdTitle, setMdTitle] = React.useState('');
+  const [mdText, setMdText] = React.useState('');
+
+  function changeVisible() {
+    setMdVisible(!mdVisible);
+  }
+  const mdBtn: Array<customBtnType> = [
+    {
+      buttonText: '취소',
+      buttonClickListener: changeVisible,
+    },
+  ];
+
   return (
     <View style={styles.timeTable}>
+      <CustomModal
+        mdVisible={mdVisible}
+        title={mdTitle}
+        subtitle={mdText}
+        buttonList={mdBtn}
+      />
       <View style={styles.dayColumns}>
         <View style={styles.cornerBox} />
         {week.map((day) => (
@@ -208,6 +230,11 @@ function TimeTable() {
         day.map((reserve, k) => (
           <TouchableOpacity
             key={reserve.startTime}
+            onPress={() => {
+              changeVisible();
+              setMdTitle(reserve.name);
+              setMdText(reserve.session);
+            }}
             style={[
               styles.reserveBox,
               {
