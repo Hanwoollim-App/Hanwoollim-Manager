@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const kakaoIcon = require('../../../assets/images/kakaoLogo.png');
 const textLogo = require('../../../assets/images/HanwoollimWhite.png');
 
 function Login() {
@@ -125,8 +124,8 @@ function Login() {
   //   console.log(profile);
   // };
 
-  const loginBtnClickListener = async () => {
-    navigation.navigate('HomeNavigator');
+  const loginBtnClickListener = () => {
+    navigation.navigate('SignIn');
   };
 
   return (
