@@ -195,7 +195,7 @@ function TimeTable() {
   }
   const mdBtn: Array<customBtnType> = [
     {
-      buttonText: '취소',
+      buttonText: '확인',
       buttonClickListener: changeVisible,
     },
   ];
