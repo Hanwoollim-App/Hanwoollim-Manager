@@ -59,6 +59,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#cdcdcd',
   },
+  reserveBox: {
+    position: 'absolute',
+    width: widthPercentage(46),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 function TimeTable() {
@@ -110,6 +116,23 @@ function TimeTable() {
     [], // 토
     [], // 일
   ];
+  function xPosGenerator(day: number): number {
+    return widthPercentage(46 * day) + 14;
+  }
+  function yPosGenerator(time: string): number {
+    return heightPercentage(
+      parseInt(time.slice(0, 2), 10) * 46 +
+        (parseInt(time.slice(3), 10) / 30) * 23 +
+        20,
+    );
+  }
+
+  function heightGenerator(start: string, end: string) {
+    return Math.abs(parseInt(start.slice(3), 10) - parseInt(end.slice(3), 10))
+      ? heightPercentage(23)
+      : heightPercentage(46);
+  }
+
   return (
     <View style={styles.timeTable}>
       <View style={styles.dayColumns}>
