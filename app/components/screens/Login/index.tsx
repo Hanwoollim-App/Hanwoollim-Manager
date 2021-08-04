@@ -142,7 +142,6 @@ function Login() {
           <TouchableOpacity
             style={styles.loginBtn}
             onPress={loginBtnClickListener}>
-            <Image style={styles.loginBtn_img} source={kakaoIcon} />
             <Text style={styles.loginBtn_text}>{LOGIN_BUTTON_TEXT}</Text>
           </TouchableOpacity>
         </View>
