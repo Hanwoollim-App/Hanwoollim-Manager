@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   heightPercentage,
   widthPercentage,
@@ -64,6 +64,14 @@ const styles = StyleSheet.create({
     width: widthPercentage(46),
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  reserveTitle: {
+    fontFamily: 'NotoSansKR-Bold',
+    fontSize: fontPercentage(9),
+  },
+  reserveText: {
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(9),
   },
 });
 
@@ -196,6 +204,24 @@ function TimeTable() {
           ))}
         </View>
       ))}
+      {schedule.map((day, i) =>
+        day.map((reserve, k) => (
+          <TouchableOpacity
+            key={reserve.startTime}
+            style={[
+              styles.reserveBox,
+              {
+                height: heightGenerator(reserve.startTime, reserve.endTime),
+                backgroundColor: colorGenerator(i * 10 + k),
+                top: yPosGenerator(reserve.startTime),
+                left: xPosGenerator(i),
+              },
+            ]}>
+            <Text style={styles.reserveTitle}>{reserve.name}</Text>
+            <Text style={styles.reserveText}>{reserve.session}</Text>
+          </TouchableOpacity>
+        )),
+      )}
     </View>
   );
 }
