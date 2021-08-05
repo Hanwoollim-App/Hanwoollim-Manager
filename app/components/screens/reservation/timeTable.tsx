@@ -91,7 +91,7 @@ function TimeTable() {
   const times = generateTimes(0, 24);
   const week = ['MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAT', 'SUN'];
 
-  const schedule = [
+  const tempSchedule = [
     [
       {
         // 월
@@ -228,7 +228,7 @@ function TimeTable() {
           ))}
         </View>
       ))}
-      {schedule.map((day, i) =>
+      {tempSchedule.map((day, i) =>
         day.map((reserve, k) => (
           <TouchableOpacity
             key={reserve.startTime}
