@@ -7,11 +7,6 @@ import {
 } from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
-// import {
-//   heightPercentage,
-//   widthPercentage,
-//   fontPercentage,
-// } from '../../../utils/constant/common/design/Responsive';
 import CustomHeader from '../../common/CustomHeader';
 import HEADER_TITLE from '../../../utils/constant/naviagation';
 import CustomStatusBar from '../../common/CustomStatusBar';
