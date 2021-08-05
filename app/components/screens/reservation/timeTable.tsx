@@ -8,6 +8,7 @@ import {
 import color from '../../../utils/constant/common/design/Color';
 import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
+import TIMETABLE_SIZE from '../../../utils/constant/reservation';
 
 const styles = StyleSheet.create({
   timeTable: {
@@ -172,21 +173,30 @@ function TimeTable() {
   };
 
   const xPosGenerator = (day: number): number => {
-    return widthPercentage(46 * day) + 14;
+    return (
+      widthPercentage(TIMETABLE_SIZE.defaultBoxSize * day) +
+      TIMETABLE_SIZE.ColumnsHeight
+    );
   };
 
   const yPosGenerator = (time: string): number => {
+    const hours = parseInt(time.slice(0, 2), 10);
+    const minutes = parseInt(time.slice(3), 10) / 30;
+
     return heightPercentage(
-      parseInt(time.slice(0, 2), 10) * 46 +
-        (parseInt(time.slice(3), 10) / 30) * 23 +
-        20,
+      hours * TIMETABLE_SIZE.defaultBoxSize +
+        minutes * (TIMETABLE_SIZE.defaultBoxSize / 2) +
+        TIMETABLE_SIZE.IndexWidth,
     );
   };
 
   const heightGenerator = (start: string, end: string) => {
-    return Math.abs(parseInt(start.slice(3), 10) - parseInt(end.slice(3), 10))
-      ? heightPercentage(23)
-      : heightPercentage(46);
+    const isHalfHour = Math.abs(
+      parseInt(start.slice(3), 10) - parseInt(end.slice(3), 10),
+    );
+    const defaultBoxSize = heightPercentage(TIMETABLE_SIZE.defaultBoxSize);
+
+    return isHalfHour ? defaultBoxSize / 2 : defaultBoxSize;
   };
 
   const [mdVisible, setMdVisible] = React.useState(false);
