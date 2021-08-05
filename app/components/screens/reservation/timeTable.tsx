@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
   day: {
     width: widthPercentage(46),
     alignItems: 'center',
-    borderLeftWidth: 0,
-    borderWidth: 1,
+    borderTopWidth: widthPercentage(1),
+    borderRightWidth: widthPercentage(1),
+    borderBottomWidth: widthPercentage(1),
     borderColor: '#cdcdcd',
     backgroundColor: color.mainColor,
   },
@@ -45,8 +46,9 @@ const styles = StyleSheet.create({
     width: widthPercentage(14),
     height: heightPercentage(46),
     alignItems: 'flex-end',
-    borderTopWidth: 0,
-    borderWidth: 1,
+    borderRightWidth: widthPercentage(1),
+    borderBottomWidth: widthPercentage(1),
+    borderLeftWidth: widthPercentage(1),
     borderColor: '#cdcdcd',
   },
   timeText: {
