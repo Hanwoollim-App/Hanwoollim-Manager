@@ -70,11 +70,21 @@ const styles = StyleSheet.create({
   },
 });
 
+export interface UserId {
+  id: string;
+  setId: Function;
+}
+
+export interface UserPw {
+  pw: string;
+  setPw: Function;
+}
+
 function SignIn() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const headerLogo = require('../../../assets/images/HanwoollimWhite.png');
-  const [id, setId]: [string, Function] = useState('');
-  const [pw, setPw]: [string, Function] = useState('');
+  const [id, setId] = useState<UserId | any>();
+  const [pw, setPw] = useState<UserPw | any>();
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -108,14 +118,12 @@ function SignIn() {
           buttonList={modalBtn}
         />
         <View style={styles.header}>
-          <View>
-            <Image style={styles.headerImg} source={headerLogo} />
-          </View>
+          <Image style={styles.headerImg} source={headerLogo} />
         </View>
         <Text style={styles.titleText}>
           어서오세요 당신을 기다리고 있었어요!!
         </Text>
-        <View style={styles.middleGap}></View>
+        <View style={styles.middleGap} />
         <View style={styles.content}>
           <SignInForm
             placeholder={'아이디'}
