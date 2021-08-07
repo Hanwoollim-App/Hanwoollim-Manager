@@ -13,7 +13,6 @@ import TIMETABLE_SIZE from '../../../utils/constant/reservation';
 const styles = StyleSheet.create({
   timeTable: {
     width: widthPercentage(336),
-    marginBottom: heightPercentage(100),
   },
   dayColumns: {
     height: heightPercentage(20),
