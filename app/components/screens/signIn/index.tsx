@@ -70,21 +70,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export interface UserId {
-  id: string;
-  setId: Function;
-}
-
-export interface UserPw {
-  pw: string;
-  setPw: Function;
-}
-
 function SignIn() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const headerLogo = require('../../../assets/images/HanwoollimWhite.png');
-  const [id, setId] = useState<UserId | any>();
-  const [pw, setPw] = useState<UserPw | any>();
+  const [id, setId] = useState<string>();
+  const [pw, setPw] = useState<string>();
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
