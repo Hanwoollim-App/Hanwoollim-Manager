@@ -172,20 +172,17 @@ function TimeTable() {
   };
 
   const xPosGenerator = (day: number): number => {
-    return (
-      widthPercentage(TIMETABLE_SIZE.defaultBoxSize * day) +
-      TIMETABLE_SIZE.ColumnsHeight
-    );
+    return TIMETABLE_SIZE.defaultBoxWidth * day + TIMETABLE_SIZE.ColumnsHeight;
   };
 
   const yPosGenerator = (time: string): number => {
     const hours = parseInt(time.slice(0, 2), 10);
     const minutes = parseInt(time.slice(3), 10) / 30;
 
-    return heightPercentage(
-      hours * TIMETABLE_SIZE.defaultBoxSize +
-        minutes * (TIMETABLE_SIZE.defaultBoxSize / 2) +
-        TIMETABLE_SIZE.IndexWidth,
+    return (
+      hours * TIMETABLE_SIZE.defaultBoxHeight +
+      minutes * (TIMETABLE_SIZE.defaultBoxHeight / 2) +
+      TIMETABLE_SIZE.IndexWidth
     );
   };
 
@@ -193,9 +190,10 @@ function TimeTable() {
     const isHalfHour = Math.abs(
       parseInt(start.slice(3), 10) - parseInt(end.slice(3), 10),
     );
-    const defaultBoxSize = heightPercentage(TIMETABLE_SIZE.defaultBoxSize);
 
-    return isHalfHour ? defaultBoxSize / 2 : defaultBoxSize;
+    return isHalfHour
+      ? TIMETABLE_SIZE.defaultBoxHeight / 2
+      : TIMETABLE_SIZE.defaultBoxHeight;
   };
 
   const [mdVisible, setMdVisible] = React.useState(false);

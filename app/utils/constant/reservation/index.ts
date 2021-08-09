@@ -1,7 +1,10 @@
+import {widthPercentage, heightPercentage} from '../common/design/Responsive';
+
 const TIMETABLE_SIZE = {
-  ColumnsHeight: 14,
-  IndexWidth: 20,
-  defaultBoxSize: 46,
+  ColumnsHeight: heightPercentage(14),
+  IndexWidth: widthPercentage(20),
+  defaultBoxWidth: widthPercentage(46),
+  defaultBoxHeight: heightPercentage(46),
 };
 
 export default TIMETABLE_SIZE;
