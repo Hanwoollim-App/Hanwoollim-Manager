@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 });
 
 interface HeaderInterface {
-  headerTitle: String | undefined;
+  headerTitle?: String;
   headerLeft?: boolean;
   headerRight?: boolean;
   leftIcon?: React.ReactNode;
