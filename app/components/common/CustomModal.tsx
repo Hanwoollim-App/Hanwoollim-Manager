@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     }),
   },
   title: {
-    marginTop: heightPercentage(25),
+    margin: heightPercentage(25),
     fontFamily: 'NotoSansKR-Bold',
     letterSpacing: 1,
     fontStyle: 'normal',
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   subtitle: {
-    marginTop: heightPercentage(15),
     marginBottom: heightPercentage(15),
     fontFamily: 'NotoSansKR-Regular',
     fontStyle: 'normal',
@@ -161,7 +160,7 @@ const styles = StyleSheet.create({
 function CustomModal({
   mdVisible,
   title,
-  subtitle = '',
+  subtitle,
   buttonList,
   titleSize = fontPercentage(17),
   subtitleSize = fontPercentage(14),
@@ -176,16 +175,20 @@ function CustomModal({
         {second ? (
           <View style={styles.content}>
             <Text style={[styles.title, {fontSize: titleSize}]}>{title}</Text>
-            <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
-              {subtitle}
-            </Text>
+            {subtitle && (
+              <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
+                {subtitle}
+              </Text>
+            )}
           </View>
         ) : (
           <View style={styles.oneBtnContent}>
             <Text style={[styles.title, {fontSize: titleSize}]}>{title}</Text>
-            <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
-              {subtitle}
-            </Text>
+            {subtitle && (
+              <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
+                {subtitle}
+              </Text>
+            )}
           </View>
         )}
         {first.map((result, i) => {
