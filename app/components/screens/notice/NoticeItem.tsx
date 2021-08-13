@@ -43,7 +43,7 @@ function NoticeItem({title, date}: NoticeItemInterface) {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const NoticeClickListener = () => {
-    navigation.navigate('NoticeNavigator', {screen: 'NoticeDetail'});
+    navigation.navigate('', {screen: 'NoticeDetail'});
   };
 
   return (
