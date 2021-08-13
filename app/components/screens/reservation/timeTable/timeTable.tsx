@@ -4,11 +4,11 @@ import {
   heightPercentage,
   widthPercentage,
   fontPercentage,
-} from '../../../utils/constant/common/design/Responsive';
-import color from '../../../utils/constant/common/design/Color';
-import CustomModal from '../../common/CustomModal';
-import {customBtnType} from '../../../utils/types/customModal';
-import TIMETABLE_SIZE from '../../../utils/constant/reservation';
+} from '../../../../utils/constant/common/design/Responsive';
+import color from '../../../../utils/constant/common/design/Color';
+import CustomModal from '../../../common/CustomModal';
+import {customBtnType} from '../../../../utils/types/customModal';
+import TIMETABLE_SIZE from '../../../../utils/constant/reservation';
 
 const styles = StyleSheet.create({
   timeTable: {

@@ -3,7 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/home';
 import Member from '../screens/member';
 import Notice from '../screens/notice';
-import Reservation from '../screens/reservation';
+import Reservation from '../screens/reservation/timeTable';
 
 const HomeStack = createStackNavigator();
 
