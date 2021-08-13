@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
   },
 });
 
+// eslint-disable-next-line react/prop-types
 function ReservationProcess({route}) {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -194,6 +195,7 @@ function ReservationProcess({route}) {
     },
   ];
 
+  // eslint-disable-next-line react/prop-types
   const currentWeek: any = route.params;
 
   const [day, setDay] = useState<ValueType>('');
