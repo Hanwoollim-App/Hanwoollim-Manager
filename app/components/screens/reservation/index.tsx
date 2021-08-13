@@ -97,13 +97,14 @@ function ReservationTimeTable() {
     navigation.navigate('ReservationProcess');
   };
   const [open, setOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<ValueType>(null);
+
   const [items, setItems] = useState<Array<ItemType>>([
     {label: '6.28~7.4', value: '6.28~7.4'},
     {label: '7.4~7.11', value: '7.4~7.11'},
     {label: '7.11~7.18', value: '7.11~7.18'},
     {label: '7.18~7.25', value: '7.18~7.25'},
   ]);
+  const [value, setValue] = useState<ValueType>(items[0].value);
 
   console.log(JSON.stringify(items));
 

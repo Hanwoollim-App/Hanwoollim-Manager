@@ -16,7 +16,7 @@ export type ValueType = string | number | boolean;
 
 export type ItemType = {
   label?: string;
-  value?: ValueType;
+  value: ValueType;
   icon?: () => void;
   parent?: ValueType;
   selectable?: boolean;
