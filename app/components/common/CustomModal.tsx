@@ -60,18 +60,16 @@ const styles = StyleSheet.create({
     }),
   },
   title: {
-    marginTop: heightPercentage(25),
+    margin: heightPercentage(25),
     fontFamily: 'NotoSansKR-Bold',
-    fontSize: fontPercentage(15),
     letterSpacing: 1,
     fontStyle: 'normal',
     textAlign: 'center',
     color: '#000000',
   },
   subtitle: {
-    marginTop: heightPercentage(15),
+    marginBottom: heightPercentage(15),
     fontFamily: 'NotoSansKR-Regular',
-    fontSize: fontPercentage(10),
     fontStyle: 'normal',
     textAlign: 'center',
     color: 'gray',
@@ -153,7 +151,7 @@ const styles = StyleSheet.create({
   },
   blueLastBtnTitle: {
     fontFamily: 'NotoSansKR-Regular',
-    fontSize: fontPercentage(15),
+    fontSize: fontPercentage(17),
     textAlign: 'center',
     color: 'white',
   },
@@ -162,8 +160,10 @@ const styles = StyleSheet.create({
 function CustomModal({
   mdVisible,
   title,
-  subtitle = '',
+  subtitle,
   buttonList,
+  titleSize = fontPercentage(17),
+  subtitleSize = fontPercentage(14),
 }: ModalsProps) {
   const [last, second, ...first]: Array<customBtnType | undefined> = [
     ...buttonList,
@@ -174,13 +174,21 @@ function CustomModal({
       <View style={styles.modalView}>
         {second ? (
           <View style={styles.content}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.subtitle}>{subtitle}</Text>
+            <Text style={[styles.title, {fontSize: titleSize}]}>{title}</Text>
+            {subtitle && (
+              <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
+                {subtitle}
+              </Text>
+            )}
           </View>
         ) : (
           <View style={styles.oneBtnContent}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.subtitle}>{subtitle}</Text>
+            <Text style={[styles.title, {fontSize: titleSize}]}>{title}</Text>
+            {subtitle && (
+              <Text style={[styles.subtitle, {fontSize: subtitleSize}]}>
+                {subtitle}
+              </Text>
+            )}
           </View>
         )}
         {first.map((result, i) => {
