@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const kakaoIcon = require('../../../assets/images/kakaoLogo.png');
 const textLogo = require('../../../assets/images/HanwoollimWhite.png');
 
 function Login() {
@@ -125,8 +124,8 @@ function Login() {
   //   console.log(profile);
   // };
 
-  const loginBtnClickListener = async () => {
-    navigation.navigate('HomeNavigator');
+  const loginBtnClickListener = () => {
+    navigation.navigate('SignIn');
   };
 
   return (
@@ -142,7 +141,6 @@ function Login() {
           <TouchableOpacity
             style={styles.loginBtn}
             onPress={loginBtnClickListener}>
-            <Image style={styles.loginBtn_img} source={kakaoIcon} />
             <Text style={styles.loginBtn_text}>{LOGIN_BUTTON_TEXT}</Text>
           </TouchableOpacity>
         </View>

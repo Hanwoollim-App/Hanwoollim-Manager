@@ -8,7 +8,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import CustomHeader from '../../common/CustomHeader';
-import HEADER_TITLE from '../../../utils/constant/naviagation';
+import HEADER_TITLE from '../../../utils/constant/navigation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import {
   fontPercentage,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   list: {
     width: widthPercentage(335),
     height: heightPercentage(609),
-    borderRadius: 10,
+    borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
     marginLeft: widthPercentage(20),
