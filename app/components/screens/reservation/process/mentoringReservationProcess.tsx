@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
 });
 
 // eslint-disable-next-line react/prop-types
-function BandReservationProcess({route}) {
+function MentoringReservationProcess({route}) {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -216,7 +216,7 @@ function BandReservationProcess({route}) {
     useState<Array<ItemType>>(sectionItems);
 
   return (
-    <ScreenWrapper headerTitle="고정합주 예약하기">
+    <ScreenWrapper headerTitle="멘토링 예약하기">
       <CustomModal
         mdVisible={modalVisible}
         title={'예약이 완료되었습니다!'}
@@ -315,4 +315,4 @@ function BandReservationProcess({route}) {
   );
 }
 
-export default BandReservationProcess;
+export default MentoringReservationProcess;

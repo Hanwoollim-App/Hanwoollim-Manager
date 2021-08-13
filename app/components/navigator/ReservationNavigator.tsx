@@ -1,7 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ReservationTimeTable from '../screens/reservation/timeTable';
-import ReservationProcess from '../screens/reservation/process';
+import BandReservationProcess from '../screens/reservation/process';
+import MentoringReservationProcess from '../screens/reservation/process/mentoringReservationProcess';
 import ReservationContext, {
   ReservationInfo,
 } from '../../utils/context/ReservationContext';
@@ -20,8 +21,15 @@ function ReservationNavigator() {
           }}
         />
         <ReservationStack.Screen
-          name="ReservationProcess"
-          component={ReservationProcess}
+          name="BandReservationProcess"
+          component={BandReservationProcess}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <ReservationStack.Screen
+          name="MentoringReservationProcess"
+          component={MentoringReservationProcess}
           options={{
             headerShown: false,
           }}

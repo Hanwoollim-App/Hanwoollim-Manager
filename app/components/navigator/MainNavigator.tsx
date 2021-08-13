@@ -5,6 +5,8 @@ import LoginNavigator from './LoginNavigator';
 import HomeNavigator from './HomeNavigator';
 import NoticeNavigator from './NoticeNavigator';
 import ReservationNavigator from './ReservationNavigator';
+import BandReservationProcess from '../screens/reservation/process';
+import MentoringReservationProcess from '../screens/reservation/process/mentoringReservationProcess';
 
 const MainStackNavigator = createStackNavigator();
 
@@ -36,6 +38,20 @@ function MainNavigator() {
         <MainStackNavigator.Screen
           name="ReservationNavigator"
           component={ReservationNavigator}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStackNavigator.Screen
+          name="BandReservationProcess"
+          component={BandReservationProcess}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <MainStackNavigator.Screen
+          name="MentoringReservationProcess"
+          component={MentoringReservationProcess}
           options={{
             headerShown: false,
           }}
