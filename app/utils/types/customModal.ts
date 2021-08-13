@@ -7,4 +7,6 @@ export interface ModalsProps {
   title: string;
   subtitle?: string;
   buttonList: Array<customBtnType>;
+  titleSize?: number;
+  subtitleSize?: number;
 }
