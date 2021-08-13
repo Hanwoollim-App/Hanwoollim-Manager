@@ -40,4 +40,12 @@ module.exports = {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      files: ['*.ts'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
 };
