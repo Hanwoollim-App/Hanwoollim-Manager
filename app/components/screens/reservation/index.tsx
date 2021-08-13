@@ -22,6 +22,7 @@ import ScreenWrapper from '../../common/ScreenWrapper';
 import {ItemType, ValueType} from '../../../utils/types/dropDown';
 import TimeTable from './timeTable';
 
+
 const styles = StyleSheet.create({
   titleBlock: {
     width: '95%',

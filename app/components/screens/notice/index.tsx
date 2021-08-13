@@ -8,7 +8,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import CustomHeader from '../../common/CustomHeader';
-import HEADER_TITLE from '../../../utils/constant/naviagation';
+import HEADER_TITLE from '../../../utils/constant/navigation';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomBtn from '../../common/CustomBtn';
 import {
@@ -22,14 +22,14 @@ import NoticeItemInterface from '../../../utils/types/noticeItem';
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    alignItems: 'center',
   },
   list: {
     width: widthPercentage(335),
-    height: heightPercentage(618),
-    borderRadius: 10,
+    height: heightPercentage(600),
+    borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(20),
   },
   itemSeparator: {
     marginLeft: widthPercentage(14),
@@ -40,23 +40,20 @@ const styles = StyleSheet.create({
   btnStyle: {
     width: widthPercentage(290),
     height: heightPercentage(53),
-    borderRadius: 21,
+    borderRadius: widthPercentage(21),
     backgroundColor: '#00203f',
     shadowColor: 'rgba(0, 0, 0, 0.16)',
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: heightPercentage(3),
     },
-    shadowRadius: 6,
+    shadowRadius: widthPercentage(6),
     shadowOpacity: 1,
     marginTop: heightPercentage(18),
-    marginLeft: widthPercentage(43),
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   btnTextStyle: {
-    width: widthPercentage(152),
-    height: heightPercentage(29),
-    marginTop: heightPercentage(12),
-    marginLeft: widthPercentage(69),
     fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(20),
     justifyContent: 'center',
@@ -168,7 +165,9 @@ function Notice() {
           title={'공지사항 등록하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
-          onClickListener={() => {}}
+          onClickListener={() => {
+            navigation.navigate('NoticeNavigator', {screen: 'NoticeUpload'});
+          }}
         />
       </View>
     </>
