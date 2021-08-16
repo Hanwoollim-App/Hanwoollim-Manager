@@ -87,6 +87,7 @@ function Home() {
     {menuTitle: MAIN_MENU.Member, menuNavigating: 'Member'},
     {menuTitle: MAIN_MENU.Notice, menuNavigating: 'Notice'},
     {menuTitle: MAIN_MENU.Reservation, menuNavigating: 'Reservation'},
+    {menuTitle: MAIN_MENU.Approval, menuNavigating: 'Approval'},
   ];
 
   return (
