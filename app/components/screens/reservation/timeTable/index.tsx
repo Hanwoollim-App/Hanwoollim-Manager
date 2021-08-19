@@ -17,10 +17,12 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/constant/common/design/Responsive';
-import ScreenWrapper from '../../common/ScreenWrapper';
-import {ItemType, ValueType} from '../../../utils/types/dropDown';
+} from '../../../../utils/constant/common/design/Responsive';
+import ScreenWrapper from '../../../common/ScreenWrapper';
+import {ItemType, ValueType} from '../../../../utils/types/dropDown';
 import TimeTable from './timeTable';
+import {customBtnType} from '../../../../utils/types/customModal';
+import CustomModal from '../../../common/CustomModal';
 
 const styles = StyleSheet.create({
   titleBlock: {
@@ -93,9 +95,41 @@ const styles = StyleSheet.create({
 
 function ReservationTimeTable() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+
   const reserveBtnListener = () => {
-    navigation.navigate('ReservationProcess');
+    setModalVisible(!modalVisible);
   };
+
+  const fixedBand = () => {
+    navigation.navigate('BandReservationProcess');
+    setModalVisible(!modalVisible);
+  };
+
+  const mentoring = () => {
+    navigation.navigate('MentoringReservationProcess');
+    setModalVisible(!modalVisible);
+  };
+
+  const returnToTimeTable = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  const modalBtn: Array<customBtnType> = [
+    {
+      buttonText: '고정합주',
+      buttonClickListener: fixedBand,
+    },
+    {
+      buttonText: '멘토링',
+      buttonClickListener: mentoring,
+    },
+    {
+      buttonText: '취소',
+      buttonClickListener: returnToTimeTable,
+    },
+  ];
+
   const [open, setOpen] = useState<boolean>(false);
   const [value, setValue] = useState<ValueType | null>(null);
   const [items, setItems] = useState<Array<ItemType>>([
@@ -109,6 +143,11 @@ function ReservationTimeTable() {
 
   return (
     <ScreenWrapper headerTitle="예약하기">
+      <CustomModal
+        mdVisible={modalVisible}
+        title={'어떤 작업을 수행하시겠습니까?'}
+        buttonList={modalBtn}
+      />
       <View style={styles.row}>
         <View>
           <DropDownPicker
