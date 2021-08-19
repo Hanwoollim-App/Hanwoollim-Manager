@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/home';
 import Member from '../screens/member';
 import Notice from '../screens/notice';
+import Approval from '../screens/approval';
 import Reservation from '../screens/reservation/timeTable';
 
 const HomeStack = createStackNavigator();
@@ -34,6 +35,13 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="Reservation"
         component={Reservation}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HomeStack.Screen
+        name="Approval"
+        component={Approval}
         options={{
           headerShown: false,
         }}
