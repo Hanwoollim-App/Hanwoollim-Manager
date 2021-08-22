@@ -139,7 +139,6 @@ function ReservationTimeTable() {
     {label: '7.18~7.25', value: '7.18~7.25'},
   ]);
 
-
   return (
     <ScreenWrapper headerTitle="예약하기">
       <CustomModal
