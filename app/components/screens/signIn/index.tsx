@@ -5,6 +5,7 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
+import axios from 'axios';
 import {
   fontPercentage,
   heightPercentage,
@@ -16,6 +17,8 @@ import CustomBtn from '../../common/CustomBtn';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
+import api from '../../../utils/constant/api';
+
 
 const styles = StyleSheet.create({
   root: {
@@ -95,7 +98,27 @@ function SignIn() {
   ];
 
   const signInBtnClickListener = () => {
-    navigation.navigate('HomeNavigator');
+    console.log(`${id}, ${pw}`);
+
+    api
+      .post('/manager/signin', {
+        id,
+        password: pw,
+      })
+      .then((res: any) => {
+        const {accessToken, position} = res.data;
+
+        console.log(JSON.stringify(res, null, 2));
+        axios.defaults.headers['x-access-token'] = accessToken;
+        navigation.navigate('HomeNavigator');
+      })
+      .catch((err: any) => {
+        console.log(JSON.stringify(err));
+      })
+      .finally(() => {
+        setId('');
+        setPw('');
+      });
   };
 
   return (
@@ -126,9 +149,6 @@ function SignIn() {
             defaultValue={pw}
             isSecureInput
           />
-          <TouchableOpacity onPress={changeVisible}>
-            <Text>로그인 실패</Text>
-          </TouchableOpacity>
           <CustomBtn
             title={'로그인'}
             titleStyle={styles.btnTextStyle}
