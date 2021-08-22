@@ -124,6 +124,7 @@ function SignIn() {
             placeholder={'비밀번호'}
             inputChangeListener={(value: string) => setPw(value)}
             defaultValue={pw}
+            isSecureInput
           />
           <TouchableOpacity onPress={changeVisible}>
             <Text>로그인 실패</Text>
