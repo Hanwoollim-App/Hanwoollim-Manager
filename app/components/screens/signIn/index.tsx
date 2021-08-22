@@ -104,7 +104,6 @@ function SignIn() {
     setPw('');
   };
   const signInBtnClickListener = () => {
-    console.log(`${id}, ${pw}`);
 
     api
       .post('/manager/signin', {
@@ -115,7 +114,6 @@ function SignIn() {
         const {accessToken, position} = res.data;
 
         login(position);
-        console.log(JSON.stringify(res, null, 2));
         axios.defaults.headers['x-access-token'] = accessToken;
         navigation.navigate('HomeNavigator');
       })
