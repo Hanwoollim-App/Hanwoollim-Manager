@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {
   NavigationProp,
@@ -19,6 +19,7 @@ import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
 import api from '../../../utils/constant/api';
 
+import {LoginContext} from '../../../utils/context/LoginContext';
 
 const styles = StyleSheet.create({
   root: {
@@ -78,6 +79,7 @@ function SignIn() {
   const headerLogo = require('../../../assets/images/HanwoollimWhite.png');
   const [id, setId] = useState<string>();
   const [pw, setPw] = useState<string>();
+  const {login}: any = useContext(LoginContext);
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -108,6 +110,7 @@ function SignIn() {
       .then((res: any) => {
         const {accessToken, position} = res.data;
 
+        login(position);
         console.log(JSON.stringify(res, null, 2));
         axios.defaults.headers['x-access-token'] = accessToken;
         navigation.navigate('HomeNavigator');
