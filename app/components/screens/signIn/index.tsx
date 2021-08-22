@@ -117,6 +117,7 @@ function SignIn() {
       })
       .catch((err: any) => {
         console.log(JSON.stringify(err));
+        changeVisible();
       })
       .finally(() => {
         setId('');
