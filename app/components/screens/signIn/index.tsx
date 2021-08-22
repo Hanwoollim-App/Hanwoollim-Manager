@@ -5,7 +5,6 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
-import axios from 'axios';
 import {
   fontPercentage,
   heightPercentage,
@@ -104,7 +103,6 @@ function SignIn() {
     setPw('');
   };
   const signInBtnClickListener = () => {
-
     api
       .post('/manager/signin', {
         id,
@@ -113,8 +111,8 @@ function SignIn() {
       .then((res: any) => {
         const {accessToken, position} = res.data;
 
+        api.defaults.headers['x-access-token'] = accessToken;
         login(position);
-        axios.defaults.headers['x-access-token'] = accessToken;
         navigation.navigate('HomeNavigator');
       })
       .catch((err: any) => {
