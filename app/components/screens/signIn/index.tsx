@@ -99,6 +99,10 @@ function SignIn() {
     },
   ];
 
+  const cleanInput = () => {
+    setId('');
+    setPw('');
+  };
   const signInBtnClickListener = () => {
     console.log(`${id}, ${pw}`);
 
@@ -116,12 +120,8 @@ function SignIn() {
         navigation.navigate('HomeNavigator');
       })
       .catch((err: any) => {
-        console.log(JSON.stringify(err));
+        cleanInput();
         changeVisible();
-      })
-      .finally(() => {
-        setId('');
-        setPw('');
       });
   };
 
