@@ -1,12 +1,12 @@
 import React from 'react';
 import MainNavigator from './components/navigator/MainNavigator';
-import {LoginProvider} from './utils/context/LoginContext';
+import {UserInfoProvider} from './utils/context/UserInfoContext';
 
 function App() {
   return (
-    <LoginProvider>
+    <UserInfoProvider>
       <MainNavigator />
-    </LoginProvider>
+    </UserInfoProvider>
   );
 }
 

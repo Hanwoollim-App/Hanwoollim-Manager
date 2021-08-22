@@ -17,8 +17,7 @@ import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
 import api from '../../../utils/constant/api';
-
-import {LoginContext} from '../../../utils/context/LoginContext';
+import {UserInfoContext} from '../../../utils/context/UserInfoContext';
 
 const styles = StyleSheet.create({
   root: {
@@ -78,7 +77,7 @@ function SignIn() {
   const headerLogo = require('../../../assets/images/HanwoollimWhite.png');
   const [id, setId] = useState<string>();
   const [pw, setPw] = useState<string>();
-  const {login}: any = useContext(LoginContext);
+  const {setUser}: any = useContext(UserInfoContext);
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -112,7 +111,7 @@ function SignIn() {
         const {accessToken, position} = res.data;
 
         api.defaults.headers['x-access-token'] = accessToken;
-        login(position);
+        setUser(position);
         navigation.navigate('HomeNavigator');
       })
       .catch((err: any) => {
