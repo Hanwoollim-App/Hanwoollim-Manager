@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import React, {useState, useContext} from 'react';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {
   NavigationProp,
   ParamListBase,
@@ -16,6 +16,8 @@ import CustomBtn from '../../common/CustomBtn';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
+import api from '../../../utils/constant/api';
+import {UserInfoContext} from '../../../utils/context/UserInfoContext';
 
 const styles = StyleSheet.create({
   root: {
@@ -75,6 +77,7 @@ function SignIn() {
   const headerLogo = require('../../../assets/images/HanwoollimWhite.png');
   const [id, setId] = useState<string>();
   const [pw, setPw] = useState<string>();
+  const {setUser}: any = useContext(UserInfoContext);
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -94,8 +97,27 @@ function SignIn() {
     },
   ];
 
+  const cleanInput = () => {
+    setId('');
+    setPw('');
+  };
   const signInBtnClickListener = () => {
-    navigation.navigate('HomeNavigator');
+    api
+      .post('/manager/signin', {
+        id,
+        password: pw,
+      })
+      .then((res: any) => {
+        const {accessToken, position} = res.data;
+
+        api.defaults.headers['x-access-token'] = accessToken;
+        setUser(position);
+        navigation.navigate('HomeNavigator');
+      })
+      .catch((err: any) => {
+        cleanInput();
+        changeVisible();
+      });
   };
 
   return (
@@ -124,10 +146,8 @@ function SignIn() {
             placeholder={'비밀번호'}
             inputChangeListener={(value: string) => setPw(value)}
             defaultValue={pw}
+            isSecureInput
           />
-          <TouchableOpacity onPress={changeVisible}>
-            <Text>로그인 실패</Text>
-          </TouchableOpacity>
           <CustomBtn
             title={'로그인'}
             titleStyle={styles.btnTextStyle}
