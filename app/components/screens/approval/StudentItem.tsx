@@ -69,7 +69,17 @@ const styles = StyleSheet.create({
   },
 });
 
-function StudentItem({name, major, studentCode}: StudentInterface) {
+interface StudentItemInterface extends StudentInterface {
+  setApprovalList: React.Dispatch<
+    React.SetStateAction<StudentInterface[] | undefined>
+  >;
+}
+function StudentItem({
+  userName,
+  major,
+  studentId,
+  setApprovalList,
+}: StudentItemInterface) {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   const approveClickListener = () => {
@@ -98,10 +108,10 @@ function StudentItem({name, major, studentCode}: StudentInterface) {
       <View style={styles.list}>
         <View style={styles.item}>
           <View>
-            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.name}>{userName}</Text>
             <View style={styles.itemSection}>
               <Text style={styles.major}>{major}</Text>
-              <Text style={styles.studentCode}>{studentCode}</Text>
+              <Text style={styles.studentCode}>{studentId}</Text>
             </View>
           </View>
           <CustomBtn

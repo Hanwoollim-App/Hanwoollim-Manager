@@ -1,7 +1,7 @@
 interface StudentInterface {
-  name: string;
+  userName: string;
   major: string;
-  studentCode: string;
+  studentId: string;
 }
 
 export default StudentInterface;

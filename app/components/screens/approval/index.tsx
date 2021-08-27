@@ -9,6 +9,7 @@ import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
 import {MAIN_MENU} from '../../../utils/constant/main';
 import ScreenWrapper from '../../common/ScreenWrapper';
+import api from '../../../utils/constant/api';
 
 const styles = StyleSheet.create({
   searchSection: {
@@ -95,12 +96,13 @@ function Approval() {
           data={approvalList}
           renderItem={({item: student}: {item: StudentInterface}) => (
             <StudentItem
-              name={student.name}
+              userName={student.userName}
               major={student.major}
-              studentCode={student.studentCode}
+              studentId={student.studentId}
+              setApprovalList={setApprovalList}
             />
           )}
-          keyExtractor={(item) => item.studentCode}
+          keyExtractor={(item) => item.studentId}
           ItemSeparatorComponent={renderSeparator}
         />
       </View>
