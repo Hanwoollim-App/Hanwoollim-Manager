@@ -103,7 +103,7 @@ function SignIn() {
   };
   const signInBtnClickListener = () => {
     api
-      .post('/manager/signin', {
+      .post('/manager/signIn', {
         id,
         password: pw,
       })
