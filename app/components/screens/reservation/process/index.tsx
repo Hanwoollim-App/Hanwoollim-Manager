@@ -5,7 +5,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import {View, StyleSheet, Text, Platform} from 'react-native';
+import {View, StyleSheet, Text, Platform, ScrollView} from 'react-native';
 import CustomBtn from '../../../common/CustomBtn';
 import color from '../../../../utils/constant/common/design/Color';
 import {
@@ -13,6 +13,7 @@ import {
   PROCESS_TEXT,
   sectionItems,
   timeItems,
+  times,
   unitItems,
 } from '../../../../utils/constant/reservation/process/reservationProcess';
 import CustomModal from '../../../common/CustomModal';
@@ -174,6 +175,27 @@ const styles = StyleSheet.create({
     marginTop: heightPercentage(6),
     color: '#000000',
   },
+  scrollTime: {
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(9),
+    color: '#6d6d6d',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  scrollTimeBox: {
+    width: widthPercentage(19),
+    height: heightPercentage(11),
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#707070',
+    marginTop: heightPercentage(3),
+    marginLeft: widthPercentage(3),
+  },
+  alignCenter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
 // eslint-disable-next-line react/prop-types
@@ -196,7 +218,7 @@ function BandReservationProcess({route}) {
   ];
 
   // eslint-disable-next-line react/prop-types
-  const currentWeek: any = route.params;
+  const currentWeek: any = route.params.value;
 
   const [day, setDay] = useState<ValueType>('');
   const [dayOpen, setDayOpen] = useState<boolean>(false);
@@ -245,7 +267,24 @@ function BandReservationProcess({route}) {
 
         <View style={styles.contentContainer}>
           <View style={styles.timeBox}>
-            <Text> {`시간들이 들어갈 공간`}</Text>
+            <ScrollView horizontal={true}>
+              <View style={styles.alignCenter}>
+                {times.map((item) => {
+                  return (
+                    <>
+                      <View>
+                        <Text style={styles.scrollTime}>{item.label}</Text>
+                        <View style={styles.scrollTimeBox}></View>
+                      </View>
+                      <View>
+                        <Text style={styles.scrollTime}> </Text>
+                        <View style={styles.scrollTimeBox}></View>
+                      </View>
+                    </>
+                  );
+                })}
+              </View>
+            </ScrollView>
           </View>
           <View style={styles.UnitPicker}>
             <DropDownPicker

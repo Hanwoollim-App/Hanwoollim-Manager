@@ -101,17 +101,26 @@ function ReservationTimeTable() {
     setModalVisible(!modalVisible);
   };
 
+  const returnToTimeTable = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  const [open, setOpen] = useState<boolean>(false);
+  const [value, setValue] = useState<ValueType | null>(null);
+  const [items, setItems] = useState<Array<ItemType>>([
+    {label: '6.28~7.4', value: '6.28~7.4'},
+    {label: '7.4~7.11', value: '7.4~7.11'},
+    {label: '7.11~7.18', value: '7.11~7.18'},
+    {label: '7.18~7.25', value: '7.18~7.25'},
+  ]);
+
   const fixedBand = () => {
-    navigation.navigate('BandReservationProcess');
+    navigation.navigate('BandReservationProcess', {value});
     setModalVisible(!modalVisible);
   };
 
   const mentoring = () => {
-    navigation.navigate('MentoringReservationProcess');
-    setModalVisible(!modalVisible);
-  };
-
-  const returnToTimeTable = () => {
+    navigation.navigate('MentoringReservationProcess', {value});
     setModalVisible(!modalVisible);
   };
 
@@ -129,15 +138,6 @@ function ReservationTimeTable() {
       buttonClickListener: returnToTimeTable,
     },
   ];
-
-  const [open, setOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<ValueType | null>(null);
-  const [items, setItems] = useState<Array<ItemType>>([
-    {label: '6.28~7.4', value: '6.28~7.4'},
-    {label: '7.4~7.11', value: '7.4~7.11'},
-    {label: '7.11~7.18', value: '7.11~7.18'},
-    {label: '7.18~7.25', value: '7.18~7.25'},
-  ]);
 
   return (
     <ScreenWrapper headerTitle="예약하기">
