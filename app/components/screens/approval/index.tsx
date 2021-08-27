@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, TextInput, Image, FlatList} from 'react-native';
 import {
   fontPercentage,
@@ -70,6 +70,16 @@ const renderSeparator = () => {
 };
 
 function Approval() {
+  const [approvalList, setApprovalList] = useState<Array<StudentInterface>>();
+
+  useEffect(() => {
+    api
+      .get('/manager/approveNewMember')
+      .then((res) => {
+        setApprovalList(res.data);
+      })
+      .catch((err) => {});
+  }, []);
   return (
     <ScreenWrapper headerTitle={MAIN_MENU.Approval}>
       <View style={styles.searchSection}>
@@ -82,7 +92,7 @@ function Approval() {
       </View>
       <View style={styles.list}>
         <FlatList
-          data={tempData}
+          data={approvalList}
           renderItem={({item: student}: {item: StudentInterface}) => (
             <StudentItem
               name={student.name}
