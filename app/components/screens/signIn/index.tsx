@@ -16,7 +16,7 @@ import CustomBtn from '../../common/CustomBtn';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
-import api from '../../../utils/constant/api';
+import api, {postSignIn, setAuthToken} from '../../../utils/constant/api';
 import {UserInfoContext} from '../../../utils/context/UserInfoContext';
 
 const styles = StyleSheet.create({
@@ -102,15 +102,11 @@ function SignIn() {
     setPw('');
   };
   const signInBtnClickListener = () => {
-    api
-      .post('/manager/signIn', {
-        id,
-        password: pw,
-      })
+    postSignIn({id, pw})
       .then((res: any) => {
         const {accessToken, position} = res.data;
 
-        api.defaults.headers['x-access-token'] = accessToken;
+        setAuthToken(accessToken);
         setUser(position);
         navigation.navigate('HomeNavigator');
       })

@@ -9,7 +9,7 @@ import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
 import {MAIN_MENU} from '../../../utils/constant/main';
 import ScreenWrapper from '../../common/ScreenWrapper';
-import api from '../../../utils/constant/api';
+import {getApprovalList} from '../../../utils/constant/api';
 
 const styles = StyleSheet.create({
   searchSection: {
@@ -74,13 +74,11 @@ function Approval() {
   const [approvalList, setApprovalList] = useState<Array<StudentInterface>>();
 
   useEffect(() => {
-    api
-      .get('/manager/approveNewMember')
-      .then((res) => {
-        setApprovalList(res.data);
-      })
-      .catch((err) => {});
+    getApprovalList().then((res) => {
+      setApprovalList(res.data);
+    });
   }, []);
+
   return (
     <ScreenWrapper headerTitle={MAIN_MENU.Approval}>
       <View style={styles.searchSection}>

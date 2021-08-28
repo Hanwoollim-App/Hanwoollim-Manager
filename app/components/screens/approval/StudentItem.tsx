@@ -11,7 +11,7 @@ import {customBtnType} from '../../../utils/types/customModal';
 import CustomBtn from '../../common/CustomBtn';
 import color from '../../../utils/constant/common/design/Color';
 import {APPROVE_BTN, APPROVE_MODAL} from '../../../utils/constant/approve';
-import api from '../../../utils/constant/api';
+import api, {getApprovalList, postApproval} from '../../../utils/constant/api';
 
 const styles = StyleSheet.create({
   list: {
@@ -88,18 +88,10 @@ function StudentItem({
   };
 
   const approveModalClickListener = () => {
-    api
-      .post('/manager/approveNewMember', {studentId})
-      .then(() => {
-        setModalVisible(!modalVisible);
-        return api
-          .get('/manager/approveNewMember')
-          .then((res) => {
-            setApprovalList(res.data);
-          })
-          .catch(() => {});
-      })
-      .catch((err) => {});
+    postApproval(studentId).then(() => {
+      setModalVisible(!modalVisible);
+      return getApprovalList().then((res) => setApprovalList(res.data));
+    });
   };
 
   const modalBtn1: Array<customBtnType> = [
