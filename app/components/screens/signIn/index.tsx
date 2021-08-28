@@ -16,7 +16,7 @@ import CustomBtn from '../../common/CustomBtn';
 import CustomStatusBar from '../../common/CustomStatusBar';
 import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
-import api, {postSignIn, setAuthToken} from '../../../utils/constant/api';
+import {postSignIn, setAuthToken} from '../../../utils/constant/api';
 import {UserInfoContext} from '../../../utils/context/UserInfoContext';
 
 const styles = StyleSheet.create({

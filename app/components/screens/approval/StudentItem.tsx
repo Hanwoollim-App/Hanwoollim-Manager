@@ -11,7 +11,7 @@ import {customBtnType} from '../../../utils/types/customModal';
 import CustomBtn from '../../common/CustomBtn';
 import color from '../../../utils/constant/common/design/Color';
 import {APPROVE_BTN, APPROVE_MODAL} from '../../../utils/constant/approve';
-import api, {getApprovalList, postApproval} from '../../../utils/constant/api';
+import {getApprovalList, postApproval} from '../../../utils/constant/api';
 
 const styles = StyleSheet.create({
   list: {
