@@ -1,4 +1,4 @@
-import React, {memo, useState} from 'react';
+import React, {memo} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {
   fontPercentage,
@@ -6,11 +6,9 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import StudentInterface from '../../../utils/types/studentItem';
-import CustomModal from '../../common/CustomModal';
-import {customBtnType} from '../../../utils/types/customModal';
 import CustomBtn from '../../common/CustomBtn';
 import color from '../../../utils/constant/common/design/Color';
-import {APPROVE_BTN, APPROVE_MODAL} from '../../../utils/constant/approve';
+import {APPROVE_BTN} from '../../../utils/constant/approve';
 
 const styles = StyleSheet.create({
   list: {
@@ -69,39 +67,31 @@ const styles = StyleSheet.create({
   },
 });
 
-function StudentItem({name, major, studentCode}: StudentInterface) {
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
-
+interface StudentItemInterface extends StudentInterface {
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedId: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
+function StudentItem({
+  userName,
+  major,
+  studentId,
+  setModalVisible,
+  setSelectedId,
+}: StudentItemInterface) {
   const approveClickListener = () => {
-    setModalVisible(!modalVisible);
+    setModalVisible((prior) => !prior);
+    setSelectedId(studentId);
   };
-
-  const modalBtn1: Array<customBtnType> = [
-    {
-      buttonText: '네',
-      buttonClickListener: () => setModalVisible(!modalVisible),
-    },
-    {
-      buttonText: '취소',
-      buttonClickListener: () => setModalVisible(!modalVisible),
-    },
-  ];
 
   return (
     <View>
-      <CustomModal
-        mdVisible={modalVisible}
-        title={APPROVE_MODAL}
-        buttonList={modalBtn1}
-        titleSize={fontPercentage(16)}
-      />
       <View style={styles.list}>
         <View style={styles.item}>
           <View>
-            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.name}>{userName}</Text>
             <View style={styles.itemSection}>
               <Text style={styles.major}>{major}</Text>
-              <Text style={styles.studentCode}>{studentCode}</Text>
+              <Text style={styles.studentCode}>{studentId}</Text>
             </View>
           </View>
           <CustomBtn

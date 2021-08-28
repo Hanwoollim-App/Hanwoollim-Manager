@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, TextInput, Image, FlatList} from 'react-native';
 import {
   fontPercentage,
@@ -9,6 +9,10 @@ import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
 import {MAIN_MENU} from '../../../utils/constant/main';
 import ScreenWrapper from '../../common/ScreenWrapper';
+import {getApprovalList, postApproval} from '../../../utils/constant/api';
+import {customBtnType} from '../../../utils/types/customModal';
+import CustomModal from '../../common/CustomModal';
+import {APPROVE_MODAL} from '../../../utils/constant/approve';
 
 const styles = StyleSheet.create({
   searchSection: {
@@ -63,74 +67,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const tempData: Array<StudentInterface> = [
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '정재헌',
-    major: '기계공학과',
-    studentCode: '2019024357',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-];
-
 const searchIcon = require('../../../assets/images/searchIcon.png');
 
 const renderSeparator = () => {
@@ -138,8 +74,57 @@ const renderSeparator = () => {
 };
 
 function Approval() {
+  const [approvalList, setApprovalList] = useState<Array<StudentInterface>>();
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [selectedId, setSelectedId] = useState<string>();
+
+  const clearSelectedId = () => {
+    setSelectedId('');
+  };
+
+  useEffect(() => {
+    if (!modalVisible) {
+      getApprovalList().then((res) => {
+        setApprovalList(res.data);
+      });
+    }
+  }, [modalVisible]);
+
+  const approveModalClickListener = () => {
+    selectedId &&
+      postApproval(selectedId)
+        .then(() => {
+          setModalVisible(!modalVisible);
+          clearSelectedId();
+        })
+        .catch(() => {
+          setModalVisible(!modalVisible);
+          clearSelectedId();
+        });
+  };
+
+  const modalBtn1: Array<customBtnType> = [
+    {
+      buttonText: '네',
+      buttonClickListener: approveModalClickListener,
+    },
+    {
+      buttonText: '취소',
+      buttonClickListener: () => {
+        setModalVisible(!modalVisible);
+        clearSelectedId();
+      },
+    },
+  ];
+
   return (
     <ScreenWrapper headerTitle={MAIN_MENU.Approval}>
+      <CustomModal
+        mdVisible={modalVisible}
+        title={APPROVE_MODAL}
+        buttonList={modalBtn1}
+        titleSize={fontPercentage(16)}
+      />
       <View style={styles.searchSection}>
         <TextInput
           style={styles.searchTextInput}
@@ -150,15 +135,17 @@ function Approval() {
       </View>
       <View style={styles.list}>
         <FlatList
-          data={tempData}
+          data={approvalList}
           renderItem={({item: student}: {item: StudentInterface}) => (
             <StudentItem
-              name={student.name}
+              userName={student.userName}
               major={student.major}
-              studentCode={student.studentCode}
+              studentId={student.studentId}
+              setModalVisible={setModalVisible}
+              setSelectedId={setSelectedId}
             />
           )}
-          keyExtractor={(item) => item.studentCode}
+          keyExtractor={(item) => item.studentId}
           ItemSeparatorComponent={renderSeparator}
         />
       </View>
