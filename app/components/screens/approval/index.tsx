@@ -9,7 +9,10 @@ import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
 import {MAIN_MENU} from '../../../utils/constant/main';
 import ScreenWrapper from '../../common/ScreenWrapper';
-import {getApprovalList} from '../../../utils/constant/api';
+import {getApprovalList, postApproval} from '../../../utils/constant/api';
+import {customBtnType} from '../../../utils/types/customModal';
+import CustomModal from '../../common/CustomModal';
+import {APPROVE_MODAL} from '../../../utils/constant/approve';
 
 const styles = StyleSheet.create({
   searchSection: {
@@ -73,6 +76,11 @@ const renderSeparator = () => {
 function Approval() {
   const [approvalList, setApprovalList] = useState<Array<StudentInterface>>();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [selectedId, setSelectedId] = useState<string>();
+
+  const clearSelectedId = () => {
+    setSelectedId('');
+  };
 
   useEffect(() => {
     if (!modalVisible) {
@@ -82,8 +90,41 @@ function Approval() {
     }
   }, [modalVisible]);
 
+  const approveModalClickListener = () => {
+    selectedId &&
+      postApproval(selectedId)
+        .then(() => {
+          setModalVisible(!modalVisible);
+          clearSelectedId();
+        })
+        .catch(() => {
+          setModalVisible(!modalVisible);
+          clearSelectedId();
+        });
+  };
+
+  const modalBtn1: Array<customBtnType> = [
+    {
+      buttonText: '네',
+      buttonClickListener: approveModalClickListener,
+    },
+    {
+      buttonText: '취소',
+      buttonClickListener: () => {
+        setModalVisible(!modalVisible);
+        clearSelectedId();
+      },
+    },
+  ];
+
   return (
     <ScreenWrapper headerTitle={MAIN_MENU.Approval}>
+      <CustomModal
+        mdVisible={modalVisible}
+        title={APPROVE_MODAL}
+        buttonList={modalBtn1}
+        titleSize={fontPercentage(16)}
+      />
       <View style={styles.searchSection}>
         <TextInput
           style={styles.searchTextInput}
@@ -100,9 +141,8 @@ function Approval() {
               userName={student.userName}
               major={student.major}
               studentId={student.studentId}
-              setApprovalList={setApprovalList}
-              modalVisible={modalVisible}
               setModalVisible={setModalVisible}
+              setSelectedId={setSelectedId}
             />
           )}
           keyExtractor={(item) => item.studentId}

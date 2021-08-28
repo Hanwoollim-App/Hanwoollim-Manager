@@ -6,12 +6,9 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import StudentInterface from '../../../utils/types/studentItem';
-import CustomModal from '../../common/CustomModal';
-import {customBtnType} from '../../../utils/types/customModal';
 import CustomBtn from '../../common/CustomBtn';
 import color from '../../../utils/constant/common/design/Color';
-import {APPROVE_BTN, APPROVE_MODAL} from '../../../utils/constant/approve';
-import {postApproval} from '../../../utils/constant/api';
+import {APPROVE_BTN} from '../../../utils/constant/approve';
 
 const styles = StyleSheet.create({
   list: {
@@ -71,53 +68,23 @@ const styles = StyleSheet.create({
 });
 
 interface StudentItemInterface extends StudentInterface {
-  setApprovalList: React.Dispatch<
-    React.SetStateAction<StudentInterface[] | undefined>
-  >;
-  modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedId: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 function StudentItem({
   userName,
   major,
   studentId,
-  setApprovalList,
-  modalVisible,
   setModalVisible,
+  setSelectedId,
 }: StudentItemInterface) {
   const approveClickListener = () => {
-    setModalVisible(!modalVisible);
+    setModalVisible((prior) => !prior);
+    setSelectedId(studentId);
   };
-
-  const approveModalClickListener = () => {
-    postApproval(studentId)
-      .then(() => {
-        setModalVisible(!modalVisible);
-      })
-      .catch(() => {
-        setModalVisible(!modalVisible);
-      });
-  };
-
-  const modalBtn1: Array<customBtnType> = [
-    {
-      buttonText: '네',
-      buttonClickListener: approveModalClickListener,
-    },
-    {
-      buttonText: '취소',
-      buttonClickListener: () => setModalVisible(!modalVisible),
-    },
-  ];
 
   return (
     <View>
-      <CustomModal
-        mdVisible={modalVisible}
-        title={APPROVE_MODAL}
-        buttonList={modalBtn1}
-        titleSize={fontPercentage(16)}
-      />
       <View style={styles.list}>
         <View style={styles.item}>
           <View>
