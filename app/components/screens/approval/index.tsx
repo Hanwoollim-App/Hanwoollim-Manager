@@ -72,12 +72,15 @@ const renderSeparator = () => {
 
 function Approval() {
   const [approvalList, setApprovalList] = useState<Array<StudentInterface>>();
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    getApprovalList().then((res) => {
-      setApprovalList(res.data);
-    });
-  }, []);
+    if (!modalVisible) {
+      getApprovalList().then((res) => {
+        setApprovalList(res.data);
+      });
+    }
+  }, [modalVisible]);
 
   return (
     <ScreenWrapper headerTitle={MAIN_MENU.Approval}>
@@ -98,6 +101,8 @@ function Approval() {
               major={student.major}
               studentId={student.studentId}
               setApprovalList={setApprovalList}
+              modalVisible={modalVisible}
+              setModalVisible={setModalVisible}
             />
           )}
           keyExtractor={(item) => item.studentId}

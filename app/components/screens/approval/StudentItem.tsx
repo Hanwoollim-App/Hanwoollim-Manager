@@ -1,4 +1,4 @@
-import React, {memo, useState} from 'react';
+import React, {memo} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {
   fontPercentage,
@@ -11,7 +11,7 @@ import {customBtnType} from '../../../utils/types/customModal';
 import CustomBtn from '../../common/CustomBtn';
 import color from '../../../utils/constant/common/design/Color';
 import {APPROVE_BTN, APPROVE_MODAL} from '../../../utils/constant/approve';
-import {getApprovalList, postApproval} from '../../../utils/constant/api';
+import {postApproval} from '../../../utils/constant/api';
 
 const styles = StyleSheet.create({
   list: {
@@ -74,24 +74,29 @@ interface StudentItemInterface extends StudentInterface {
   setApprovalList: React.Dispatch<
     React.SetStateAction<StudentInterface[] | undefined>
   >;
+  modalVisible: boolean;
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 function StudentItem({
   userName,
   major,
   studentId,
   setApprovalList,
+  modalVisible,
+  setModalVisible,
 }: StudentItemInterface) {
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
-
   const approveClickListener = () => {
     setModalVisible(!modalVisible);
   };
 
   const approveModalClickListener = () => {
-    postApproval(studentId).then(() => {
-      setModalVisible(!modalVisible);
-      return getApprovalList().then((res) => setApprovalList(res.data));
-    });
+    postApproval(studentId)
+      .then(() => {
+        setModalVisible(!modalVisible);
+      })
+      .catch(() => {
+        setModalVisible(!modalVisible);
+      });
   };
 
   const modalBtn1: Array<customBtnType> = [
