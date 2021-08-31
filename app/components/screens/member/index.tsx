@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TextInput, Image, FlatList} from 'react-native';
 import {
   NavigationProp,
@@ -20,6 +20,9 @@ import StudentItem from './StudentItem';
 import ScreenWrapper from '../../common/ScreenWrapper';
 import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
+
+import {getUserList, postManageUser} from '../../../utils/constant/api';
+import {APPOINT_MANAGER, DELETE_USER} from '../../../utils/constant/member';
 
 const styles = StyleSheet.create({
   root: {
@@ -150,6 +153,19 @@ function Member() {
     navigation.navigate('Login');
   };
 
+  const manageUser = (type: number) => {
+    selectedUser &&
+      postManageUser(type, selectedUser.studentId)
+        .then((res) => {
+          console.log(res);
+          returnToMain();
+          setSuccessModal(!successModal);
+        })
+        .catch(() => {
+          returnToMain();
+          setFail(!fail);
+        });
+  };
 
   const modalBtn: Array<customBtnType> = [
     {
@@ -184,6 +200,7 @@ function Member() {
   const managerModalBtn: Array<customBtnType> = [
     {
       buttonText: '네',
+      buttonClickListener: () => manageUser(APPOINT_MANAGER),
     },
     {
       buttonText: '취소',
@@ -194,6 +211,7 @@ function Member() {
   const deleteUserModalBtn: Array<customBtnType> = [
     {
       buttonText: '네',
+      buttonClickListener: () => manageUser(DELETE_USER),
     },
     {
       buttonText: '취소',
@@ -208,6 +226,15 @@ function Member() {
     },
   ];
 
+  useEffect(() => {
+    getUserList()
+      .then((res) => {
+        setUserList(res.data);
+      })
+      .catch(() => {
+        setFail(!fail);
+      });
+  }, [managerModal, deleteUserModal]);
 
   return (
     <ScreenWrapper headerTitle={'회원 목록'}>
