@@ -23,22 +23,20 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   major: {
-    width: widthPercentage(55),
     height: heightPercentage(17),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
     color: '#808080',
   },
   studentCode: {
-    width: widthPercentage(67),
     height: heightPercentage(17),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
-    marginLeft: widthPercentage(185),
     color: '#808080',
   },
   itemSection: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 
@@ -67,7 +65,9 @@ function StudentItem({
     <View>
       <TouchableOpacity onPress={studentItemClickListener}>
         <View style={styles.item}>
-          <Text style={styles.name}>{name}</Text>
+          <Text style={[styles.name, position === 'admin' && {color: 'blue'}]}>
+            {userName}
+          </Text>
           <View style={styles.itemSection}>
             <Text style={styles.major}>{major}</Text>
             <Text style={styles.studentCode}>{studentId}</Text>
