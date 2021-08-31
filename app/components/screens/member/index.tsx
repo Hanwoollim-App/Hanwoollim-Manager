@@ -17,6 +17,7 @@ import {
 } from '../../../utils/constant/common/design/Responsive';
 import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
+import ScreenWrapper from '../../common/ScreenWrapper';
 
 const styles = StyleSheet.create({
   root: {
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
   },
   searchSection: {
     marginTop: heightPercentage(20),
-    marginLeft: widthPercentage(20),
     width: widthPercentage(335),
     height: heightPercentage(58),
     flexDirection: 'row',
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(23),
   },
   redSquare: {
     width: widthPercentage(10),
@@ -91,7 +90,6 @@ const styles = StyleSheet.create({
     borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(20),
   },
   itemSeparator: {
     marginLeft: widthPercentage(14),
@@ -106,20 +104,11 @@ const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
 };
 
-const icon = <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />;
-
 function Member() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   return (
-    <>
-      <CustomStatusBar />
-      <View style={styles.root}>
-        <CustomHeader
-          headerTitle={HEADER_TITLE.Member}
-          headerLeft
-          leftIcon={icon}
-          leftIconClickListener={navigation.goBack}
+    <ScreenWrapper headerTitle={'회원 목록'}>
         />
         <View style={styles.searchSection}>
           <TextInput
@@ -152,7 +141,7 @@ function Member() {
           />
         </View>
       </View>
-    </>
+    </ScreenWrapper>
   );
 }
 
