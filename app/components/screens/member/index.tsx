@@ -100,59 +100,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#c2c2c2',
   },
 });
-
-const tempData: Array<StudentInterface> = [
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '정재헌',
-    major: '기계공학과',
-    studentCode: '2019024357',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-  {
-    name: '조성진',
-    major: '산업공학과',
-    studentCode: '2021086326',
-  },
-];
 const searchIcon = require('../../../assets/images/searchIcon.png');
 
 const renderSeparator = () => {
