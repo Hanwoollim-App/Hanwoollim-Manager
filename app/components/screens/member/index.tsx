@@ -108,6 +108,9 @@ const renderSeparator = () => {
 
 function Member() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const [userList, setUserList] = useState<Array<StudentInterface>>();
+  const [selectedUser, setSelectedUser] = useState<StudentInterface>();
+
   const [modal, setModal] = useState<boolean>(false);
   const [chairmanModal, setChairmanModal] = useState<boolean>(false);
   const [managerModal, setManagerModal] = useState<boolean>(false);
@@ -228,6 +231,7 @@ function Member() {
         <CustomModal
           mdVisible={deleteUserModal}
           title={'이 회원을 탈퇴 처리하시겠습니까?'}
+          subtitle={`${selectedUser.userName} / ${selectedUser.major}`}
           buttonList={deleteUserModalBtn}
         />
       )}
@@ -253,6 +257,21 @@ function Member() {
         <View style={styles.blackSquare} />
         <Text style={styles.roleText}>일반 부원</Text>
       </View>
+      <View style={styles.list}>
+        <FlatList
+          data={userList}
+          renderItem={({item: student}) => (
+            <StudentItem
+              userName={student.userName}
+              major={student.major}
+              studentId={student.studentId}
+              position={student.position}
+              setModalVisible={setModal}
+              setSelectedUser={setSelectedUser}
+            />
+          )}
+          keyExtractor={(item) => item.studentId}
+          ItemSeparatorComponent={renderSeparator}
         />
       </View>
     </ScreenWrapper>

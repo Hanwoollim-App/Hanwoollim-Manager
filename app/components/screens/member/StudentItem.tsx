@@ -42,9 +42,25 @@ const styles = StyleSheet.create({
   },
 });
 
-function StudentItem({name, major, studentCode}: StudentInterface) {
+interface StudentItemInterface extends StudentInterface {
+  position?: string;
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedUser: React.Dispatch<
+    React.SetStateAction<StudentInterface | undefined>
+  >;
+}
 
+function StudentItem({
+  userName,
+  major,
+  studentId,
+  position,
+  setModalVisible,
+  setSelectedUser,
+}: StudentItemInterface) {
   const studentItemClickListener = () => {
+    setModalVisible((prior) => !prior);
+    setSelectedUser({userName, major, studentId, position});
   };
 
   return (
@@ -54,7 +70,7 @@ function StudentItem({name, major, studentCode}: StudentInterface) {
           <Text style={styles.name}>{name}</Text>
           <View style={styles.itemSection}>
             <Text style={styles.major}>{major}</Text>
-            <Text style={styles.studentCode}>{studentCode}</Text>
+            <Text style={styles.studentCode}>{studentId}</Text>
           </View>
         </View>
       </TouchableOpacity>
