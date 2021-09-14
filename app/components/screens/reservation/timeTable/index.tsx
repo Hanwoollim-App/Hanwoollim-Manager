@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import {
   TouchableOpacity,
   View,
@@ -11,6 +11,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import {
   NavigationProp,
   ParamListBase,
+  useFocusEffect,
   useNavigation,
 } from '@react-navigation/native';
 import {
@@ -19,7 +20,6 @@ import {
   widthPercentage,
 } from '../../../../utils/constant/common/design/Responsive';
 import ScreenWrapper from '../../../common/ScreenWrapper';
-import {ItemType, ValueType} from '../../../../utils/types/dropDown';
 import TimeTable from './timeTable';
 import {customBtnType} from '../../../../utils/types/customModal';
 import CustomModal from '../../../common/CustomModal';
@@ -27,6 +27,7 @@ import {
   weekItem,
   weekItemInterface,
 } from '../../../../utils/constant/reservation';
+import {getReservation} from '../../../../utils/constant/api';
 import scheduleType from '../../../../utils/types/reservation';
 
 const styles = StyleSheet.create({
@@ -107,7 +108,9 @@ function ReservationTimeTable() {
   const [schedule, setSchedule] = useState<Array<Array<scheduleType>>>();
 
   const reserveBtnListener = () => {
-    setModalVisible(!modalVisible);
+    if (weekNum !== null) {
+      setModalVisible(!modalVisible);
+    }
   };
 
   const returnToTimeTable = () => {
@@ -115,13 +118,23 @@ function ReservationTimeTable() {
   };
 
   const fixedBand = () => {
-    navigation.navigate('BandReservationProcess', {value});
     setModalVisible(!modalVisible);
+    if (weekNum !== null) {
+      navigation.navigate('BandReservationProcess', {
+        currentWeek: date[weekNum].label,
+        monday: date[weekNum].monday,
+      });
+    }
   };
 
   const mentoring = () => {
-    navigation.navigate('MentoringReservationProcess', {value});
     setModalVisible(!modalVisible);
+    if (weekNum !== null) {
+      navigation.navigate('MentoringReservationProcess', {
+        currentWeek: date[weekNum].label,
+        monday: date[weekNum].monday,
+      });
+    }
   };
 
   const modalBtn: Array<customBtnType> = [
@@ -138,6 +151,17 @@ function ReservationTimeTable() {
       buttonClickListener: returnToTimeTable,
     },
   ];
+
+  useFocusEffect(
+    useCallback(() => {
+      if (weekNum !== null) {
+        console.log(date[weekNum].monday);
+        getReservation(date[weekNum].monday).then((res) => {
+          setSchedule(res.data);
+        });
+      }
+    }, [weekNum]),
+  );
 
   return (
     <ScreenWrapper headerTitle="예약하기">
@@ -167,9 +191,7 @@ function ReservationTimeTable() {
           <Text style={styles.reserveBtnText}>예약하기</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView>
-        <TimeTable />
-      </ScrollView>
+      <ScrollView>{schedule && <TimeTable schedule={schedule} />}</ScrollView>
     </ScreenWrapper>
   );
 }
