@@ -1,13 +1,13 @@
 import {Item} from 'react-native-picker-select';
 
 export const dayItems: Array<Item> = [
-  {label: '월요일', value: {itemValue: 'day', num: 1}},
-  {label: '화요일', value: {itemValue: 'day', num: 2}},
-  {label: '수요일', value: {itemValue: 'day', num: 3}},
-  {label: '목요일', value: {itemValue: 'day', num: 4}},
-  {label: '금요일', value: {itemValue: 'day', num: 5}},
-  {label: '토요일', value: {itemValue: 'day', num: 6}},
-  {label: '일요일', value: {itemValue: 'day', num: 7}},
+  {label: '월요일', value: 'MON'},
+  {label: '화요일', value: 'TUE'},
+  {label: '수요일', value: 'WEN'},
+  {label: '목요일', value: 'THUR'},
+  {label: '금요일', value: 'FRI'},
+  {label: '토요일', value: 'SAT'},
+  {label: '일요일', value: 'SUN'},
 ];
 
 export const unitItems: Array<Item> = [
@@ -16,12 +16,12 @@ export const unitItems: Array<Item> = [
 ];
 
 export const sectionItems: Array<Item> = [
-  {label: '기타1', value: {itemValue: 'session', num: 1}},
-  {label: '기타2', value: {itemValue: 'session', num: 2}},
-  {label: '베이스', value: {itemValue: 'session', num: 3}},
-  {label: '드럼', value: {itemValue: 'session', num: 4}},
-  {label: '건반', value: {itemValue: 'session', num: 5}},
-  {label: '보컬', value: {itemValue: 'session', num: 6}},
+  {label: '기타1', value: 1},
+  {label: '기타2', value: 2},
+  {label: '베이스', value: 3},
+  {label: '드럼', value: 4},
+  {label: '건반', value: 5},
+  {label: '보컬', value: 6},
 ];
 
 export const timeItems: Array<Item> = [];
