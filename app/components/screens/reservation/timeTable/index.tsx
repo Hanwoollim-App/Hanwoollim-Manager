@@ -23,6 +23,11 @@ import {ItemType, ValueType} from '../../../../utils/types/dropDown';
 import TimeTable from './timeTable';
 import {customBtnType} from '../../../../utils/types/customModal';
 import CustomModal from '../../../common/CustomModal';
+import {
+  weekItem,
+  weekItemInterface,
+} from '../../../../utils/constant/reservation';
+import scheduleType from '../../../../utils/types/reservation';
 
 const styles = StyleSheet.create({
   titleBlock: {
@@ -96,6 +101,10 @@ const styles = StyleSheet.create({
 function ReservationTimeTable() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [date, setDate] = useState<Array<weekItemInterface>>(weekItem);
+  const [weekNum, setWeekNum] = useState<number | null>(null);
+  const [schedule, setSchedule] = useState<Array<Array<scheduleType>>>();
 
   const reserveBtnListener = () => {
     setModalVisible(!modalVisible);
@@ -104,15 +113,6 @@ function ReservationTimeTable() {
   const returnToTimeTable = () => {
     setModalVisible(!modalVisible);
   };
-
-  const [open, setOpen] = useState<boolean>(false);
-  const [value, setValue] = useState<ValueType | null>(null);
-  const [items, setItems] = useState<Array<ItemType>>([
-    {label: '6.28~7.4', value: '6.28~7.4'},
-    {label: '7.4~7.11', value: '7.4~7.11'},
-    {label: '7.11~7.18', value: '7.11~7.18'},
-    {label: '7.18~7.25', value: '7.18~7.25'},
-  ]);
 
   const fixedBand = () => {
     navigation.navigate('BandReservationProcess', {value});
@@ -150,11 +150,11 @@ function ReservationTimeTable() {
         <View>
           <DropDownPicker
             open={open}
-            value={value}
-            items={items}
+            value={weekNum}
+            items={date}
             setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
+            setValue={setWeekNum}
+            setItems={setDate}
             style={styles.dropDown}
             textStyle={styles.dropDownText}
             dropDownContainerStyle={styles.dropDownContainer}
