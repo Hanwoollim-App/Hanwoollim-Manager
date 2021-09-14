@@ -28,6 +28,29 @@ export function getApprovalList() {
 export function postApproval(studentId: string) {
   return api.post('/manager/approveNewMember', {studentId});
 }
+
+export function getReservation(startDate: string) {
+  return api.get('/manager/reservation', {params: {startDate}});
+}
+
+export function postReservation(
+  startDate: string,
+  reservationType: string,
+  day: string,
+  startTime: number,
+  endTime: number,
+  session1: string,
+  session2: string,
+) {
+  const requestData = {
+    startDate,
+    reservationType,
+    [day]: {startTime, endTime, session1, session2},
+  };
+
+  return api.post('/manager/reservation', requestData);
+}
+
 export function getUserList() {
   return api.get('/manager/manageList');
 }
