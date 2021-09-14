@@ -9,6 +9,7 @@ import color from '../../../../utils/constant/common/design/Color';
 import CustomModal from '../../../common/CustomModal';
 import {customBtnType} from '../../../../utils/types/customModal';
 import TIMETABLE_SIZE from '../../../../utils/constant/reservation';
+import scheduleType from '../../../../utils/types/reservation';
 
 const styles = StyleSheet.create({
   timeTable: {
@@ -79,7 +80,10 @@ const styles = StyleSheet.create({
   },
 });
 
-function TimeTable() {
+interface TimeTableInterface {
+  schedule: Array<Array<scheduleType>>;
+}
+function TimeTable({schedule}: TimeTableInterface) {
   const generateTimes = (startTime: number, endTime: number) => {
     const times = [];
 
@@ -137,25 +141,12 @@ function TimeTable() {
     return TIMETABLE_SIZE.defaultBoxWidth * day + TIMETABLE_SIZE.ColumnsHeight;
   };
 
-  const yPosGenerator = (time: string): number => {
-    const hours = parseInt(time.slice(0, 2), 10);
-    const minutes = parseInt(time.slice(3), 10) / 30;
-
-    return (
-      hours * TIMETABLE_SIZE.defaultBoxHeight +
-      minutes * (TIMETABLE_SIZE.defaultBoxHeight / 2) +
-      TIMETABLE_SIZE.IndexWidth
-    );
+  const yPosGenerator = (time: number): number => {
+    return time * TIMETABLE_SIZE.defaultBoxHeight + TIMETABLE_SIZE.IndexWidth;
   };
 
-  const heightGenerator = (start: string, end: string) => {
-    const isHalfHour = Math.abs(
-      parseInt(start.slice(3), 10) - parseInt(end.slice(3), 10),
-    );
-
-    return isHalfHour
-      ? TIMETABLE_SIZE.defaultBoxHeight / 2
-      : TIMETABLE_SIZE.defaultBoxHeight;
+  const heightGenerator = (start: number, end: number) => {
+    return (end - start) * TIMETABLE_SIZE.defaultBoxHeight;
   };
 
   const [mdVisible, setMdVisible] = React.useState(false);
@@ -198,26 +189,28 @@ function TimeTable() {
           ))}
         </View>
       ))}
-      {tempSchedule.map((day, i) =>
+      {schedule.map((day, i) =>
         day.map((reserve, k) => (
           <TouchableOpacity
-            key={reserve.startTime}
+            key={reserve.starttime}
             onPress={() => {
               changeVisible();
               setMdTitle(reserve.name);
-              setMdText(reserve.session);
+              setMdText(`${reserve.session1}, ${reserve.session2}`);
             }}
             style={[
               styles.reserveBox,
               {
-                height: heightGenerator(reserve.startTime, reserve.endTime),
+                height: heightGenerator(reserve.starttime, reserve.endtime),
                 backgroundColor: colorGenerator(i * 10 + k),
-                top: yPosGenerator(reserve.startTime),
+                top: yPosGenerator(reserve.starttime),
                 left: xPosGenerator(i),
               },
             ]}>
             <Text style={styles.reserveTitle}>{reserve.name}</Text>
-            <Text style={styles.reserveText}>{reserve.session}</Text>
+            <Text style={styles.reserveText}>
+              {reserve.session1}, {reserve.session2}
+            </Text>
           </TouchableOpacity>
         )),
       )}
