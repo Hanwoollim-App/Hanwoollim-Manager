@@ -211,3 +211,8 @@ export const dateDataCalculation = (date: Date, time: number) => {
   ret.setMilliseconds(0);
   return ret;
 };
+
+export const RESERVATION_TYPE = {
+  Together: 'Together',
+  Mentoring: 'Mentoring',
+};

@@ -11,10 +11,9 @@ import color from '../../../../utils/constant/common/design/Color';
 import {
   dayItems,
   PROCESS_TEXT,
-  sectionItems,
+  RESERVATION_TYPE,
   timeItems,
   times,
-  unitItems,
 } from '../../../../utils/constant/reservation/process/reservationProcess';
 import CustomModal from '../../../common/CustomModal';
 import {
@@ -25,6 +24,7 @@ import {
 import ScreenWrapper from '../../../common/ScreenWrapper';
 import {customBtnType} from '../../../../utils/types/customModal';
 import {ItemType} from '../../../../utils/types/dropDown';
+import {postReservation} from '../../../../utils/constant/api';
 
 const styles = StyleSheet.create({
   root: {
@@ -242,6 +242,27 @@ function BandReservationProcess({route}: any) {
   const [endTimeOpen, setEndTimeOpen] = useState<boolean>(false);
   const [endTimeItem, setEndTimeItems] = useState<Array<ItemType>>(timeItems);
 
+  const submitBtnClickListener = () => {
+    if (startTime !== null && endTime !== null) {
+      postReservation(
+        monday,
+        RESERVATION_TYPE.Together,
+        day,
+        startTime,
+        endTime,
+        '',
+        '',
+      )
+        .then((res) => {
+          console.log(JSON.stringify(res, null, 2));
+          changeVisible();
+        })
+        .catch((err) => {
+          console.log(JSON.stringify(err, null, 2));
+        });
+    }
+  };
+
   useEffect(() => {
     if (startTime !== null) {
       const index = timeItems.findIndex((i) => i.value === startTime);
@@ -340,7 +361,7 @@ function BandReservationProcess({route}: any) {
               title={PROCESS_TEXT.SUBMIT}
               btnStyle={styles.submit__btn}
               titleStyle={styles.submit__text}
-              onClickListener={changeVisible}
+              onClickListener={submitBtnClickListener}
             />
           </View>
         </View>
