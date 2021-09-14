@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   NavigationProp,
   ParamListBase,
@@ -24,7 +24,7 @@ import {
 } from '../../../../utils/constant/common/design/Responsive';
 import ScreenWrapper from '../../../common/ScreenWrapper';
 import {customBtnType} from '../../../../utils/types/customModal';
-import {ItemType, ValueType} from '../../../../utils/types/dropDown';
+import {ItemType} from '../../../../utils/types/dropDown';
 
 const styles = StyleSheet.create({
   root: {
@@ -62,7 +62,18 @@ const styles = StyleSheet.create({
       android: {},
     }),
   },
-  reservationTimePicker: {
+  startTimePicker: {
+    width: '100%',
+    height: heightPercentage(46),
+    marginTop: heightPercentage(20),
+    ...Platform.select({
+      ios: {
+        zIndex: 90,
+      },
+      android: {},
+    }),
+  },
+  endTimePicker: {
     width: '100%',
     height: heightPercentage(46),
     marginTop: heightPercentage(20),
@@ -198,8 +209,9 @@ const styles = StyleSheet.create({
   },
 });
 
-// eslint-disable-next-line react/prop-types
-function BandReservationProcess({route}) {
+function BandReservationProcess({route}: any) {
+  const {currentWeek, monday} = route.params;
+
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -217,25 +229,30 @@ function BandReservationProcess({route}) {
     },
   ];
 
-  // eslint-disable-next-line react/prop-types
-  const currentWeek: any = route.params.value;
-
-  const [day, setDay] = useState<ValueType>('');
+  const [day, setDay] = useState<string>('');
   const [dayOpen, setDayOpen] = useState<boolean>(false);
   const [dayItem, setDayItems] = useState<Array<ItemType>>(dayItems);
 
-  const [unit, setUnit] = useState<ValueType>('');
-  const [unitOpen, setUnitOpen] = useState<boolean>(false);
-  const [unitItem, setUnitItems] = useState<Array<ItemType>>(unitItems);
+  const [startTime, setStartTime] = useState<number | null>(null);
+  const [startTimeOpen, setStartTimeOpen] = useState<boolean>(false);
+  const [startTimeItem, setStartTimeItems] =
+    useState<Array<ItemType>>(timeItems);
 
-  const [time, setTime] = useState<ValueType>('');
-  const [timeOpen, setTimeOpen] = useState<boolean>(false);
-  const [timeItem, setTimeItems] = useState<Array<ItemType>>(timeItems);
+  const [endTime, setEndTime] = useState<number | null>(null);
+  const [endTimeOpen, setEndTimeOpen] = useState<boolean>(false);
+  const [endTimeItem, setEndTimeItems] = useState<Array<ItemType>>(timeItems);
 
-  const [section, setSection] = useState<ValueType[]>([]);
-  const [sectionOpen, setSectionOpen] = useState<boolean>(false);
-  const [sectionItem, setSectionItems] =
-    useState<Array<ItemType>>(sectionItems);
+  useEffect(() => {
+    if (startTime !== null) {
+      const index = timeItems.findIndex((i) => i.value === startTime);
+
+      setEndTimeItems(timeItems.slice(index + 1));
+    }
+  }, [startTime]);
+
+  useEffect(() => {
+    console.log(startTime);
+  }, [startTime]);
 
   return (
     <ScreenWrapper headerTitle="고정합주 예약하기">
@@ -286,58 +303,36 @@ function BandReservationProcess({route}) {
               </View>
             </ScrollView>
           </View>
-          <View style={styles.UnitPicker}>
+          <View style={styles.startTimePicker}>
             <DropDownPicker
-              open={unitOpen}
-              value={unit}
-              items={unitItem}
-              setOpen={setUnitOpen}
-              setValue={setUnit}
-              setItems={setUnitItems}
+              open={startTimeOpen}
+              value={startTime}
+              items={startTimeItem}
+              setOpen={setStartTimeOpen}
+              setValue={setStartTime}
+              setItems={setStartTimeItems}
               style={styles.dropDown2}
               textStyle={styles.dropDownText}
               dropDownContainerStyle={styles.dropDownContainer}
               placeholderStyle={styles.dropDownPlaceHolder}
-              placeholder={PROCESS_TEXT.UNIT}
+              placeholder={PROCESS_TEXT.START}
               zIndex={9000}
             />
           </View>
-          <View style={styles.reservationTimePicker}>
+          <View style={styles.endTimePicker}>
             <DropDownPicker
-              open={timeOpen}
-              value={time}
-              items={timeItem}
-              setOpen={setTimeOpen}
-              setValue={setTime}
-              setItems={setTimeItems}
+              open={endTimeOpen}
+              value={endTime}
+              items={endTimeItem}
+              setOpen={setEndTimeOpen}
+              setValue={setEndTime}
+              setItems={setEndTimeItems}
               style={styles.dropDown2}
               textStyle={styles.dropDownText}
               dropDownContainerStyle={styles.dropDownContainer}
               placeholderStyle={styles.dropDownPlaceHolder}
-              placeholder={PROCESS_TEXT.TIME}
+              placeholder={PROCESS_TEXT.END}
               zIndex={8000}
-            />
-          </View>
-          <Text style={styles.sectionInfo__alert__text}>
-            {PROCESS_TEXT.ALERT}
-          </Text>
-          <View style={styles.sectionInfo__form}>
-            <DropDownPicker
-              multiple={true}
-              min={0}
-              max={3}
-              open={sectionOpen}
-              value={section}
-              items={sectionItem}
-              setOpen={setSectionOpen}
-              setValue={setSection}
-              setItems={setSectionItems}
-              style={styles.dropDown2}
-              textStyle={styles.dropDownText}
-              dropDownContainerStyle={styles.dropDownContainer}
-              placeholderStyle={styles.dropDownPlaceHolder}
-              placeholder={PROCESS_TEXT.SECTION}
-              zIndex={7000}
             />
           </View>
           <View style={styles.submit}>

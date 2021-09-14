@@ -26,11 +26,15 @@ export const sectionItems: Array<Item> = [
 
 export const timeItems: Array<Item> = [];
 
-for (let i = 0; i < 24; i++) {
-  timeItems.push({
-    label: `${i}시~${i + 1}시`,
-    value: {itemValue: 'time', num: i},
-  });
+for (let hour = 0; hour < 24; hour++) {
+  for (let m = 0; m < 2; m++) {
+    const minute = m * 30;
+
+    timeItems.push({
+      label: `${`${hour}`.padStart(2, '0')} : ${`${minute}`.padStart(2, '0')}`,
+      value: hour + m * 0.5,
+    });
+  }
 }
 
 export const times: Array<Item> = [];
@@ -49,6 +53,8 @@ export const PROCESS_TEXT = {
   SECTION_ADD: '세션 추가하기 (최대 2개)',
   SUBMIT: '예약 확정하기',
   SECTION: '세션',
+  START: '시작시간',
+  END: '종료시간',
 };
 
 export const MODAL_TEXT = {
