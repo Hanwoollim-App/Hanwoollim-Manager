@@ -9,14 +9,14 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/constant/common/design/Responsive';
+} from '../../../utils/api/responsive/responsive.api';
 import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
 import ScreenWrapper from '../../layout/screen-wrapper.layout';
 import CustomModal from '../../layout/modal.layout';
 import {customBtnType} from '../../../utils/types/customModal';
 
-import {getUserList, postManageUser} from '../../../utils/constant/api';
+import {getUserList, postManageUser} from '../../../utils/api/axios';
 import {APPOINT_MANAGER, DELETE_USER} from '../../../utils/constant/member';
 import {SearchImage} from '../../../assets';
 

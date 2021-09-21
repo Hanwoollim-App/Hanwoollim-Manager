@@ -18,7 +18,7 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../../utils/constant/common/design/Responsive';
+} from '../../../../utils/api/responsive/responsive.api';
 import ScreenWrapper from '../../../layout/screen-wrapper.layout';
 import TimeTable from './timeTable';
 import {customBtnType} from '../../../../utils/types/customModal';
@@ -27,7 +27,7 @@ import {
   weekItem,
   weekItemInterface,
 } from '../../../../utils/constant/reservation';
-import {getReservation} from '../../../../utils/constant/api';
+import {getReservation} from '../../../../utils/api/axios';
 import scheduleType from '../../../../utils/types/reservation';
 
 const styles = StyleSheet.create({
