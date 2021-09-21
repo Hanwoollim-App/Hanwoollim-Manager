@@ -13,7 +13,7 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
-import color from '../../../utils/constant/common/design/Color';
+import color from '../../../utils/data/color/type';
 import {
   LOGIN_BUTTON_TEXT,
   LOGIN_SUB_TEXT,

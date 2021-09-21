@@ -10,7 +10,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
-import color from '../../../utils/constant/common/design/Color';
+import color from '../../../utils/data/color/type';
 import SignInForm from './Form';
 import CustomBtn from '../../layout/cta-button.layout';
 import CustomStatusBar from '../../layout/status-bar.layout';

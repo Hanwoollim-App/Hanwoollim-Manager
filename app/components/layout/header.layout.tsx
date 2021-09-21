@@ -4,7 +4,7 @@ import {
   heightPercentage,
   fontPercentage,
 } from '../../utils/api/responsive/responsive.api';
-import color from '../../utils/constant/common/design/Color';
+import color from '../../utils/data/color/type';
 
 const styles = StyleSheet.create({
   header: {

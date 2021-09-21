@@ -7,7 +7,7 @@ import {
 } from '../../../utils/api/responsive/responsive.api';
 import StudentInterface from '../../../utils/types/studentItem';
 import CustomBtn from '../../layout/cta-button.layout';
-import color from '../../../utils/constant/common/design/Color';
+import color from '../../../utils/data/color/type';
 import {APPROVE_BTN} from '../../../utils/constant/approve';
 
 const styles = StyleSheet.create({

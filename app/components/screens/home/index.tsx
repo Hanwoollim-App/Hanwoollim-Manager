@@ -13,7 +13,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
-import color from '../../../utils/constant/common/design/Color';
+import color from '../../../utils/data/color/type';
 import NavigationBlock from '../../layout/navigation-block.layout';
 import {MAIN_MENU, TITLE} from '../../../utils/constant/main';
 import CustomStatusBar from '../../layout/status-bar.layout';

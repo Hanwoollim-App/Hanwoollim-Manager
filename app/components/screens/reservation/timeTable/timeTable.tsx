@@ -5,7 +5,7 @@ import {
   widthPercentage,
   fontPercentage,
 } from '../../../../utils/api/responsive/responsive.api';
-import color from '../../../../utils/constant/common/design/Color';
+import color from '../../../../utils/data/color/type';
 import CustomModal from '../../../layout/modal.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
 import TIMETABLE_SIZE from '../../../../utils/constant/reservation';

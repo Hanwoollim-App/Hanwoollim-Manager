@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, Modal as RNModal, StyleSheet, Platform} from 'react-native';
-import color from '../../utils/constant/common/design/Color';
+import color from '../../utils/data/color/type';
 import {CTAButton} from './cta-button.layout';
 import {
   fontPercentage,

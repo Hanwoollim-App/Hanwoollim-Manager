@@ -7,7 +7,7 @@ import {
 import DropDownPicker from 'react-native-dropdown-picker';
 import {View, StyleSheet, Text, Platform} from 'react-native';
 import CustomBtn from '../../../layout/cta-button.layout';
-import color from '../../../../utils/constant/common/design/Color';
+import color from '../../../../utils/data/color/type';
 import {
   dayItems,
   PROCESS_TEXT,
