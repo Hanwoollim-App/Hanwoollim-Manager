@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'react-native'],
+  plugins: ['react', '@typescript-eslint', 'react-native', 'unused-imports'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -35,6 +35,8 @@ module.exports = {
     // production 환경에서는 on 으로 되어있어야 함.
     'no-console': 'off',
     'import/prefer-default-export': 'off',
+    'unused-imports/no-unused-vars': 'error',
+    'unused-imports/no-unused-imports': 'error',
   },
   settings: {
     react: {

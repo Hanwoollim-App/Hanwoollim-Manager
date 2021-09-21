@@ -13,12 +13,6 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
-// import {
-//   getProfile,
-//   KakaoOAuthToken,
-//   KakaoProfile,
-//   login,
-// } from '@react-native-seoul/kakao-login';
 import color from '../../../utils/constant/common/design/Color';
 import {
   LOGIN_BUTTON_TEXT,

@@ -110,7 +110,7 @@ function SignIn() {
         setUser(position);
         navigation.navigate('HomeNavigator');
       })
-      .catch((err: any) => {
+      .catch(() => {
         cleanInput();
         changeVisible();
       });

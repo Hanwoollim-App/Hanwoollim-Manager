@@ -53,7 +53,6 @@ function CustomHeader({
   leftIcon,
   rightIcon,
   leftIconClickListener = () => {},
-  rightIconClickListener = () => {},
 }: HeaderInterface) {
   return (
     <View style={styles.header}>
