@@ -1,9 +1,6 @@
-import {
-  widthPercentage,
-  heightPercentage,
-} from '../../api/responsive/responsive.api';
+import {widthPercentage, heightPercentage} from '../../../utils';
 
-const TIMETABLE_SIZE = {
+export const TIMETABLE_SIZE = {
   ColumnsHeight: heightPercentage(14),
   IndexWidth: widthPercentage(20),
   defaultBoxWidth: widthPercentage(46),

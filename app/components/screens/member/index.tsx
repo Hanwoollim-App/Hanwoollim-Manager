@@ -17,7 +17,7 @@ import CustomModal from '../../layout/modal.layout';
 import {customBtnType} from '../../../utils/types/customModal';
 
 import {getUserList, postManageUser} from '../../../utils/api/axios';
-import {APPOINT_MANAGER, DELETE_USER} from '../../../utils/constant/member';
+import {APPOINT_MANAGER, DELETE_USER} from './member.data';
 import {SearchImage} from '../../../assets';
 
 const styles = StyleSheet.create({

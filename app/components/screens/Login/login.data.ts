@@ -4,7 +4,3 @@ export const PROFILE_EMPTY: {[key: string]: string} = {
   email: 'profile has not fetched',
   profile_image_url: '',
 };
-export interface loginInterface {
-  token: Array<string | Function | any>;
-  profile: Array<string | Function | any>;
-}

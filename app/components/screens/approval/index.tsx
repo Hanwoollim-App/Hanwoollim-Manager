@@ -12,7 +12,7 @@ import ScreenWrapper from '../../layout/screen-wrapper.layout';
 import {getApprovalList, postApproval} from '../../../utils/api/axios';
 import {customBtnType} from '../../../utils/types/customModal';
 import CustomModal from '../../layout/modal.layout';
-import {APPROVE_MODAL} from '../../../utils/constant/approve';
+import {APPROVE_MODAL} from './student-item.data';
 import {SearchImage} from '../../../assets';
 
 const styles = StyleSheet.create({

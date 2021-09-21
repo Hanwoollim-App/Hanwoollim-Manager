@@ -8,7 +8,7 @@ import {
 import StudentInterface from '../../../utils/types/studentItem';
 import CustomBtn from '../../layout/cta-button.layout';
 import color from '../../../utils/data/color/type';
-import {APPROVE_BTN} from '../../../utils/constant/approve';
+import {APPROVE_BTN} from './student-item.data';
 
 const styles = StyleSheet.create({
   list: {

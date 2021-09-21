@@ -1,5 +1,7 @@
 import {Item} from 'react-native-picker-select';
 
+export const btnTitle: string = 'ᐸ  홈으로 돌아가기';
+
 export const dayItems: Array<Item> = [
   {label: '월요일', value: 'MON'},
   {label: '화요일', value: 'TUE'},
