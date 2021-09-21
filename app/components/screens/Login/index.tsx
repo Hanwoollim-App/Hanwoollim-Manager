@@ -22,7 +22,7 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/constant/common/design/Responsive';
+} from '../../../utils/api/responsive/responsive.api';
 import CustomStatusBar from '../../layout/status-bar.layout';
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 

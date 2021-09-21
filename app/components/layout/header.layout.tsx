@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   heightPercentage,
   fontPercentage,
-} from '../../utils/constant/common/design/Responsive';
+} from '../../utils/api/responsive/responsive.api';
 import color from '../../utils/constant/common/design/Color';
 
 const styles = StyleSheet.create({

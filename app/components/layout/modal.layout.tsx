@@ -6,7 +6,7 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../utils/constant/common/design/Responsive';
+} from '../../utils/api/responsive/responsive.api';
 import {customBtnType} from '../../utils/types/customModal';
 
 const styles = StyleSheet.create({

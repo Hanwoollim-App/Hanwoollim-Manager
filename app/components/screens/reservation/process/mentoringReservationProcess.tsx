@@ -20,7 +20,7 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../../utils/constant/common/design/Responsive';
+} from '../../../../utils/api/responsive/responsive.api';
 import ScreenWrapper from '../../../layout/screen-wrapper.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
 import {ItemType, ValueType} from '../../../../utils/types/dropDown';

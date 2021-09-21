@@ -9,14 +9,14 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/constant/common/design/Responsive';
+} from '../../../utils/api/responsive/responsive.api';
 import color from '../../../utils/constant/common/design/Color';
 import SignInForm from './Form';
 import CustomBtn from '../../layout/cta-button.layout';
 import CustomStatusBar from '../../layout/status-bar.layout';
 import CustomModal from '../../layout/modal.layout';
 import {customBtnType} from '../../../utils/types/customModal';
-import {postSignIn, setAuthToken} from '../../../utils/constant/api';
+import {postSignIn, setAuthToken} from '../../../utils/api/axios';
 import {UserInfoContext} from '../../../utils/context/UserInfoContext';
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 

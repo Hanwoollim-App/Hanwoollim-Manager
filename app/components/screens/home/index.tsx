@@ -12,7 +12,7 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/constant/common/design/Responsive';
+} from '../../../utils/api/responsive/responsive.api';
 import color from '../../../utils/constant/common/design/Color';
 import NavigationBlock from '../../layout/navigation-block.layout';
 import {MAIN_MENU, TITLE} from '../../../utils/constant/main';

@@ -1,4 +1,7 @@
-import {widthPercentage, heightPercentage} from '../common/design/Responsive';
+import {
+  widthPercentage,
+  heightPercentage,
+} from '../../api/responsive/responsive.api';
 
 const TIMETABLE_SIZE = {
   ColumnsHeight: heightPercentage(14),

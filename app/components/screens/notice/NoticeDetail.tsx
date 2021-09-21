@@ -11,7 +11,7 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/constant/common/design/Responsive';
+} from '../../../utils/api/responsive/responsive.api';
 
 import CustomHeader from '../../layout/header.layout';
 import HEADER_TITLE from '../../../utils/constant/navigation';

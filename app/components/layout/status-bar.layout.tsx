@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import color from '../../utils/constant/common/design/Color';
-import {heightPercentage} from '../../utils/constant/common/design/Responsive';
+import {heightPercentage} from '../../utils/api/responsive/responsive.api';
 
 const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? heightPercentage(47.5) : RNStatusBar.currentHeight;

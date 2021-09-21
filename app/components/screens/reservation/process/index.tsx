@@ -20,11 +20,11 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../../utils/constant/common/design/Responsive';
+} from '../../../../utils/api/responsive/responsive.api';
 import ScreenWrapper from '../../../layout/screen-wrapper.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
 import {ItemType} from '../../../../utils/types/dropDown';
-import {postReservation} from '../../../../utils/constant/api';
+import {postReservation} from '../../../../utils/api/axios';
 
 const styles = StyleSheet.create({
   root: {

@@ -4,12 +4,12 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/constant/common/design/Responsive';
+} from '../../../utils/api/responsive/responsive.api';
 import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
 import {MAIN_MENU} from '../../../utils/constant/main';
 import ScreenWrapper from '../../layout/screen-wrapper.layout';
-import {getApprovalList, postApproval} from '../../../utils/constant/api';
+import {getApprovalList, postApproval} from '../../../utils/api/axios';
 import {customBtnType} from '../../../utils/types/customModal';
 import CustomModal from '../../layout/modal.layout';
 import {APPROVE_MODAL} from '../../../utils/constant/approve';

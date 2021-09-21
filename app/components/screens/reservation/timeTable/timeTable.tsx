@@ -4,7 +4,7 @@ import {
   heightPercentage,
   widthPercentage,
   fontPercentage,
-} from '../../../../utils/constant/common/design/Responsive';
+} from '../../../../utils/api/responsive/responsive.api';
 import color from '../../../../utils/constant/common/design/Color';
 import CustomModal from '../../../layout/modal.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
