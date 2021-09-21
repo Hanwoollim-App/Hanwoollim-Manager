@@ -5,7 +5,7 @@ import {
   Platform,
   View,
 } from 'react-native';
-import color from '../../utils/constant/common/design/Color';
+import color from '../../utils/data/color/type';
 import {heightPercentage} from '../../utils/api/responsive/responsive.api';
 
 const STATUSBAR_HEIGHT =
