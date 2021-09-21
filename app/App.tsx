@@ -1,11 +1,11 @@
 import React from 'react';
-import MainNavigator from './components/navigator/MainNavigator';
+import {RootNavigator} from './components/navigator';
 import {UserInfoProvider} from './utils/context/UserInfoContext';
 
 function App() {
   return (
     <UserInfoProvider>
-      <MainNavigator />
+      <RootNavigator />
     </UserInfoProvider>
   );
 }

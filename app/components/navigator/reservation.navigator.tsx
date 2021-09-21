@@ -16,23 +16,14 @@ function ReservationNavigator() {
         <ReservationStack.Screen
           name="ReservationTimeTable"
           component={ReservationTimeTable}
-          options={{
-            headerShown: false,
-          }}
         />
         <ReservationStack.Screen
           name="BandReservationProcess"
           component={BandReservationProcess}
-          options={{
-            headerShown: false,
-          }}
         />
         <ReservationStack.Screen
           name="MentoringReservationProcess"
           component={MentoringReservationProcess}
-          options={{
-            headerShown: false,
-          }}
         />
       </ReservationStack.Navigator>
     </ReservationContext.Provider>

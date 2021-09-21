@@ -8,20 +8,8 @@ const LoginStack = createStackNavigator();
 function LoginNavigator() {
   return (
     <LoginStack.Navigator>
-      <LoginStack.Screen
-        name="Login"
-        component={Login}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <LoginStack.Screen
-        name="SignIn"
-        component={SignIn}
-        options={{
-          headerShown: false,
-        }}
-      />
+      <LoginStack.Screen name="Login" component={Login} />
+      <LoginStack.Screen name="SignIn" component={SignIn} />
     </LoginStack.Navigator>
   );
 }

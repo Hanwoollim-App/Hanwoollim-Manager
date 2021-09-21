@@ -10,7 +10,7 @@ type INavigationBlockProps = {
   iconStyle?: Object;
 };
 
-function NavigationBlock({
+export function NavigationBlock({
   title,
   onClickListener,
   titleStyle,
@@ -25,5 +25,3 @@ function NavigationBlock({
     </TouchableOpacity>
   );
 }
-
-export default React.memo(NavigationBlock);

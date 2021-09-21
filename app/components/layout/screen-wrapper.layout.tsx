@@ -9,24 +9,24 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import defaultStyle from '../../utils/constant/common/design/DefaultStyle';
-import HeaderInterface from './header.layout';
-import CustomStatusBar from './status-bar.layout';
+import {Header} from './header.layout';
+import {StatusBar} from './status-bar.layout';
 
-type IScreenWrapper {
+type IScreenWrapper = {
   children: React.ReactNode;
   headerTitle?: string;
-}
+};
 const icon = <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />;
 
-function ScreenWrapper({children, headerTitle}: IScreenWrapper) {
+export function ScreenWrapper({children, headerTitle}: IScreenWrapper) {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   return (
     <>
-      <CustomStatusBar />
+      <StatusBar />
       <SafeAreaView style={defaultStyle.root} edges={['bottom']}>
         <View style={defaultStyle.header}>
-          <HeaderInterface
+          <Header
             headerTitle={headerTitle ?? undefined}
             headerLeft
             leftIcon={icon}
@@ -38,5 +38,3 @@ function ScreenWrapper({children, headerTitle}: IScreenWrapper) {
     </>
   );
 }
-
-export default ScreenWrapper;

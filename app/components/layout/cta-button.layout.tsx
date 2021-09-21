@@ -8,7 +8,7 @@ type ICTAButtonProps = {
   btnStyle: Object;
 };
 
-function CTAButton({
+export function CTAButton({
   title,
   onClickListener,
   titleStyle,
@@ -20,5 +20,3 @@ function CTAButton({
     </TouchableOpacity>
   );
 }
-
-export default React.memo(CTAButton);

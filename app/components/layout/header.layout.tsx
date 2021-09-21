@@ -46,7 +46,8 @@ type IHeaderProps {
   leftIconClickListener?: Function;
   rightIconClickListener?: Function;
 }
-function Header({
+
+export function Header({
   headerTitle,
   headerLeft = false,
   headerRight = false,
@@ -81,4 +82,3 @@ function Header({
   );
 }
 
-export default Header;

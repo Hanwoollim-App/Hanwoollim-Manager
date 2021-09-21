@@ -8,20 +8,8 @@ const NoticeStack = createStackNavigator();
 function NoticeNavigator() {
   return (
     <NoticeStack.Navigator>
-      <NoticeStack.Screen
-        name="NoticeDetail"
-        component={NoticeDetail}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <NoticeStack.Screen
-        name="NoticeUpload"
-        component={NoticeUpload}
-        options={{
-          headerShown: false,
-        }}
-      />
+      <NoticeStack.Screen name="NoticeDetail" component={NoticeDetail} />
+      <NoticeStack.Screen name="NoticeUpload" component={NoticeUpload} />
     </NoticeStack.Navigator>
   );
 }

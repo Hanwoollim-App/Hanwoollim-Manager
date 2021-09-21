@@ -1,7 +1,7 @@
 import React from 'react';
-import {Text, View, Modal, StyleSheet, Platform} from 'react-native';
+import {Text, View, Modal as RNModal, StyleSheet, Platform} from 'react-native';
 import color from '../../utils/constant/common/design/Color';
-import CustomBtn from './cta-button.layout';
+import {CTAButton} from './cta-button.layout';
 import {
   fontPercentage,
   heightPercentage,
@@ -166,7 +166,7 @@ type IModalsProps = {
   subtitleSize?: number;
 };
 
-function CustomModal({
+export function Modal({
   mdVisible,
   title,
   subtitle,
@@ -179,7 +179,7 @@ function CustomModal({
   ].reverse();
 
   return (
-    <Modal animationType="fade" visible={mdVisible} transparent={true}>
+    <RNModal animationType="fade" visible={mdVisible} transparent={true}>
       <View style={styles.modalView}>
         {second ? (
           <View style={styles.content}>
@@ -203,7 +203,7 @@ function CustomModal({
         {first.map((result, i) => {
           return (
             result! && (
-              <CustomBtn
+              <CTAButton
                 key={i}
                 title={result.buttonText}
                 onClickListener={result.buttonClickListener}
@@ -214,7 +214,7 @@ function CustomModal({
           );
         })}
         {second! && (
-          <CustomBtn
+          <CTAButton
             title={second.buttonText}
             onClickListener={second.buttonClickListener}
             titleStyle={styles.btnListTitle}
@@ -222,7 +222,7 @@ function CustomModal({
           />
         )}
         {last! && (
-          <CustomBtn
+          <CTAButton
             title={last.buttonText}
             onClickListener={last.buttonClickListener}
             titleStyle={styles.blueLastBtnTitle}
@@ -230,8 +230,6 @@ function CustomModal({
           />
         )}
       </View>
-    </Modal>
+    </RNModal>
   );
 }
-
-export default React.memo(CustomModal);
