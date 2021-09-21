@@ -4,7 +4,7 @@ import Home from '../screens/home';
 import Member from '../screens/member';
 import Notice from '../screens/notice';
 import Approval from '../screens/approval';
-import Reservation from '../screens/reservation/timeTable';
+import Reservation from '../screens/reservation/time-table';
 
 const HomeStack = createStackNavigator();
 

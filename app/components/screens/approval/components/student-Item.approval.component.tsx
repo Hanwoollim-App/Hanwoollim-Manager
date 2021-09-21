@@ -1,13 +1,13 @@
-import React, {memo} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {color} from '../../../../utils';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-import StudentInterface from '../../../utils/types/student-item.type';
-import CustomBtn from '../../layout/cta-button.layout';
-import color from '../../../utils/data/color/type';
+} from '../../../../utils/api/responsive/responsive.api';
+import StudentInterface from '../../../../utils/types/student-item.type';
+import {CTAButton} from '../../../layout';
 import {APPROVE_BTN} from './student-item.data';
 
 const styles = StyleSheet.create({
@@ -71,7 +71,8 @@ interface StudentItemInterface extends StudentInterface {
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedId: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
-function StudentItem({
+
+export function StudentItem({
   userName,
   major,
   studentId,
@@ -84,26 +85,22 @@ function StudentItem({
   };
 
   return (
-    <View>
-      <View style={styles.list}>
-        <View style={styles.item}>
-          <View>
-            <Text style={styles.name}>{userName}</Text>
-            <View style={styles.itemSection}>
-              <Text style={styles.major}>{major}</Text>
-              <Text style={styles.studentCode}>{studentId}</Text>
-            </View>
+    <View style={styles.list}>
+      <View style={styles.item}>
+        <View>
+          <Text style={styles.name}>{userName}</Text>
+          <View style={styles.itemSection}>
+            <Text style={styles.major}>{major}</Text>
+            <Text style={styles.studentCode}>{studentId}</Text>
           </View>
-          <CustomBtn
-            title={APPROVE_BTN}
-            titleStyle={styles.title}
-            btnStyle={styles.Btn}
-            onClickListener={approveClickListener}
-          />
         </View>
+        <CTAButton
+          title={APPROVE_BTN}
+          titleStyle={styles.title}
+          btnStyle={styles.Btn}
+          onClickListener={approveClickListener}
+        />
       </View>
     </View>
   );
 }
-
-export default memo(StudentItem);

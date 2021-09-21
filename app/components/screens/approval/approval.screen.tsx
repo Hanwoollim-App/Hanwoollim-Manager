@@ -6,14 +6,12 @@ import {
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
 import StudentInterface from '../../../utils/types/student-item.type';
-import StudentItem from './StudentItem';
-import {MAIN_MENU} from '../../../utils/constant/main';
-import ScreenWrapper from '../../layout/screen-wrapper.layout';
 import {getApprovalList, postApproval} from '../../../utils/api/axios';
-import {customBtnType} from '../../../utils/types/customModal';
-import CustomModal from '../../layout/modal.layout';
-import {APPROVE_MODAL} from './student-item.data';
+import {APPROVE_MODAL} from './components/student-item.data';
 import {SearchImage} from '../../../assets';
+import {ScreenWrapper, customBtnType, Modal} from '../../layout';
+import {MAIN_MENU} from '../home/home.data';
+import {StudentItem} from './components';
 
 const styles = StyleSheet.create({
   searchSection: {
@@ -118,7 +116,7 @@ function Approval() {
 
   return (
     <ScreenWrapper headerTitle={MAIN_MENU.Approval}>
-      <CustomModal
+      <Modal
         mdVisible={modalVisible}
         title={APPROVE_MODAL}
         buttonList={modalBtn1}

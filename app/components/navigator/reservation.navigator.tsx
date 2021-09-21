@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import ReservationTimeTable from '../screens/reservation/timeTable';
+import ReservationTimeTable from '../screens/reservation/time-table';
 import BandReservationProcess from '../screens/reservation/process';
 import MentoringReservationProcess from '../screens/reservation/process/mentoringReservationProcess';
 
