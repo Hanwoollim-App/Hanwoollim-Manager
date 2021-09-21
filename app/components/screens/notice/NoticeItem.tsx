@@ -11,8 +11,6 @@ import {
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
 
-import NoticeItemInterface from '../../../utils/types/noticeItem';
-
 const styles = StyleSheet.create({
   root: {
     flex: 1,
@@ -39,7 +37,12 @@ const styles = StyleSheet.create({
   },
 });
 
-function NoticeItem({title, date}: NoticeItemInterface) {
+export type INoticeItemProps = {
+  title: string;
+  date: string;
+};
+
+function NoticeItem({title, date}: INoticeItemProps) {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const NoticeClickListener = () => {

@@ -9,7 +9,7 @@ import color from '../../../../utils/data/color/type';
 import CustomModal from '../../../layout/modal.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
 import TIMETABLE_SIZE from '../../../../utils/constant/reservation';
-import scheduleType from '../../../../utils/types/reservation';
+import {IScheduleType} from '../reservation.type';
 
 const styles = StyleSheet.create({
   timeTable: {
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 });
 
 interface TimeTableInterface {
-  schedule: Array<Array<scheduleType>>;
+  schedule: Array<Array<IScheduleType>>;
 }
 function TimeTable({schedule}: TimeTableInterface) {
   const generateTimes = (startTime: number, endTime: number) => {

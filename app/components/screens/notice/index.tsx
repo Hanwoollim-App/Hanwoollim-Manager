@@ -16,8 +16,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
-import NoticeItem from './NoticeItem';
-import NoticeItemInterface from '../../../utils/types/noticeItem';
+import NoticeItem, {INoticeItemProps} from './NoticeItem';
 
 const styles = StyleSheet.create({
   root: {
@@ -154,7 +153,7 @@ function Notice() {
         <View style={styles.list}>
           <FlatList
             data={DATA}
-            renderItem={({item: notice}: {item: NoticeItemInterface}) => (
+            renderItem={({item: notice}: {item: INoticeItemProps}) => (
               <NoticeItem title={notice.title} date={notice.date} />
             )}
             keyExtractor={(item) => item.id}
