@@ -6,7 +6,7 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import StudentInterface from '../../../utils/types/studentItem';
-import CustomBtn from '../../common/CustomBtn';
+import CustomBtn from '../../layout/cta-button.layout';
 import color from '../../../utils/constant/common/design/Color';
 import {APPROVE_BTN} from '../../../utils/constant/approve';
 

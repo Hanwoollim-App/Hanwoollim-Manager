@@ -12,8 +12,8 @@ import {
 } from '../../../utils/constant/common/design/Responsive';
 import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
-import ScreenWrapper from '../../common/ScreenWrapper';
-import CustomModal from '../../common/CustomModal';
+import ScreenWrapper from '../../layout/screen-wrapper.layout';
+import CustomModal from '../../layout/modal.layout';
 import {customBtnType} from '../../../utils/types/customModal';
 
 import {getUserList, postManageUser} from '../../../utils/constant/api';

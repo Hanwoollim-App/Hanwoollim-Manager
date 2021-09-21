@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-interface HeaderInterface {
+type IHeaderProps {
   headerTitle?: String;
   headerLeft?: boolean;
   headerRight?: boolean;
@@ -46,14 +46,14 @@ interface HeaderInterface {
   leftIconClickListener?: Function;
   rightIconClickListener?: Function;
 }
-function CustomHeader({
+function Header({
   headerTitle,
   headerLeft = false,
   headerRight = false,
   leftIcon,
   rightIcon,
   leftIconClickListener = () => {},
-}: HeaderInterface) {
+}: IHeaderProps) {
   return (
     <View style={styles.header}>
       {headerLeft ? (
@@ -81,4 +81,4 @@ function CustomHeader({
   );
 }
 
-export default CustomHeader;
+export default Header;

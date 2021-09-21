@@ -19,10 +19,10 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../../utils/constant/common/design/Responsive';
-import ScreenWrapper from '../../../common/ScreenWrapper';
+import ScreenWrapper from '../../../layout/screen-wrapper.layout';
 import TimeTable from './timeTable';
 import {customBtnType} from '../../../../utils/types/customModal';
-import CustomModal from '../../../common/CustomModal';
+import CustomModal from '../../../layout/modal.layout';
 import {
   weekItem,
   weekItemInterface,

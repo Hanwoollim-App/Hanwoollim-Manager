@@ -9,16 +9,16 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import defaultStyle from '../../utils/constant/common/design/DefaultStyle';
-import HeaderInterface from './CustomHeader';
-import CustomStatusBar from './CustomStatusBar';
+import HeaderInterface from './header.layout';
+import CustomStatusBar from './status-bar.layout';
 
-interface screenWrapper {
+type IScreenWrapper {
   children: React.ReactNode;
   headerTitle?: string;
 }
 const icon = <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />;
 
-function ScreenWrapper({children, headerTitle}: screenWrapper) {
+function ScreenWrapper({children, headerTitle}: IScreenWrapper) {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   return (

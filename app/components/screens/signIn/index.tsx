@@ -12,9 +12,9 @@ import {
 } from '../../../utils/constant/common/design/Responsive';
 import color from '../../../utils/constant/common/design/Color';
 import SignInForm from './Form';
-import CustomBtn from '../../common/CustomBtn';
-import CustomStatusBar from '../../common/CustomStatusBar';
-import CustomModal from '../../common/CustomModal';
+import CustomBtn from '../../layout/cta-button.layout';
+import CustomStatusBar from '../../layout/status-bar.layout';
+import CustomModal from '../../layout/modal.layout';
 import {customBtnType} from '../../../utils/types/customModal';
 import {postSignIn, setAuthToken} from '../../../utils/constant/api';
 import {UserInfoContext} from '../../../utils/context/UserInfoContext';

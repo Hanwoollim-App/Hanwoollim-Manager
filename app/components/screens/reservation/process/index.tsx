@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {View, StyleSheet, Text, Platform, ScrollView} from 'react-native';
-import CustomBtn from '../../../common/CustomBtn';
+import CustomBtn from '../../../layout/cta-button.layout';
 import color from '../../../../utils/constant/common/design/Color';
 import {
   dayItems,
@@ -15,13 +15,13 @@ import {
   timeItems,
   times,
 } from '../../../../utils/constant/reservation/process/reservationProcess';
-import CustomModal from '../../../common/CustomModal';
+import CustomModal from '../../../layout/modal.layout';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
 } from '../../../../utils/constant/common/design/Responsive';
-import ScreenWrapper from '../../../common/ScreenWrapper';
+import ScreenWrapper from '../../../layout/screen-wrapper.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
 import {ItemType} from '../../../../utils/types/dropDown';
 import {postReservation} from '../../../../utils/constant/api';

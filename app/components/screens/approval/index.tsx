@@ -8,10 +8,10 @@ import {
 import StudentInterface from '../../../utils/types/studentItem';
 import StudentItem from './StudentItem';
 import {MAIN_MENU} from '../../../utils/constant/main';
-import ScreenWrapper from '../../common/ScreenWrapper';
+import ScreenWrapper from '../../layout/screen-wrapper.layout';
 import {getApprovalList, postApproval} from '../../../utils/constant/api';
 import {customBtnType} from '../../../utils/types/customModal';
-import CustomModal from '../../common/CustomModal';
+import CustomModal from '../../layout/modal.layout';
 import {APPROVE_MODAL} from '../../../utils/constant/approve';
 import {SearchImage} from '../../../assets';
 

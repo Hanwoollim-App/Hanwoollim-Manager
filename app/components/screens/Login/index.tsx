@@ -23,7 +23,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
-import CustomStatusBar from '../../common/CustomStatusBar';
+import CustomStatusBar from '../../layout/status-bar.layout';
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 
 const styles = StyleSheet.create({

@@ -1,14 +1,15 @@
 import React from 'react';
 import {TouchableOpacity, Text, View} from 'react-native';
 
-interface CustomBtnProps {
+type INavigationBlockProps = {
   title: string;
   onClickListener: Function;
   titleStyle: Object;
   btnStyle: Object;
   icon?: React.ReactNode;
   iconStyle?: Object;
-}
+};
+
 function NavigationBlock({
   title,
   onClickListener,
@@ -16,7 +17,7 @@ function NavigationBlock({
   btnStyle,
   icon,
   iconStyle,
-}: CustomBtnProps) {
+}: INavigationBlockProps) {
   return (
     <TouchableOpacity onPress={() => onClickListener()} style={btnStyle}>
       <Text style={titleStyle}>{title}</Text>

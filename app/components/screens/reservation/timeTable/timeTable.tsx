@@ -6,7 +6,7 @@ import {
   fontPercentage,
 } from '../../../../utils/constant/common/design/Responsive';
 import color from '../../../../utils/constant/common/design/Color';
-import CustomModal from '../../../common/CustomModal';
+import CustomModal from '../../../layout/modal.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
 import TIMETABLE_SIZE from '../../../../utils/constant/reservation';
 import scheduleType from '../../../../utils/types/reservation';

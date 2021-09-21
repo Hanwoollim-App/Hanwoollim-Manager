@@ -14,9 +14,9 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import color from '../../../utils/constant/common/design/Color';
-import NavigationBlock from '../../common/NavigationBlock';
+import NavigationBlock from '../../layout/navigation-block.layout';
 import {MAIN_MENU, TITLE} from '../../../utils/constant/main';
-import CustomStatusBar from '../../common/CustomStatusBar';
+import CustomStatusBar from '../../layout/status-bar.layout';
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 
 const styles = StyleSheet.create({

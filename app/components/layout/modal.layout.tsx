@@ -1,13 +1,13 @@
 import React from 'react';
 import {Text, View, Modal, StyleSheet, Platform} from 'react-native';
 import color from '../../utils/constant/common/design/Color';
-import CustomBtn from './CustomBtn';
+import CustomBtn from './cta-button.layout';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
 } from '../../utils/constant/common/design/Responsive';
-import {customBtnType, ModalsProps} from '../../utils/types/customModal';
+import {customBtnType} from '../../utils/types/customModal';
 
 const styles = StyleSheet.create({
   modalView: {
@@ -157,6 +157,15 @@ const styles = StyleSheet.create({
   },
 });
 
+type IModalsProps = {
+  mdVisible: boolean;
+  title: string;
+  subtitle?: string;
+  buttonList: Array<customBtnType>;
+  titleSize?: number;
+  subtitleSize?: number;
+};
+
 function CustomModal({
   mdVisible,
   title,
@@ -164,7 +173,7 @@ function CustomModal({
   buttonList,
   titleSize = fontPercentage(17),
   subtitleSize = fontPercentage(14),
-}: ModalsProps) {
+}: IModalsProps) {
   const [last, second, ...first]: Array<customBtnType | undefined> = [
     ...buttonList,
   ].reverse();

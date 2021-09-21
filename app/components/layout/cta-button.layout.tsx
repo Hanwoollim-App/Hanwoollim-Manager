@@ -1,18 +1,19 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 
-interface CustomBtnProps {
+type ICTAButtonProps = {
   title: string;
   onClickListener: Function;
   titleStyle: Object;
   btnStyle: Object;
-}
-function CustomBtn({
+};
+
+function CTAButton({
   title,
   onClickListener,
   titleStyle,
   btnStyle,
-}: CustomBtnProps) {
+}: ICTAButtonProps) {
   return (
     <TouchableOpacity onPress={() => onClickListener()} style={btnStyle}>
       <Text style={titleStyle}>{title}</Text>
@@ -20,4 +21,4 @@ function CustomBtn({
   );
 }
 
-export default React.memo(CustomBtn);
+export default React.memo(CTAButton);

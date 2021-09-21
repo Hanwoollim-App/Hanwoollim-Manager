@@ -14,11 +14,11 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 
-import CustomHeader from '../../common/CustomHeader';
+import CustomHeader from '../../layout/header.layout';
 import HEADER_TITLE from '../../../utils/constant/navigation';
-import CustomStatusBar from '../../common/CustomStatusBar';
-import CustomBtn from '../../common/CustomBtn';
-import CustomModal from '../../common/CustomModal';
+import CustomStatusBar from '../../layout/status-bar.layout';
+import CustomBtn from '../../layout/cta-button.layout';
+import CustomModal from '../../layout/modal.layout';
 import {customBtnType} from '../../../utils/types/customModal';
 
 const styles = StyleSheet.create({
