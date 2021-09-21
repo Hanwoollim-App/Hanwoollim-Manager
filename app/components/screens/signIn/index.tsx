@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {
   NavigationProp,
@@ -17,8 +17,8 @@ import CustomStatusBar from '../../layout/status-bar.layout';
 import CustomModal from '../../layout/modal.layout';
 import {customBtnType} from '../../../utils/types/customModal';
 import {postSignIn, setAuthToken} from '../../../utils/api/axios';
-import {UserInfoContext} from '../../../utils/context/UserInfoContext';
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
+import {useUserInfo} from '../../../utils';
 
 const styles = StyleSheet.create({
   root: {
@@ -77,7 +77,7 @@ function SignIn() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [id, setId] = useState<string>();
   const [pw, setPw] = useState<string>();
-  const {setUser}: any = useContext(UserInfoContext);
+  const {setUser} = useUserInfo();
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 

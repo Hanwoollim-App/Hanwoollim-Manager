@@ -5,7 +5,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
-import StudentInterface from '../../../utils/types/studentItem';
+import StudentInterface from '../../../utils/types/student-item.type';
 import CustomBtn from '../../layout/cta-button.layout';
 import color from '../../../utils/data/color/type';
 import {APPROVE_BTN} from './student-item.data';

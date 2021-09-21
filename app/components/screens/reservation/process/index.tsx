@@ -23,7 +23,7 @@ import {
 } from '../../../../utils/api/responsive/responsive.api';
 import ScreenWrapper from '../../../layout/screen-wrapper.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
-import {ItemType} from '../../../../utils/types/dropDown';
+import {ItemType} from '../../../../utils/types/drop-down.type';
 import {postReservation} from '../../../../utils/api/axios';
 
 const styles = StyleSheet.create({

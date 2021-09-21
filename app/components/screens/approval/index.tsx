@@ -5,7 +5,7 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
-import StudentInterface from '../../../utils/types/studentItem';
+import StudentInterface from '../../../utils/types/student-item.type';
 import StudentItem from './StudentItem';
 import {MAIN_MENU} from '../../../utils/constant/main';
 import ScreenWrapper from '../../layout/screen-wrapper.layout';

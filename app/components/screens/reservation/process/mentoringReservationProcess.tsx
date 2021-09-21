@@ -23,7 +23,7 @@ import {
 } from '../../../../utils/api/responsive/responsive.api';
 import ScreenWrapper from '../../../layout/screen-wrapper.layout';
 import {customBtnType} from '../../../../utils/types/customModal';
-import {ItemType, ValueType} from '../../../../utils/types/dropDown';
+import {ItemType, ValueType} from '../../../../utils/types/drop-down.type';
 
 const styles = StyleSheet.create({
   root: {
