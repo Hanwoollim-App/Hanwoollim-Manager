@@ -17,6 +17,7 @@ import color from '../../../utils/constant/common/design/Color';
 import NavigationBlock from '../../common/NavigationBlock';
 import {MAIN_MENU, TITLE} from '../../../utils/constant/main';
 import CustomStatusBar from '../../common/CustomStatusBar';
+import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 
 const styles = StyleSheet.create({
   root: {
@@ -69,7 +70,6 @@ const styles = StyleSheet.create({
 });
 
 const icon = <FontAwesomeIcon icon={faChevronRight} />;
-const headerLogo = require('../../../assets/images/HanwoollimWhite.png');
 
 function Home() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
@@ -96,7 +96,10 @@ function Home() {
       <View style={styles.root}>
         <View style={styles.header}>
           <View>
-            <Image style={styles.headerImg} source={headerLogo} />
+            <Image
+              style={styles.headerImg}
+              source={WhiteHanwoollimTextLogoImage}
+            />
           </View>
         </View>
         <View style={styles.title}>

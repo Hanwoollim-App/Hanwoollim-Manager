@@ -13,6 +13,7 @@ import {getApprovalList, postApproval} from '../../../utils/constant/api';
 import {customBtnType} from '../../../utils/types/customModal';
 import CustomModal from '../../common/CustomModal';
 import {APPROVE_MODAL} from '../../../utils/constant/approve';
+import {SearchImage} from '../../../assets';
 
 const styles = StyleSheet.create({
   searchSection: {
@@ -66,8 +67,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#c2c2c2',
   },
 });
-
-const searchIcon = require('../../../assets/images/searchIcon.png');
 
 const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
@@ -131,7 +130,7 @@ function Approval() {
           placeholder="검색"
           placeholderTextColor="#a2a2a2"
         />
-        <Image source={searchIcon} style={styles.searchIcon} />
+        <Image source={SearchImage} style={styles.searchIcon} />
       </View>
       <View style={styles.list}>
         <FlatList

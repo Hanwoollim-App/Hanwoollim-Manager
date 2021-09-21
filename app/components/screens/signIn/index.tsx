@@ -18,6 +18,7 @@ import CustomModal from '../../common/CustomModal';
 import {customBtnType} from '../../../utils/types/customModal';
 import {postSignIn, setAuthToken} from '../../../utils/constant/api';
 import {UserInfoContext} from '../../../utils/context/UserInfoContext';
+import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 
 const styles = StyleSheet.create({
   root: {
@@ -74,7 +75,6 @@ const styles = StyleSheet.create({
 
 function SignIn() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const headerLogo = require('../../../assets/images/HanwoollimWhite.png');
   const [id, setId] = useState<string>();
   const [pw, setPw] = useState<string>();
   const {setUser}: any = useContext(UserInfoContext);
@@ -126,7 +126,10 @@ function SignIn() {
           buttonList={modalBtn}
         />
         <View style={styles.header}>
-          <Image style={styles.headerImg} source={headerLogo} />
+          <Image
+            style={styles.headerImg}
+            source={WhiteHanwoollimTextLogoImage}
+          />
         </View>
         <Text style={styles.titleText}>
           어서오세요 당신을 기다리고 있었어요!!

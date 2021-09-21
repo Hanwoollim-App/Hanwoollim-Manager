@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "type-check": "tsc --pretty --noEmit",
     "lint": "eslint --ext .tsx --ext .ts --ext .js --ext .jsx app --fix",
     "lint-fix": "tsc --noEmit && eslint \"*/**/*.{js,jsx,ts,tsx}\" --quiet --fix"
   },

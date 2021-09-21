@@ -18,6 +18,7 @@ import {customBtnType} from '../../../utils/types/customModal';
 
 import {getUserList, postManageUser} from '../../../utils/constant/api';
 import {APPOINT_MANAGER, DELETE_USER} from '../../../utils/constant/member';
+import {SearchImage} from '../../../assets';
 
 const styles = StyleSheet.create({
   root: {
@@ -98,7 +99,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#c2c2c2',
   },
 });
-const searchIcon = require('../../../assets/images/searchIcon.png');
 
 const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
@@ -269,7 +269,7 @@ function Member() {
           placeholder="검색"
           placeholderTextColor="#a2a2a2"
         />
-        <Image source={searchIcon} style={styles.searchIcon} />
+        <Image source={SearchImage} style={styles.searchIcon} />
       </View>
       <View style={styles.roleSection}>
         <View style={styles.redSquare} />

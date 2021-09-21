@@ -34,6 +34,7 @@ module.exports = {
     'arrow-parens': ['error', 'always'],
     // production 환경에서는 on 으로 되어있어야 함.
     'no-console': 'off',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     react: {

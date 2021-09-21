@@ -30,6 +30,7 @@ import {
   widthPercentage,
 } from '../../../utils/constant/common/design/Responsive';
 import CustomStatusBar from '../../common/CustomStatusBar';
+import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 
 const styles = StyleSheet.create({
   root: {
@@ -111,18 +112,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const textLogo = require('../../../assets/images/HanwoollimWhite.png');
-
 function Login() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-
-  // const kakaoLogin = async (): Promise<void> => {
-  //   const token: KakaoOAuthToken = await login();
-  //   const profile: KakaoProfile = await getProfile();
-
-  //   console.log(token);
-  //   console.log(profile);
-  // };
 
   const loginBtnClickListener = () => {
     navigation.navigate('SignIn');
@@ -133,7 +124,10 @@ function Login() {
       <CustomStatusBar />
       <SafeAreaView style={styles.root}>
         <View style={styles.title}>
-          <Image style={styles.titleText} source={textLogo} />
+          <Image
+            style={styles.titleText}
+            source={WhiteHanwoollimTextLogoImage}
+          />
           <View style={styles.titleUnderBar} />
           <Text style={styles.titleSubText}>{LOGIN_SUB_TEXT}</Text>
         </View>
