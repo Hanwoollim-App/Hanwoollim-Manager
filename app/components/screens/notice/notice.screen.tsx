@@ -7,16 +7,14 @@ import {
 } from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
-import CustomHeader from '../../layout/header.layout';
-import HEADER_TITLE from '../../../utils/constant/navigation';
-import CustomStatusBar from '../../layout/status-bar.layout';
-import CustomBtn from '../../layout/cta-button.layout';
+import {Header, StatusBar, CTAButton} from '../../layout';
+import {HEADER_TITLE} from './notice.data';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-import NoticeItem, {INoticeItemProps} from './NoticeItem';
+} from '../../../utils';
+import {INoticeItemProps, NoticeItem} from './components';
 
 const styles = StyleSheet.create({
   root: {
@@ -133,7 +131,7 @@ const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
 };
 
-function Notice() {
+export function Notice() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
@@ -141,9 +139,9 @@ function Notice() {
 
   return (
     <>
-      <CustomStatusBar />
+      <StatusBar />
       <View style={styles.root}>
-        <CustomHeader
+        <Header
           headerTitle={HEADER_TITLE.Notice}
           headerLeft
           leftIcon={icon}
@@ -160,7 +158,7 @@ function Notice() {
             ItemSeparatorComponent={renderSeparator}
           />
         </View>
-        <CustomBtn
+        <CTAButton
           title={'공지사항 등록하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
@@ -172,5 +170,3 @@ function Notice() {
     </>
   );
 }
-
-export default Notice;

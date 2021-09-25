@@ -1,14 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from '../screens/home';
-import Member from '../screens/member';
-import Notice from '../screens/notice';
-import Approval from '../screens/approval';
+import {Approval, Home, Member, Notice} from '../screens';
 import Reservation from '../screens/reservation/time-table';
 
 const HomeStack = createStackNavigator();
 
-function HomeNavigator() {
+export function HomeNavigator() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={Home} />
@@ -19,5 +16,3 @@ function HomeNavigator() {
     </HomeStack.Navigator>
   );
 }
-
-export default HomeNavigator;

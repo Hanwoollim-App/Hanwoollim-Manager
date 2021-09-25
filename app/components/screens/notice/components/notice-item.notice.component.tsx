@@ -9,7 +9,7 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
+} from '../../../../utils/api/responsive/responsive.api';
 
 const styles = StyleSheet.create({
   root: {
@@ -42,7 +42,7 @@ export type INoticeItemProps = {
   date: string;
 };
 
-function NoticeItem({title, date}: INoticeItemProps) {
+export function NoticeItem({title, date}: INoticeItemProps) {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const NoticeClickListener = () => {
@@ -58,5 +58,3 @@ function NoticeItem({title, date}: INoticeItemProps) {
     </TouchableOpacity>
   );
 }
-
-export default React.memo(NoticeItem);

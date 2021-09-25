@@ -1,11 +1,11 @@
-import React, {memo} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-import StudentInterface from '../../../utils/types/student-item.type';
+  StudentInterface,
+} from '../../../../utils';
 
 const styles = StyleSheet.create({
   item: {
@@ -48,7 +48,7 @@ interface StudentItemInterface extends StudentInterface {
   >;
 }
 
-function StudentItem({
+export function StudentItem({
   userName,
   major,
   studentId,
@@ -77,5 +77,3 @@ function StudentItem({
     </View>
   );
 }
-
-export default memo(StudentItem);

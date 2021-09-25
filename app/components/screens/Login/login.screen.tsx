@@ -13,17 +13,13 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
-import color from '../../../utils/data/color/type';
 import {
-  LOGIN_BUTTON_TEXT,
-  LOGIN_SUB_TEXT,
-} from '../../../utils/constant/login/loginScreen';
-import {
+  color,
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-import CustomStatusBar from '../../layout/status-bar.layout';
+} from '../../../utils';
+import {StatusBar} from '../../layout';
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
 
 const styles = StyleSheet.create({
@@ -106,7 +102,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Login() {
+export function Login() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const loginBtnClickListener = () => {
@@ -115,7 +111,7 @@ function Login() {
 
   return (
     <>
-      <CustomStatusBar />
+      <StatusBar />
       <SafeAreaView style={styles.root}>
         <View style={styles.title}>
           <Image
@@ -123,18 +119,16 @@ function Login() {
             source={WhiteHanwoollimTextLogoImage}
           />
           <View style={styles.titleUnderBar} />
-          <Text style={styles.titleSubText}>{LOGIN_SUB_TEXT}</Text>
+          <Text style={styles.titleSubText}>{'한울림 관리자용 앱입니다'}</Text>
         </View>
         <View style={styles.login}>
           <TouchableOpacity
             style={styles.loginBtn}
             onPress={loginBtnClickListener}>
-            <Text style={styles.loginBtn_text}>{LOGIN_BUTTON_TEXT}</Text>
+            <Text style={styles.loginBtn_text}>{'한울림 계정으로 로그인'}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
     </>
   );
 }
-
-export default Login;

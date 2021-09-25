@@ -12,14 +12,16 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
+} from '../../../../utils';
 
-import CustomHeader from '../../layout/header.layout';
-import HEADER_TITLE from '../../../utils/constant/navigation';
-import CustomStatusBar from '../../layout/status-bar.layout';
-import CustomBtn from '../../layout/cta-button.layout';
-import CustomModal from '../../layout/modal.layout';
-import {customBtnType} from '../../../utils/types/customModal';
+import {
+  Header,
+  StatusBar,
+  customBtnType,
+  Modal,
+  CTAButton,
+} from '../../../layout';
+import {HEADER_TITLE} from '../notice.data';
 
 const styles = StyleSheet.create({
   root: {
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function NoticeDetail() {
+export function NoticeUpload() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
@@ -108,14 +110,14 @@ function NoticeDetail() {
 
   return (
     <>
-      <CustomStatusBar />
+      <StatusBar />
       <View style={styles.root}>
-        <CustomModal
+        <Modal
           mdVisible={modalVisible}
           title={'등록되었습니다!'}
           buttonList={modalBtn}
         />
-        <CustomHeader
+        <Header
           headerTitle={HEADER_TITLE.NoticeUpload}
           headerLeft
           leftIcon={icon}
@@ -141,7 +143,7 @@ function NoticeDetail() {
             initialHtml="<h1>Quill Editor for react-native</h1>"
           />
         </View>
-        <CustomBtn
+        <CTAButton
           title={'공지사항 등록하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
@@ -151,5 +153,3 @@ function NoticeDetail() {
     </>
   );
 }
-
-export default NoticeDetail;

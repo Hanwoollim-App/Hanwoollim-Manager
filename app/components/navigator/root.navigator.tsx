@@ -1,10 +1,10 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import LoginNavigator from './login.navigator';
-import HomeNavigator from './home.navigator';
-import NoticeNavigator from './notice.navigator';
-import ReservationNavigator from './reservation.navigator';
+import {LoginNavigator} from './login.navigator';
+import {HomeNavigator} from './home.navigator';
+import {NoticeNavigator} from './notice.navigator';
+import {ReservationNavigator} from './reservation.navigator';
 import BandReservationProcess from '../screens/reservation/process';
 import MentoringReservationProcess from '../screens/reservation/process/mentoringReservationProcess';
 

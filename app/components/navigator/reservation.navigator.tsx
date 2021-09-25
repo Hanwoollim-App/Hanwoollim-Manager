@@ -6,7 +6,7 @@ import MentoringReservationProcess from '../screens/reservation/process/mentorin
 
 const ReservationStack = createStackNavigator();
 
-function ReservationNavigator() {
+export function ReservationNavigator() {
   return (
     <ReservationStack.Navigator initialRouteName="ReservationTimeTable">
       <ReservationStack.Screen
@@ -24,5 +24,3 @@ function ReservationNavigator() {
     </ReservationStack.Navigator>
   );
 }
-
-export default ReservationNavigator;

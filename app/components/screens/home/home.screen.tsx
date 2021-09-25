@@ -13,11 +13,10 @@ import {
   heightPercentage,
   widthPercentage,
 } from '../../../utils/api/responsive/responsive.api';
-import color from '../../../utils/data/color/type';
-import NavigationBlock from '../../layout/navigation-block.layout';
-import {MAIN_MENU, TITLE} from '../../../utils/constant/main';
-import CustomStatusBar from '../../layout/status-bar.layout';
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
+import {color} from '../../../utils';
+import {NavigationBlock, StatusBar} from '../../layout';
+import {MAIN_MENU, TITLE} from './home.data';
 
 const styles = StyleSheet.create({
   root: {
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
 
 const icon = <FontAwesomeIcon icon={faChevronRight} />;
 
-function Home() {
+export function Home() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   useAndroidBackHandler(() => {
@@ -92,7 +91,7 @@ function Home() {
 
   return (
     <>
-      <CustomStatusBar />
+      <StatusBar />
       <View style={styles.root}>
         <View style={styles.header}>
           <View>
@@ -122,5 +121,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

@@ -1,11 +1,10 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import NoticeDetail from '../screens/notice/NoticeDetail';
-import NoticeUpload from '../screens/notice/NoticeUpload';
+import {NoticeDetail, NoticeUpload} from '../screens';
 
 const NoticeStack = createStackNavigator();
 
-function NoticeNavigator() {
+export function NoticeNavigator() {
   return (
     <NoticeStack.Navigator>
       <NoticeStack.Screen name="NoticeDetail" component={NoticeDetail} />
@@ -13,5 +12,3 @@ function NoticeNavigator() {
     </NoticeStack.Navigator>
   );
 }
-
-export default NoticeNavigator;

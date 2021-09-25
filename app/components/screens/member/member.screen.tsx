@@ -9,13 +9,10 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-import StudentInterface from '../../../utils/types/student-item.type';
-import StudentItem from './StudentItem';
-import ScreenWrapper from '../../layout/screen-wrapper.layout';
-import CustomModal from '../../layout/modal.layout';
-import {customBtnType} from '../../../utils/types/customModal';
-
+  StudentInterface,
+} from '../../../utils';
+import {StudentItem} from './components';
+import {ScreenWrapper, Modal, customBtnType} from '../../layout';
 import {getUserList, postManageUser} from '../../../utils/api/axios';
 import {APPOINT_MANAGER, DELETE_USER} from './member.data';
 import {SearchImage} from '../../../assets';
@@ -104,7 +101,7 @@ const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
 };
 
-function Member() {
+export function Member() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [userList, setUserList] = useState<Array<StudentInterface>>();
   const [selectedUser, setSelectedUser] = useState<StudentInterface>();
@@ -233,36 +230,36 @@ function Member() {
 
   return (
     <ScreenWrapper headerTitle={'회원 목록'}>
-      <CustomModal
+      <Modal
         mdVisible={modal}
         title={'어떤 작업을 수행하시겠습니까?'}
         buttonList={modalBtn}
       />
-      <CustomModal
+      <Modal
         mdVisible={chairmanModal}
         title={'정말로 회장 직위를 넘기시겠습니까?'}
         subtitle={'회장 직위를 넘기고 나서는\n이 어플을 사용하실 수 없습니다.'}
         buttonList={chairmanModalBtn}
       />
-      <CustomModal
+      <Modal
         mdVisible={managerModal}
         title={'정말로 집행기로 지정하시겠습니까?'}
         buttonList={managerModalBtn}
       />
       {selectedUser && (
-        <CustomModal
+        <Modal
           mdVisible={deleteUserModal}
           title={'이 회원을 탈퇴 처리하시겠습니까?'}
           subtitle={`${selectedUser.userName} / ${selectedUser.major}`}
           buttonList={deleteUserModalBtn}
         />
       )}
-      <CustomModal
+      <Modal
         mdVisible={successModal}
         title={'성공'}
         buttonList={okayModalBtn}
       />
-      <CustomModal mdVisible={fail} title={'실패'} buttonList={okayModalBtn} />
+      <Modal mdVisible={fail} title={'실패'} buttonList={okayModalBtn} />
       <View style={styles.searchSection}>
         <TextInput
           style={styles.searchTextInput}
@@ -299,5 +296,3 @@ function Member() {
     </ScreenWrapper>
   );
 }
-
-export default Member;

@@ -11,14 +11,15 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-
-import CustomHeader from '../../layout/header.layout';
-import HEADER_TITLE from '../../../utils/constant/navigation';
-import CustomStatusBar from '../../layout/status-bar.layout';
-import CustomBtn from '../../layout/cta-button.layout';
-import CustomModal from '../../layout/modal.layout';
-import {customBtnType} from '../../../utils/types/customModal';
+} from '../../../../utils';
+import {
+  customBtnType,
+  Header,
+  StatusBar,
+  CTAButton,
+  Modal,
+} from '../../../layout';
+import {HEADER_TITLE} from '../notice.data';
 
 const styles = StyleSheet.create({
   root: {
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function NoticeDetail() {
+export function NoticeDetail() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const icon = (
     <FontAwesomeIcon style={{color: 'white'}} icon={faChevronLeft} />
@@ -129,14 +130,14 @@ function NoticeDetail() {
 
   return (
     <>
-      <CustomStatusBar />
+      <StatusBar />
       <View style={styles.root}>
-        <CustomModal
+        <Modal
           mdVisible={modalVisible}
           title={'삭제되었습니다!'}
           buttonList={modalBtn}
         />
-        <CustomHeader
+        <Header
           headerTitle={HEADER_TITLE.Notice}
           headerLeft
           leftIcon={icon}
@@ -154,7 +155,7 @@ function NoticeDetail() {
             <Text style={styles.postText}>ㅁㄴㅇㄹ</Text>
           </View>
         </View>
-        <CustomBtn
+        <CTAButton
           title={'삭제하기'}
           titleStyle={styles.btnTextStyle}
           btnStyle={styles.btnStyle}
@@ -164,5 +165,3 @@ function NoticeDetail() {
     </>
   );
 }
-
-export default NoticeDetail;

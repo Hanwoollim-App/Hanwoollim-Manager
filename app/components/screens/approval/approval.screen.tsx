@@ -70,7 +70,7 @@ const renderSeparator = () => {
   return <View style={styles.itemSeparator} />;
 };
 
-function Approval() {
+export function Approval() {
   const [approvalList, setApprovalList] = useState<Array<StudentInterface>>();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [selectedId, setSelectedId] = useState<string>();
@@ -149,5 +149,3 @@ function Approval() {
     </ScreenWrapper>
   );
 }
-
-export default Approval;
