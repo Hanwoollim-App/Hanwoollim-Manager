@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Approval, Home, Member, Notice} from '../screens';
-import Reservation from '../screens/reservation/time-table';
+import Reservation from '../screens/reservation/reservation-time-table/reservation-time-table.screen';
 
 const HomeStack = createStackNavigator();
 

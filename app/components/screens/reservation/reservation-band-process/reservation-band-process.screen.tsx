@@ -1,29 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   NavigationProp,
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import {View, StyleSheet, Text, Platform} from 'react-native';
-import CustomBtn from '../../../layout/cta-button.layout';
-import color from '../../../../utils/data/color/type';
+import {View, StyleSheet, Text, Platform, ScrollView} from 'react-native';
+import {ScreenWrapper, customBtnType, CTAButton, Modal} from '../../../layout';
 import {
   dayItems,
   PROCESS_TEXT,
-  sectionItems,
+  RESERVATION_TYPE,
   timeItems,
-  unitItems,
-} from '../../../../utils/constant/reservation/process/reservationProcess';
-import CustomModal from '../../../layout/modal.layout';
+  times,
+} from '../reservation.data';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../../utils/api/responsive/responsive.api';
-import ScreenWrapper from '../../../layout/screen-wrapper.layout';
-import {customBtnType} from '../../../../utils/types/customModal';
-import {ItemType, ValueType} from '../../../../utils/types/drop-down.type';
+  color,
+  ItemType,
+  postReservation,
+} from '../../../../utils';
 
 const styles = StyleSheet.create({
   root: {
@@ -61,7 +59,18 @@ const styles = StyleSheet.create({
       android: {},
     }),
   },
-  reservationTimePicker: {
+  startTimePicker: {
+    width: '100%',
+    height: heightPercentage(46),
+    marginTop: heightPercentage(20),
+    ...Platform.select({
+      ios: {
+        zIndex: 90,
+      },
+      android: {},
+    }),
+  },
+  endTimePicker: {
     width: '100%',
     height: heightPercentage(46),
     marginTop: heightPercentage(20),
@@ -174,10 +183,32 @@ const styles = StyleSheet.create({
     marginTop: heightPercentage(6),
     color: '#000000',
   },
+  scrollTime: {
+    fontFamily: 'NotoSansKR-Regular',
+    fontSize: fontPercentage(9),
+    color: '#6d6d6d',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  scrollTimeBox: {
+    width: widthPercentage(19),
+    height: heightPercentage(11),
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#707070',
+    marginTop: heightPercentage(3),
+    marginLeft: widthPercentage(3),
+  },
+  alignCenter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
-// eslint-disable-next-line react/prop-types
-function MentoringReservationProcess({route}) {
+export function ReservationBandProcess({route}: any) {
+  const {currentWeek, monday} = route.params;
+
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -195,29 +226,55 @@ function MentoringReservationProcess({route}) {
     },
   ];
 
-  // eslint-disable-next-line react/prop-types
-  const currentWeek: any = route.params;
-
-  const [day, setDay] = useState<ValueType>('');
+  const [day, setDay] = useState<string>('');
   const [dayOpen, setDayOpen] = useState<boolean>(false);
   const [dayItem, setDayItems] = useState<Array<ItemType>>(dayItems);
 
-  const [unit, setUnit] = useState<ValueType>('');
-  const [unitOpen, setUnitOpen] = useState<boolean>(false);
-  const [unitItem, setUnitItems] = useState<Array<ItemType>>(unitItems);
+  const [startTime, setStartTime] = useState<number | null>(null);
+  const [startTimeOpen, setStartTimeOpen] = useState<boolean>(false);
+  const [startTimeItem, setStartTimeItems] =
+    useState<Array<ItemType>>(timeItems);
 
-  const [time, setTime] = useState<ValueType>('');
-  const [timeOpen, setTimeOpen] = useState<boolean>(false);
-  const [timeItem, setTimeItems] = useState<Array<ItemType>>(timeItems);
+  const [endTime, setEndTime] = useState<number | null>(null);
+  const [endTimeOpen, setEndTimeOpen] = useState<boolean>(false);
+  const [endTimeItem, setEndTimeItems] = useState<Array<ItemType>>(timeItems);
 
-  const [section, setSection] = useState<ValueType[]>([]);
-  const [sectionOpen, setSectionOpen] = useState<boolean>(false);
-  const [sectionItem, setSectionItems] =
-    useState<Array<ItemType>>(sectionItems);
+  const submitBtnClickListener = () => {
+    if (startTime !== null && endTime !== null) {
+      postReservation(
+        monday,
+        RESERVATION_TYPE.Together,
+        day,
+        startTime,
+        endTime,
+        '',
+        '',
+      )
+        .then((res) => {
+          console.log(JSON.stringify(res, null, 2));
+          changeVisible();
+        })
+        .catch((err) => {
+          console.log(JSON.stringify(err, null, 2));
+        });
+    }
+  };
+
+  useEffect(() => {
+    if (startTime !== null) {
+      const index = timeItems.findIndex((i) => i.value === startTime);
+
+      setEndTimeItems(timeItems.slice(index + 1));
+    }
+  }, [startTime]);
+
+  useEffect(() => {
+    console.log(startTime);
+  }, [startTime]);
 
   return (
-    <ScreenWrapper headerTitle="멘토링 예약하기">
-      <CustomModal
+    <ScreenWrapper headerTitle="고정합주 예약하기">
+      <Modal
         mdVisible={modalVisible}
         title={'예약이 완료되었습니다!'}
         buttonList={modalBtn}
@@ -245,68 +302,63 @@ function MentoringReservationProcess({route}) {
 
         <View style={styles.contentContainer}>
           <View style={styles.timeBox}>
-            <Text> {`시간들이 들어갈 공간`}</Text>
+            <ScrollView horizontal={true}>
+              <View style={styles.alignCenter}>
+                {times.map((item) => {
+                  return (
+                    <>
+                      <View>
+                        <Text style={styles.scrollTime}>{item.label}</Text>
+                        <View style={styles.scrollTimeBox}></View>
+                      </View>
+                      <View>
+                        <Text style={styles.scrollTime}> </Text>
+                        <View style={styles.scrollTimeBox}></View>
+                      </View>
+                    </>
+                  );
+                })}
+              </View>
+            </ScrollView>
           </View>
-          <View style={styles.UnitPicker}>
+          <View style={styles.startTimePicker}>
             <DropDownPicker
-              open={unitOpen}
-              value={unit}
-              items={unitItem}
-              setOpen={setUnitOpen}
-              setValue={setUnit}
-              setItems={setUnitItems}
+              open={startTimeOpen}
+              value={startTime}
+              items={startTimeItem}
+              setOpen={setStartTimeOpen}
+              setValue={setStartTime}
+              setItems={setStartTimeItems}
               style={styles.dropDown2}
               textStyle={styles.dropDownText}
               dropDownContainerStyle={styles.dropDownContainer}
               placeholderStyle={styles.dropDownPlaceHolder}
-              placeholder={PROCESS_TEXT.UNIT}
+              placeholder={PROCESS_TEXT.START}
               zIndex={9000}
             />
           </View>
-          <View style={styles.reservationTimePicker}>
+          <View style={styles.endTimePicker}>
             <DropDownPicker
-              open={timeOpen}
-              value={time}
-              items={timeItem}
-              setOpen={setTimeOpen}
-              setValue={setTime}
-              setItems={setTimeItems}
+              open={endTimeOpen}
+              value={endTime}
+              items={endTimeItem}
+              setOpen={setEndTimeOpen}
+              setValue={setEndTime}
+              setItems={setEndTimeItems}
               style={styles.dropDown2}
               textStyle={styles.dropDownText}
               dropDownContainerStyle={styles.dropDownContainer}
               placeholderStyle={styles.dropDownPlaceHolder}
-              placeholder={PROCESS_TEXT.TIME}
+              placeholder={PROCESS_TEXT.END}
               zIndex={8000}
             />
           </View>
-          <Text style={styles.sectionInfo__alert__text}>
-            {PROCESS_TEXT.ALERT}
-          </Text>
-          <View style={styles.sectionInfo__form}>
-            <DropDownPicker
-              multiple={true}
-              min={0}
-              max={3}
-              open={sectionOpen}
-              value={section}
-              items={sectionItem}
-              setOpen={setSectionOpen}
-              setValue={setSection}
-              setItems={setSectionItems}
-              style={styles.dropDown2}
-              textStyle={styles.dropDownText}
-              dropDownContainerStyle={styles.dropDownContainer}
-              placeholderStyle={styles.dropDownPlaceHolder}
-              placeholder={PROCESS_TEXT.SECTION}
-              zIndex={7000}
-            />
-          </View>
           <View style={styles.submit}>
-            <CustomBtn
+            <CTAButton
               title={PROCESS_TEXT.SUBMIT}
               btnStyle={styles.submit__btn}
               titleStyle={styles.submit__text}
-              onClickListener={changeVisible}
+              onClickListener={submitBtnClickListener}
             />
           </View>
         </View>
@@ -314,5 +366,3 @@ function MentoringReservationProcess({route}) {
     </ScreenWrapper>
   );
 }
-
-export default MentoringReservationProcess;

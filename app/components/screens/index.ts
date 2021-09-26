@@ -4,4 +4,4 @@ export * from './login';
 export * from './member';
 export * from './notice';
 export * from './reservation';
-export * from './sign-in';
+export * from './sign-in/sign-in.screen';

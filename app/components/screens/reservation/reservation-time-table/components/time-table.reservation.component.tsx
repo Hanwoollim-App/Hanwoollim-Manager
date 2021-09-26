@@ -4,12 +4,12 @@ import {
   heightPercentage,
   widthPercentage,
   fontPercentage,
-} from '../../../../utils/api/responsive/responsive.api';
-import color from '../../../../utils/data/color/type';
-import CustomModal from '../../../layout/modal.layout';
-import {customBtnType} from '../../../../utils/types/customModal';
-import TIMETABLE_SIZE from '../../../../utils/constant/reservation';
-import {IScheduleType} from '../reservation.type';
+  color,
+} from '../../../../../utils';
+import {customBtnType, Modal} from '../../../../layout';
+
+import {TIMETABLE_SIZE} from '../../reservation.data';
+import {IScheduleType} from '../../reservation.type';
 
 const styles = StyleSheet.create({
   timeTable: {
@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
 interface TimeTableInterface {
   schedule: Array<Array<IScheduleType>>;
 }
-function TimeTable({schedule}: TimeTableInterface) {
+
+export function TimeTable({schedule}: TimeTableInterface) {
   const generateTimes = (startTime: number, endTime: number) => {
     const times = [];
 
@@ -165,7 +166,7 @@ function TimeTable({schedule}: TimeTableInterface) {
 
   return (
     <View style={styles.timeTable}>
-      <CustomModal
+      <Modal
         mdVisible={mdVisible}
         title={mdTitle}
         subtitle={mdText}
@@ -217,5 +218,3 @@ function TimeTable({schedule}: TimeTableInterface) {
     </View>
   );
 }
-
-export default TimeTable;

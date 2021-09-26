@@ -5,8 +5,6 @@ import {LoginNavigator} from './login.navigator';
 import {HomeNavigator} from './home.navigator';
 import {NoticeNavigator} from './notice.navigator';
 import {ReservationNavigator} from './reservation.navigator';
-import BandReservationProcess from '../screens/reservation/process';
-import MentoringReservationProcess from '../screens/reservation/process/mentoringReservationProcess';
 
 const RootStackNavigator = createStackNavigator();
 
@@ -29,14 +27,6 @@ export function RootNavigator() {
         <RootStackNavigator.Screen
           name="ReservationNavigator"
           component={ReservationNavigator}
-        />
-        <RootStackNavigator.Screen
-          name="BandReservationProcess"
-          component={BandReservationProcess}
-        />
-        <RootStackNavigator.Screen
-          name="MentoringReservationProcess"
-          component={MentoringReservationProcess}
         />
       </RootStackNavigator.Navigator>
     </NavigationContainer>

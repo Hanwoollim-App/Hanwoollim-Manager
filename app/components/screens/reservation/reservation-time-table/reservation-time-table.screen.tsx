@@ -18,17 +18,12 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../../utils/api/responsive/responsive.api';
-import ScreenWrapper from '../../../layout/screen-wrapper.layout';
-import TimeTable from './timeTable';
-import {customBtnType} from '../../../../utils/types/customModal';
-import CustomModal from '../../../layout/modal.layout';
-import {
-  weekItem,
-  weekItemInterface,
-} from '../../../../utils/constant/reservation';
-import {getReservation} from '../../../../utils/api/axios';
-import scheduleType from '../../../../utils/types/reservation';
+  getReservation,
+} from '../../../../utils';
+import {weekItem, IWeekItem} from '../reservation.data';
+import {IScheduleType} from '../reservation.type';
+import {ScreenWrapper, Modal, customBtnType} from '../../../layout';
+import {TimeTable} from './components';
 
 const styles = StyleSheet.create({
   titleBlock: {
@@ -99,13 +94,13 @@ const styles = StyleSheet.create({
   placeholder: {color: 'grey'},
 });
 
-function ReservationTimeTable() {
+export function ReservationTimeTable() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
-  const [date, setDate] = useState<Array<weekItemInterface>>(weekItem);
+  const [date, setDate] = useState<Array<IWeekItem>>(weekItem);
   const [weekNum, setWeekNum] = useState<number | null>(null);
-  const [schedule, setSchedule] = useState<Array<Array<scheduleType>>>();
+  const [schedule, setSchedule] = useState<Array<Array<IScheduleType>>>();
 
   const reserveBtnListener = () => {
     if (weekNum !== null) {
@@ -120,7 +115,7 @@ function ReservationTimeTable() {
   const fixedBand = () => {
     setModalVisible(!modalVisible);
     if (weekNum !== null) {
-      navigation.navigate('BandReservationProcess', {
+      navigation.navigate('ReservationBandProcess', {
         currentWeek: date[weekNum].label,
         monday: date[weekNum].monday,
       });
@@ -130,7 +125,7 @@ function ReservationTimeTable() {
   const mentoring = () => {
     setModalVisible(!modalVisible);
     if (weekNum !== null) {
-      navigation.navigate('MentoringReservationProcess', {
+      navigation.navigate('ReservationMentoringProcess', {
         currentWeek: date[weekNum].label,
         monday: date[weekNum].monday,
       });
@@ -165,7 +160,7 @@ function ReservationTimeTable() {
 
   return (
     <ScreenWrapper headerTitle="예약하기">
-      <CustomModal
+      <Modal
         mdVisible={modalVisible}
         title={'어떤 작업을 수행하시겠습니까?'}
         buttonList={modalBtn}
@@ -195,5 +190,3 @@ function ReservationTimeTable() {
     </ScreenWrapper>
   );
 }
-
-export default ReservationTimeTable;

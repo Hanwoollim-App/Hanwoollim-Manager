@@ -1,8 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import ReservationTimeTable from '../screens/reservation/time-table';
-import BandReservationProcess from '../screens/reservation/process';
-import MentoringReservationProcess from '../screens/reservation/process/mentoringReservationProcess';
+
+import {
+  ReservationBandProcess,
+  ReservationTimeTable,
+  ReservationMentoringProcess,
+} from '../screens';
 
 const ReservationStack = createStackNavigator();
 
@@ -14,12 +17,12 @@ export function ReservationNavigator() {
         component={ReservationTimeTable}
       />
       <ReservationStack.Screen
-        name="BandReservationProcess"
-        component={BandReservationProcess}
+        name="ReservationBandProcess"
+        component={ReservationBandProcess}
       />
       <ReservationStack.Screen
-        name="MentoringReservationProcess"
-        component={MentoringReservationProcess}
+        name="ReservationMentoringProcess"
+        component={ReservationMentoringProcess}
       />
     </ReservationStack.Navigator>
   );

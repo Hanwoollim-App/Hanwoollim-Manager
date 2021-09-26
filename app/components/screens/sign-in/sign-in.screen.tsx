@@ -9,16 +9,15 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-import color from '../../../utils/data/color/type';
-import SignInForm from './Form';
-import CustomBtn from '../../layout/cta-button.layout';
-import CustomStatusBar from '../../layout/status-bar.layout';
-import CustomModal from '../../layout/modal.layout';
-import {customBtnType} from '../../../utils/types/customModal';
-import {postSignIn, setAuthToken} from '../../../utils/api/axios';
+  color,
+  postSignIn,
+  setAuthToken,
+  useUserInfo,
+} from '../../../utils';
+import {Modal, StatusBar, customBtnType, CTAButton} from '../../layout';
+import {SignInForm} from './components';
+
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
-import {useUserInfo} from '../../../utils';
 
 const styles = StyleSheet.create({
   root: {
@@ -73,10 +72,10 @@ const styles = StyleSheet.create({
   },
 });
 
-function SignIn() {
+export function SignIn() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const [id, setId] = useState<string>();
-  const [pw, setPw] = useState<string>();
+  const [id, setId] = useState<string>('');
+  const [pw, setPw] = useState<string>('');
   const {setUser} = useUserInfo();
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -118,9 +117,9 @@ function SignIn() {
 
   return (
     <>
-      <CustomStatusBar />
+      <StatusBar />
       <View style={styles.root}>
-        <CustomModal
+        <Modal
           mdVisible={modalVisible}
           title={'로그인 실패'}
           buttonList={modalBtn}
@@ -147,7 +146,7 @@ function SignIn() {
             defaultValue={pw}
             isSecureInput
           />
-          <CustomBtn
+          <CTAButton
             title={'로그인'}
             titleStyle={styles.btnTextStyle}
             btnStyle={styles.btnStyle}
@@ -158,5 +157,3 @@ function SignIn() {
     </>
   );
 }
-
-export default SignIn;
