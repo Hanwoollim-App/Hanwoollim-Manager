@@ -251,7 +251,6 @@ export function ReservationBandProcess({route}: any) {
         '',
       )
         .then((res) => {
-          console.log(JSON.stringify(res, null, 2));
           changeVisible();
         })
         .catch((err) => {
@@ -266,10 +265,6 @@ export function ReservationBandProcess({route}: any) {
 
       setEndTimeItems(timeItems.slice(index + 1));
     }
-  }, [startTime]);
-
-  useEffect(() => {
-    console.log(startTime);
   }, [startTime]);
 
   return (

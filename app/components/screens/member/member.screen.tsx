@@ -149,7 +149,6 @@ export function Member() {
     selectedUser &&
       postManageUser(type, selectedUser.studentId)
         .then((res) => {
-          console.log(res);
           returnToMain();
           setSuccessModal(!successModal);
         })

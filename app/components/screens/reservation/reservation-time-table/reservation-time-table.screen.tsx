@@ -115,9 +115,12 @@ export function ReservationTimeTable() {
   const fixedBand = () => {
     setModalVisible(!modalVisible);
     if (weekNum !== null) {
-      navigation.navigate('ReservationBandProcess', {
-        currentWeek: date[weekNum].label,
-        monday: date[weekNum].monday,
+      navigation.navigate('ReservationNavigator', {
+        screen: 'ReservationBandProcess',
+        params: {
+          currentWeek: date[weekNum].label,
+          monday: date[weekNum].monday,
+        },
       });
     }
   };
@@ -125,9 +128,12 @@ export function ReservationTimeTable() {
   const mentoring = () => {
     setModalVisible(!modalVisible);
     if (weekNum !== null) {
-      navigation.navigate('ReservationMentoringProcess', {
-        currentWeek: date[weekNum].label,
-        monday: date[weekNum].monday,
+      navigation.navigate('ReservationNavigator', {
+        screen: 'ReservationMentoringProcess',
+        params: {
+          currentWeek: date[weekNum].label,
+          monday: date[weekNum].monday,
+        },
       });
     }
   };
@@ -150,7 +156,6 @@ export function ReservationTimeTable() {
   useFocusEffect(
     useCallback(() => {
       if (weekNum !== null) {
-        console.log(date[weekNum].monday);
         getReservation(date[weekNum].monday).then((res) => {
           setSchedule(res.data);
         });
