@@ -174,7 +174,7 @@ export function Modal({
   titleSize = fontPercentage(17),
   subtitleSize = fontPercentage(14),
 }: IModalsProps) {
-  const [last, second, ...first]: Array<customBtnType | undefined> = [
+  const [last, second, ...first]: Array<ICTAButton | undefined> = [
     ...buttonList,
   ].reverse();
 
