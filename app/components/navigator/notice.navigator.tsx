@@ -6,7 +6,7 @@ const NoticeStack = createStackNavigator();
 
 export function NoticeNavigator() {
   return (
-    <NoticeStack.Navigator>
+    <NoticeStack.Navigator headerMode="none">
       <NoticeStack.Screen name="NoticeDetail" component={NoticeDetail} />
       <NoticeStack.Screen name="NoticeUpload" component={NoticeUpload} />
     </NoticeStack.Navigator>

@@ -11,7 +11,9 @@ const ReservationStack = createStackNavigator();
 
 export function ReservationNavigator() {
   return (
-    <ReservationStack.Navigator initialRouteName="ReservationTimeTable">
+    <ReservationStack.Navigator
+      headerMode="none"
+      initialRouteName="ReservationTimeTable">
       <ReservationStack.Screen
         name="ReservationTimeTable"
         component={ReservationTimeTable}
