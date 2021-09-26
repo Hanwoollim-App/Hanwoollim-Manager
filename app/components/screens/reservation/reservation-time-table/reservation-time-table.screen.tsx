@@ -20,9 +20,9 @@ import {
   widthPercentage,
   getReservation,
 } from '../../../../utils';
-import {weekItem, IWeekItem} from '../reservation.data';
-import {IScheduleType} from '../reservation.type';
-import {ScreenWrapper, Modal, customBtnType} from '../../../layout';
+import {weekItem} from '../reservation.data';
+import {IScheduleType, IWeekItem} from '../reservation.type';
+import {ScreenWrapper, Modal, ICTAButton} from '../../../layout';
 import {TimeTable} from './components';
 
 const styles = StyleSheet.create({
@@ -132,7 +132,7 @@ export function ReservationTimeTable() {
     }
   };
 
-  const modalBtn: Array<customBtnType> = [
+  const modalBtn: Array<ICTAButton> = [
     {
       buttonText: '고정합주',
       buttonClickListener: fixedBand,

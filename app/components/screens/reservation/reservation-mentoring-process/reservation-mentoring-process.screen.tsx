@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {View, StyleSheet, Text, Platform} from 'react-native';
-import {ScreenWrapper, CTAButton, Modal, customBtnType} from '../../../layout';
+import {ScreenWrapper, CTAButton, Modal, ICTAButton} from '../../../layout';
 import {
   dayItems,
   PROCESS_TEXT,
@@ -20,6 +20,7 @@ import {
   widthPercentage,
   ItemType,
   ValueType,
+  color,
 } from '../../../../utils';
 
 const styles = StyleSheet.create({
@@ -185,7 +186,7 @@ export function ReservationMentoringProcess({route}) {
   const returnToMain = () => {
     navigation.goBack();
   };
-  const modalBtn: Array<customBtnType> = [
+  const modalBtn: Array<ICTAButton> = [
     {
       buttonText: '확인',
       buttonClickListener: returnToMain,

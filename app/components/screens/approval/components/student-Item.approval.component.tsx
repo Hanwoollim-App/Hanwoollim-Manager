@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {color} from '../../../../utils';
 import {
+  color,
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../../utils/api/responsive/responsive.api';
-import StudentInterface from '../../../../utils/types/student-item.type';
+  StudentInterface,
+} from '../../../../utils';
+
 import {CTAButton} from '../../../layout';
 import {APPROVE_BTN} from './student-item.data';
 

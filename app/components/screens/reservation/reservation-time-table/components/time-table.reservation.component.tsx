@@ -6,7 +6,7 @@ import {
   fontPercentage,
   color,
 } from '../../../../../utils';
-import {customBtnType, Modal} from '../../../../layout';
+import {ICTAButton, Modal} from '../../../../layout';
 
 import {TIMETABLE_SIZE} from '../../reservation.data';
 import {IScheduleType} from '../../reservation.type';
@@ -157,7 +157,7 @@ export function TimeTable({schedule}: TimeTableInterface) {
   function changeVisible() {
     setMdVisible(!mdVisible);
   }
-  const mdBtn: Array<customBtnType> = [
+  const mdBtn: Array<ICTAButton> = [
     {
       buttonText: '확인',
       buttonClickListener: changeVisible,

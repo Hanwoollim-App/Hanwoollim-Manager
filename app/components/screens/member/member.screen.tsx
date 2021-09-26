@@ -12,7 +12,7 @@ import {
   StudentInterface,
 } from '../../../utils';
 import {StudentItem} from './components';
-import {ScreenWrapper, Modal, customBtnType} from '../../layout';
+import {ScreenWrapper, Modal, ICTAButton} from '../../layout';
 import {getUserList, postManageUser} from '../../../utils/api/axios';
 import {APPOINT_MANAGER, DELETE_USER} from './member.data';
 import {SearchImage} from '../../../assets';
@@ -159,7 +159,7 @@ export function Member() {
         });
   };
 
-  const modalBtn: Array<customBtnType> = [
+  const modalBtn: Array<ICTAButton> = [
     {
       buttonText: '회장 직위 부여',
       buttonClickListener: adminRole,
@@ -178,7 +178,7 @@ export function Member() {
     },
   ];
 
-  const chairmanModalBtn: Array<customBtnType> = [
+  const chairmanModalBtn: Array<ICTAButton> = [
     {
       buttonText: '네',
       buttonClickListener: returnToLogin,
@@ -189,7 +189,7 @@ export function Member() {
     },
   ];
 
-  const managerModalBtn: Array<customBtnType> = [
+  const managerModalBtn: Array<ICTAButton> = [
     {
       buttonText: '네',
       buttonClickListener: () => manageUser(APPOINT_MANAGER),
@@ -200,7 +200,7 @@ export function Member() {
     },
   ];
 
-  const deleteUserModalBtn: Array<customBtnType> = [
+  const deleteUserModalBtn: Array<ICTAButton> = [
     {
       buttonText: '네',
       buttonClickListener: () => manageUser(DELETE_USER),
@@ -211,7 +211,7 @@ export function Member() {
     },
   ];
 
-  const okayModalBtn: Array<customBtnType> = [
+  const okayModalBtn: Array<ICTAButton> = [
     {
       buttonText: '확인',
       buttonClickListener: returnToMain,

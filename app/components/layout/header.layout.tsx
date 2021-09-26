@@ -1,10 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {
-  heightPercentage,
-  fontPercentage,
-} from '../../utils/api/responsive/responsive.api';
-import color from '../../utils/data/color/type';
+import {heightPercentage, fontPercentage, color} from '../../utils';
 
 const styles = StyleSheet.create({
   header: {
@@ -37,7 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type IHeaderProps {
+type IHeaderProps = {
   headerTitle?: String;
   headerLeft?: boolean;
   headerRight?: boolean;
@@ -45,7 +41,7 @@ type IHeaderProps {
   rightIcon?: React.ReactNode;
   leftIconClickListener?: Function;
   rightIconClickListener?: Function;
-}
+};
 
 export function Header({
   headerTitle,
@@ -81,4 +77,3 @@ export function Header({
     </View>
   );
 }
-

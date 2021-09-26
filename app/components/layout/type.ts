@@ -1,4 +1,4 @@
-export type customBtnType = {
+export type ICTAButton = {
   buttonText: string;
   buttonClickListener: Function;
 };

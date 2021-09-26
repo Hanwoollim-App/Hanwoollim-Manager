@@ -14,7 +14,7 @@ import {
   setAuthToken,
   useUserInfo,
 } from '../../../utils';
-import {Modal, StatusBar, customBtnType, CTAButton} from '../../layout';
+import {Modal, StatusBar, ICTAButton, CTAButton} from '../../layout';
 import {SignInForm} from './components';
 
 import {WhiteHanwoollimTextLogoImage} from '../../../assets';
@@ -89,7 +89,7 @@ export function SignIn() {
     setModalVisible(!modalVisible);
   };
 
-  const modalBtn: Array<customBtnType> = [
+  const modalBtn: Array<ICTAButton> = [
     {
       buttonText: '확인',
       buttonClickListener: returnToSignIn,

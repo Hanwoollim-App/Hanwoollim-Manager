@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {APPOINT_CHAIRMAN} from '../../constant/member';
+import {APPOINT_CHAIRMAN} from '../../../components/screens';
 import {ISignIn} from './type';
 
 export const baseAxios = axios.create({

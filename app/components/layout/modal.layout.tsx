@@ -1,13 +1,13 @@
 import React from 'react';
 import {Text, View, Modal as RNModal, StyleSheet, Platform} from 'react-native';
-import color from '../../utils/data/color/type';
 import {CTAButton} from './cta-button.layout';
 import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../utils/api/responsive/responsive.api';
-import {customBtnType} from '../../utils/types/customModal';
+  color,
+} from '../../utils';
+import {ICTAButton} from './type';
 
 const styles = StyleSheet.create({
   modalView: {
@@ -161,7 +161,7 @@ type IModalsProps = {
   mdVisible: boolean;
   title: string;
   subtitle?: string;
-  buttonList: Array<customBtnType>;
+  buttonList: Array<ICTAButton>;
   titleSize?: number;
   subtitleSize?: number;
 };

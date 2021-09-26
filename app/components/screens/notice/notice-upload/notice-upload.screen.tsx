@@ -14,13 +14,7 @@ import {
   widthPercentage,
 } from '../../../../utils';
 
-import {
-  Header,
-  StatusBar,
-  customBtnType,
-  Modal,
-  CTAButton,
-} from '../../../layout';
+import {Header, StatusBar, ICTAButton, Modal, CTAButton} from '../../../layout';
 import {HEADER_TITLE} from '../notice.data';
 
 const styles = StyleSheet.create({
@@ -101,7 +95,7 @@ export function NoticeUpload() {
   const returnToMain = () => {
     navigation.navigate('HomeNavigator');
   };
-  const modalBtn: Array<customBtnType> = [
+  const modalBtn: Array<ICTAButton> = [
     {
       buttonText: '확인',
       buttonClickListener: returnToMain,

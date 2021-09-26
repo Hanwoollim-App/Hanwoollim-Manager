@@ -4,12 +4,12 @@ import {
   fontPercentage,
   heightPercentage,
   widthPercentage,
-} from '../../../utils/api/responsive/responsive.api';
-import StudentInterface from '../../../utils/types/student-item.type';
+  StudentInterface,
+} from '../../../utils';
 import {getApprovalList, postApproval} from '../../../utils/api/axios';
 import {APPROVE_MODAL} from './components/student-item.data';
 import {SearchImage} from '../../../assets';
-import {ScreenWrapper, customBtnType, Modal} from '../../layout';
+import {ScreenWrapper, ICTAButton, Modal} from '../../layout';
 import {MAIN_MENU} from '../home/home.data';
 import {StudentItem} from './components';
 
@@ -100,7 +100,7 @@ export function Approval() {
         });
   };
 
-  const modalBtn1: Array<customBtnType> = [
+  const modalBtn1: Array<ICTAButton> = [
     {
       buttonText: '네',
       buttonClickListener: approveModalClickListener,

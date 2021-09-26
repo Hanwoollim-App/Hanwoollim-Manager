@@ -1,17 +1,12 @@
 import {Item} from 'react-native-picker-select';
 import {widthPercentage, heightPercentage} from '../../../utils';
+import {IWeekItem} from './reservation.type';
 
 export const TIMETABLE_SIZE = {
   ColumnsHeight: heightPercentage(14),
   IndexWidth: widthPercentage(20),
   defaultBoxWidth: widthPercentage(46),
   defaultBoxHeight: heightPercentage(46),
-};
-
-export type IWeekItem = {
-  label: string;
-  value: number;
-  monday: string;
 };
 
 export const weekItem: Array<IWeekItem> = [];

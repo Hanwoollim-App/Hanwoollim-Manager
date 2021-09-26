@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {View, StyleSheet, Text, Platform, ScrollView} from 'react-native';
-import {ScreenWrapper, customBtnType, CTAButton, Modal} from '../../../layout';
+import {ScreenWrapper, ICTAButton, CTAButton, Modal} from '../../../layout';
 import {
   dayItems,
   PROCESS_TEXT,
@@ -219,7 +219,7 @@ export function ReservationBandProcess({route}: any) {
   const returnToMain = () => {
     navigation.goBack();
   };
-  const modalBtn: Array<customBtnType> = [
+  const modalBtn: Array<ICTAButton> = [
     {
       buttonText: '확인',
       buttonClickListener: returnToMain,
