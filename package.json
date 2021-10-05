@@ -5,10 +5,11 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
-    "lint": "eslint --ext .tsx --ext .ts --ext .js --ext .jsx app --fix",
-    "lint-fix": "tsc --noEmit && eslint \"*/**/*.{js,jsx,ts,tsx}\" --quiet --fix"
+    "type-check": "tsc --pretty --noEmit",
+    "lint": "eslint \"*/**/*.{js,jsx,ts,tsx}\"",
+    "lint-fix": "eslint \"*/**/*.{js,jsx,ts,tsx}\" --quiet --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -21,6 +22,7 @@
     "axios": "^0.21.1",
     "eslint-config-naver": "^2.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-unused-imports": "^1.1.4",
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-cn-quill": "^0.7.0",
