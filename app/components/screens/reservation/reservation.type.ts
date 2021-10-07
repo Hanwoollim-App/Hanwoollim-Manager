@@ -1,7 +1,7 @@
 export type IScheduleType = {
   name: string;
-  starttime: number;
-  endtime: number;
+  startTime: number;
+  endTime: number;
   session1: string;
   session2: string;
 };

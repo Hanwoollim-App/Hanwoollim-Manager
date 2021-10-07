@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import {
   TouchableOpacity,
   View,
@@ -7,11 +7,14 @@ import {
   ScrollView,
   Platform,
 } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
+import isNull from 'lodash/isNull';
+import { useAsyncCallback } from 'react-async-hook';
+import DropDownPicker, { ItemType, ValueType } from 'react-native-dropdown-picker';
 import {
   NavigationProp,
   ParamListBase,
   useFocusEffect,
+  useIsFocused,
   useNavigation,
 } from '@react-navigation/native';
 import {
@@ -24,6 +27,8 @@ import {weekItem} from '../reservation.data';
 import {IScheduleType, IWeekItem} from '../reservation.type';
 import {ScreenWrapper, Modal, ICTAButton} from '../../../layout';
 import {TimeTable} from './components';
+import { weekItems } from '../../../../utils/constant/reservation/timeTable/timeTable';
+import { emptyReservation } from './reservation-time-table.data';
 
 const styles = StyleSheet.create({
   titleBlock: {
@@ -96,16 +101,26 @@ const styles = StyleSheet.create({
 
 export function ReservationTimeTable() {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
-  const [date, setDate] = useState<Array<IWeekItem>>(weekItem);
-  const [weekNum, setWeekNum] = useState<number | null>(null);
-  const [schedule, setSchedule] = useState<Array<Array<IScheduleType>>>();
+
+  const [targetDateValue, setTargetDateValue] = useState<ValueType>(null);
+	const [startDates, setStartDates] = useState<Array<ItemType>>(weekItems);
+	const [reservationData, setReservationData] = useState(null);
+	const isFocused = useIsFocused();
+
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+
+  const findStartDate = () =>
+  startDates.filter((startDate) => startDate.value === targetDateValue)[0]
+    .value;
+
 
   const reserveBtnListener = () => {
-    if (weekNum !== null) {
-      setModalVisible(!modalVisible);
-    }
+    if (isNull(targetDateValue)) {
+			return;
+		}
+    setModalVisible(!modalVisible);
+    
   };
 
   const returnToTimeTable = () => {
@@ -114,28 +129,38 @@ export function ReservationTimeTable() {
 
   const fixedBand = () => {
     setModalVisible(!modalVisible);
-    if (weekNum !== null) {
-      navigation.navigate('ReservationNavigator', {
-        screen: 'ReservationBandProcess',
-        params: {
-          currentWeek: date[weekNum].label,
-          monday: date[weekNum].monday,
-        },
-      });
-    }
+    const weekName = weekItems.filter(
+			(item) => item.value === targetDateValue,
+		)[0];
+
+		const targetStartDate = findStartDate();
+
+		navigation.navigate('ReservationNavigator', {
+      screen: 'ReservationBandProcess',
+      params:{
+			currentWeek: weekName,
+			monday: targetStartDate,
+      }
+		});
+
   };
 
   const mentoring = () => {
     setModalVisible(!modalVisible);
-    if (weekNum !== null) {
-      navigation.navigate('ReservationNavigator', {
-        screen: 'ReservationMentoringProcess',
-        params: {
-          currentWeek: date[weekNum].label,
-          monday: date[weekNum].monday,
-        },
-      });
-    }
+    const weekName = weekItems.filter(
+			(item) => item.value === targetDateValue,
+		)[0];
+
+		const targetStartDate = findStartDate();
+    
+		navigation.navigate('ReservationNavigator', {
+      screen: 'ReservationMentoringProcess',
+      params: {
+        currentWeek: weekName,
+        monday: targetStartDate,
+      }
+		});
+
   };
 
   const modalBtn: Array<ICTAButton> = [
@@ -153,15 +178,34 @@ export function ReservationTimeTable() {
     },
   ];
 
-  useFocusEffect(
-    useCallback(() => {
-      if (weekNum !== null) {
-        getReservation(date[weekNum].monday).then((res) => {
-          setSchedule(res.data);
-        });
-      }
-    }, [weekNum]),
-  );
+  const {
+		execute: handleUpdateReservationData,
+		loading: isUpdatingReservationData,
+	} = useAsyncCallback(async () => {
+		if (isNull(targetDateValue)) {
+			return;
+		}
+		const targetStartDate = findStartDate();
+
+		try {
+			const { data } = await getReservation(targetStartDate as string);
+
+			if (data.length) {
+				setReservationData(data[0]);
+				return;
+			}
+
+			setReservationData(emptyReservation);
+		} catch (err) {
+			console.log(err.response);
+		}
+	});
+
+  useEffect(() => {
+		if (isFocused) {
+			(async () => handleUpdateReservationData())();
+		}
+	}, [targetDateValue, isFocused]);
 
   return (
     <ScreenWrapper headerTitle="예약하기">
@@ -171,27 +215,34 @@ export function ReservationTimeTable() {
         buttonList={modalBtn}
       />
       <View style={styles.row}>
-        <View>
-          <DropDownPicker
-            open={open}
-            value={weekNum}
-            items={date}
-            setOpen={setOpen}
-            setValue={setWeekNum}
-            setItems={setDate}
-            style={styles.dropDown}
-            textStyle={styles.dropDownText}
-            dropDownContainerStyle={styles.dropDownContainer}
-            placeholderStyle={styles.placeholder}
-          />
-        </View>
+      <View>
+					<DropDownPicker
+						open={open}
+						value={targetDateValue}
+						items={startDates}
+						setOpen={setOpen}
+						setValue={setTargetDateValue}
+						setItems={setStartDates}
+						style={styles.dropDown}
+						textStyle={styles.dropDownText}
+						dropDownContainerStyle={styles.dropDownContainer}
+						placeholderStyle={styles.placeholder}
+					/>
+				</View>
         <TouchableOpacity
           style={styles.reserveBtn}
           onPress={reserveBtnListener}>
           <Text style={styles.reserveBtnText}>예약하기</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView>{schedule && <TimeTable schedule={schedule} />}</ScrollView>
-    </ScreenWrapper>
+			<ScrollView>
+				{targetDateValue && reservationData && (
+					<TimeTable
+						isLoading={isUpdatingReservationData}
+						reservationData={reservationData}
+					/>
+				)}
+			</ScrollView>
+		</ScreenWrapper>
   );
 }

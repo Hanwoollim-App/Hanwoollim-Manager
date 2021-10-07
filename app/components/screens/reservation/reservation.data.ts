@@ -70,14 +70,11 @@ export const sectionItems: Array<Item> = [
 export const timeItems: Array<Item> = [];
 
 for (let hour = 0; hour < 24; hour++) {
-  for (let m = 0; m < 2; m++) {
-    const minute = m * 30;
 
     timeItems.push({
-      label: `${`${hour}`.padStart(2, '0')} : ${`${minute}`.padStart(2, '0')}`,
-      value: hour + m * 0.5,
+      label: `${`${hour}`.padStart(2, '0')} : 00`,
+      value: hour
     });
-  }
 }
 
 export const times: Array<Item> = [];
