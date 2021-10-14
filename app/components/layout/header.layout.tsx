@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(20),
     color: 'white',
+    lineHeight: heightPercentage(30),
   },
   headerCenter: {
     flex: 76,
