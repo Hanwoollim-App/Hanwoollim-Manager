@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, BackHandler, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  Text,
+  BackHandler,
+  StyleSheet,
+  Image,
+  Platform,
+} from 'react-native';
 import {useAndroidBackHandler} from 'react-navigation-backhandler';
 import {
   NavigationProp,
@@ -41,6 +48,9 @@ const styles = StyleSheet.create({
   titleText: {
     fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(24),
+    ...Platform.select({
+      android: {lineHeight: heightPercentage(80)},
+    }),
   },
   btnStyle: {
     width: widthPercentage(335),
@@ -58,6 +68,7 @@ const styles = StyleSheet.create({
     marginLeft: widthPercentage(13),
     justifyContent: 'center',
     fontSize: fontPercentage(20),
+    lineHeight: heightPercentage(33),
   },
   iconStyle: {
     flex: 1,
