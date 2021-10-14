@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     color: '#ffffff',
+    lineHeight: heightPercentage(31),
   },
   editor: {
     flex: 1,

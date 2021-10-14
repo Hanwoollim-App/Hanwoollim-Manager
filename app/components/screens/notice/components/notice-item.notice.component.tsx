@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
     marginHorizontal: widthPercentage(14),
   },
   title: {
-    height: heightPercentage(24),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(16),
     textAlign: 'left',
     color: '#000000',
+    lineHeight: heightPercentage(27),
   },
   date: {
     height: heightPercentage(17),
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     fontSize: fontPercentage(12),
     textAlign: 'left',
     color: '#808080',
+    lineHeight: heightPercentage(20),
   },
 });
 

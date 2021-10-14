@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     color: '#ffffff',
+    lineHeight: heightPercentage(31),
   },
 });
 
