@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   date: {
-    width: widthPercentage(60),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
     color: '#808080',

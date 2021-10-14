@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     fontSize: fontPercentage(16),
     textAlign: 'left',
     color: '#000000',
+    lineHeight: heightPercentage(30),
   },
   major: {
     fontFamily: 'NotoSansKR-Regular',

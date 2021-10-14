@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(24),
     ...Platform.select({
-      android: {lineHeight: heightPercentage(80)},
+      android: {lineHeight: heightPercentage(40)},
     }),
   },
   btnStyle: {

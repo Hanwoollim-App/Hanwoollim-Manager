@@ -34,8 +34,6 @@ const styles = StyleSheet.create({
   },
   postTitleBoxText: {
     width: '95%',
-    height: '80%',
-    fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(16),
     marginLeft: widthPercentage(12),
   },
