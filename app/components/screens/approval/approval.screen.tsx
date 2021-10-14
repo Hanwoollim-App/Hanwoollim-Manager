@@ -26,8 +26,7 @@ const styles = StyleSheet.create({
   },
   searchTextInput: {
     width: '85%',
-    fontSize: fontPercentage(20),
-    fontFamily: 'NotoSansKR-Bold',
+    fontSize: fontPercentage(17),
     paddingLeft: widthPercentage(13),
   },
   searchIcon: {

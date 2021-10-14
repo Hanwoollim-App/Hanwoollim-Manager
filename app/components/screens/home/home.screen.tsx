@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     height: heightPercentage(62.4),
   },
   title: {
-    width: '100%',
     height: heightPercentage(51),
     marginLeft: widthPercentage(20),
   },
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansKR-Bold',
     marginLeft: widthPercentage(13),
     justifyContent: 'center',
-    fontSize: fontPercentage(20),
+    fontSize: fontPercentage(18),
     lineHeight: heightPercentage(33),
   },
   iconStyle: {

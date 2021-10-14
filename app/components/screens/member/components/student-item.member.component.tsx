@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
     color: '#808080',
+    lineHeight: heightPercentage(20),
   },
   itemSection: {
     flexDirection: 'row',

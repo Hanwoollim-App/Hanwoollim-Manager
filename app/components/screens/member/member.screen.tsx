@@ -31,11 +31,12 @@ const styles = StyleSheet.create({
     borderRadius: widthPercentage(10),
     backgroundColor: 'white',
   },
+  searchBox: {
+    justifyContent: 'center',
+  },
   searchTextInput: {
-    width: '85%',
-    fontSize: fontPercentage(20),
-    fontFamily: 'NotoSansKR-Bold',
-    paddingLeft: widthPercentage(13),
+    marginLeft: widthPercentage(13),
+    fontSize: fontPercentage(18),
   },
   searchIcon: {
     width: widthPercentage(25),
