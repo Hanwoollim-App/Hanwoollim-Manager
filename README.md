@@ -88,8 +88,8 @@ MainStackNavigator
        │     └─ NoticeUpload
        └─ ReservationStackNavigator
              ├─ ReservationTimeTable
-             ├─ BandReservationProcess
-             └─ MentoringReservationProcess
+             ├─ ReservationBandProcess
+             └─ ReservationBandProcess
 ```
 
 ## 페이지 샘플

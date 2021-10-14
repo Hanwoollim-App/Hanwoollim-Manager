@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* HanwoollimManagersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HanwoollimManagersTests.m */; };
+		045429C92716CE9D007203C4 /* File.shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045429C82716CE9D007203C4 /* File.shift.swift */; };
 		04F19D8C269981CF00CCBFE4 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 04F19D8B269981CF00CCBFE4 /* Fonts */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -31,6 +32,8 @@
 		00E356EE1AD99517003FC87E /* HanwoollimManagersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HanwoollimManagersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* HanwoollimManagersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HanwoollimManagersTests.m; sourceTree = "<group>"; };
+		045429C72716CE9C007203C4 /* HanwoollimManagers-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HanwoollimManagers-Bridging-Header.h"; sourceTree = "<group>"; };
+		045429C82716CE9D007203C4 /* File.shift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.shift.swift; sourceTree = "<group>"; };
 		04F19D8B269981CF00CCBFE4 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		13296840533850C709EBE379 /* Pods-HanwoollimManagers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HanwoollimManagers.release.xcconfig"; path = "Target Support Files/Pods-HanwoollimManagers/Pods-HanwoollimManagers.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HanwoollimManagers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanwoollimManagers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +97,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				045429C82716CE9D007203C4 /* File.shift.swift */,
+				045429C72716CE9C007203C4 /* HanwoollimManagers-Bridging-Header.h */,
 			);
 			name = HanwoollimManagers;
 			sourceTree = "<group>";
@@ -210,7 +215,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
@@ -416,6 +421,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				045429C92716CE9D007203C4 /* File.shift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F6398D7FA5A4F8EDFAB0983F /* Pods-HanwoollimManagers-HanwoollimManagersTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -461,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 948865E0219797E5574547CB /* Pods-HanwoollimManagers-HanwoollimManagersTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = HanwoollimManagersTests/Info.plist;
@@ -501,6 +509,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = HanwoollimManagers;
+				SWIFT_OBJC_BRIDGING_HEADER = "HanwoollimManagers-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -526,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = HanwoollimManagers;
+				SWIFT_OBJC_BRIDGING_HEADER = "HanwoollimManagers-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
