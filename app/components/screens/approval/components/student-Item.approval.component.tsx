@@ -7,7 +7,6 @@ import {
   widthPercentage,
   StudentInterface,
 } from '../../../../utils';
-
 import {CTAButton} from '../../../layout';
 import {APPROVE_BTN} from './student-item.data';
 
@@ -15,7 +14,6 @@ const styles = StyleSheet.create({
   list: {
     width: widthPercentage(335),
     height: heightPercentage(55),
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -26,27 +24,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  box: {
+    justifyContent: 'center',
+  },
   name: {
-    width: widthPercentage(44),
-    height: heightPercentage(24),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(16),
     textAlign: 'left',
     color: '#000000',
   },
   major: {
-    width: widthPercentage(55),
-    height: heightPercentage(17),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
     color: '#808080',
+    lineHeight: heightPercentage(16),
   },
   studentCode: {
-    width: widthPercentage(67),
-    height: heightPercentage(17),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
     color: '#808080',
+    lineHeight: heightPercentage(16),
   },
   itemSection: {
     flexDirection: 'row',
@@ -65,6 +62,7 @@ const styles = StyleSheet.create({
     color: color.subColor,
     fontFamily: 'NotoSansKR-Bold',
     fontSize: fontPercentage(14),
+    lineHeight: heightPercentage(28),
   },
 });
 
@@ -88,11 +86,11 @@ export function StudentItem({
   return (
     <View style={styles.list}>
       <View style={styles.item}>
-        <View>
+        <View style={styles.box}>
           <Text style={styles.name}>{userName}</Text>
           <View style={styles.itemSection}>
             <Text style={styles.major}>{major}</Text>
-            <Text style={styles.studentCode}>{studentId}</Text>
+            <Text style={styles.studentCode}>{` ${studentId}`}</Text>
           </View>
         </View>
         <CTAButton

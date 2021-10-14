@@ -26,9 +26,7 @@ const styles = StyleSheet.create({
   },
   searchTextInput: {
     width: '85%',
-    height: '80%',
     fontSize: fontPercentage(20),
-    lineHeight: fontPercentage(25),
     fontFamily: 'NotoSansKR-Bold',
     paddingLeft: widthPercentage(13),
   },
@@ -38,25 +36,12 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     marginRight: widthPercentage(18),
   },
-  roleSection: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: heightPercentage(15),
-    marginLeft: widthPercentage(23),
-  },
-  roleText: {
-    fontFamily: 'NotoSansKR-Regular',
-    fontSize: fontPercentage(12),
-    marginLeft: widthPercentage(6),
-    color: '#00203f',
-  },
   list: {
     width: widthPercentage(335),
     height: heightPercentage(609),
     borderRadius: widthPercentage(10),
     backgroundColor: '#ffffff',
     marginTop: heightPercentage(15),
-    paddingTop: heightPercentage(11),
   },
   itemSeparator: {
     marginLeft: widthPercentage(14),
