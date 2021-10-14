@@ -33,9 +33,7 @@ const styles = StyleSheet.create({
   },
   searchTextInput: {
     width: '85%',
-    height: '80%',
     fontSize: fontPercentage(20),
-    lineHeight: fontPercentage(25),
     fontFamily: 'NotoSansKR-Bold',
     paddingLeft: widthPercentage(13),
   },

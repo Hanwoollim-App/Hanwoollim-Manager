@@ -14,19 +14,22 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginHorizontal: 14,
   },
+  box: {
+    justifyContent: 'center',
+  },
   name: {
-    width: widthPercentage(44),
-    height: heightPercentage(24),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(16),
     textAlign: 'left',
     color: '#000000',
+    lineHeight: heightPercentage(23),
   },
   major: {
     height: heightPercentage(17),
     fontFamily: 'NotoSansKR-Regular',
     fontSize: fontPercentage(12),
     color: '#808080',
+    lineHeight: heightPercentage(20),
   },
   studentCode: {
     height: heightPercentage(17),
@@ -62,7 +65,7 @@ export function StudentItem({
   };
 
   return (
-    <View>
+    <View style={styles.box}>
       <TouchableOpacity onPress={studentItemClickListener}>
         <View style={styles.item}>
           <Text style={[styles.name, position === 'admin' && {color: 'blue'}]}>
