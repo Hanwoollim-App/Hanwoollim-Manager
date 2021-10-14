@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   TouchableOpacity,
   View,
@@ -8,12 +8,14 @@ import {
   Platform,
 } from 'react-native';
 import isNull from 'lodash/isNull';
-import { useAsyncCallback } from 'react-async-hook';
-import DropDownPicker, { ItemType, ValueType } from 'react-native-dropdown-picker';
+import {useAsyncCallback} from 'react-async-hook';
+import DropDownPicker, {
+  ItemType,
+  ValueType,
+} from 'react-native-dropdown-picker';
 import {
   NavigationProp,
   ParamListBase,
-  useFocusEffect,
   useIsFocused,
   useNavigation,
 } from '@react-navigation/native';
@@ -23,12 +25,10 @@ import {
   widthPercentage,
   getReservation,
 } from '../../../../utils';
-import {weekItem} from '../reservation.data';
-import {IScheduleType, IWeekItem} from '../reservation.type';
 import {ScreenWrapper, Modal, ICTAButton} from '../../../layout';
 import {TimeTable} from './components';
-import { weekItems } from '../../../../utils/constant/reservation/timeTable/timeTable';
-import { emptyReservation } from './reservation-time-table.data';
+import {weekItems} from '../../../../utils/constant/reservation/timeTable/timeTable';
+import {emptyReservation} from './reservation-time-table.data';
 
 const styles = StyleSheet.create({
   titleBlock: {
@@ -104,23 +104,21 @@ export function ReservationTimeTable() {
   const [open, setOpen] = useState<boolean>(false);
 
   const [targetDateValue, setTargetDateValue] = useState<ValueType>(null);
-	const [startDates, setStartDates] = useState<Array<ItemType>>(weekItems);
-	const [reservationData, setReservationData] = useState(null);
-	const isFocused = useIsFocused();
+  const [startDates, setStartDates] = useState<Array<ItemType>>(weekItems);
+  const [reservationData, setReservationData] = useState(null);
+  const isFocused = useIsFocused();
 
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   const findStartDate = () =>
-  startDates.filter((startDate) => startDate.value === targetDateValue)[0]
-    .value;
-
+    startDates.filter((startDate) => startDate.value === targetDateValue)[0]
+      .value;
 
   const reserveBtnListener = () => {
     if (isNull(targetDateValue)) {
-			return;
-		}
+      return;
+    }
     setModalVisible(!modalVisible);
-    
   };
 
   const returnToTimeTable = () => {
@@ -130,37 +128,35 @@ export function ReservationTimeTable() {
   const fixedBand = () => {
     setModalVisible(!modalVisible);
     const weekName = weekItems.filter(
-			(item) => item.value === targetDateValue,
-		)[0];
+      (item) => item.value === targetDateValue,
+    )[0];
 
-		const targetStartDate = findStartDate();
+    const targetStartDate = findStartDate();
 
-		navigation.navigate('ReservationNavigator', {
+    navigation.navigate('ReservationNavigator', {
       screen: 'ReservationBandProcess',
-      params:{
-			currentWeek: weekName,
-			monday: targetStartDate,
-      }
-		});
-
+      params: {
+        currentWeek: weekName,
+        monday: targetStartDate,
+      },
+    });
   };
 
   const mentoring = () => {
     setModalVisible(!modalVisible);
     const weekName = weekItems.filter(
-			(item) => item.value === targetDateValue,
-		)[0];
+      (item) => item.value === targetDateValue,
+    )[0];
 
-		const targetStartDate = findStartDate();
-    
-		navigation.navigate('ReservationNavigator', {
+    const targetStartDate = findStartDate();
+
+    navigation.navigate('ReservationNavigator', {
       screen: 'ReservationMentoringProcess',
       params: {
         currentWeek: weekName,
         monday: targetStartDate,
-      }
-		});
-
+      },
+    });
   };
 
   const modalBtn: Array<ICTAButton> = [
@@ -179,33 +175,33 @@ export function ReservationTimeTable() {
   ];
 
   const {
-		execute: handleUpdateReservationData,
-		loading: isUpdatingReservationData,
-	} = useAsyncCallback(async () => {
-		if (isNull(targetDateValue)) {
-			return;
-		}
-		const targetStartDate = findStartDate();
+    execute: handleUpdateReservationData,
+    loading: isUpdatingReservationData,
+  } = useAsyncCallback(async () => {
+    if (isNull(targetDateValue)) {
+      return;
+    }
+    const targetStartDate = findStartDate();
 
-		try {
-			const { data } = await getReservation(targetStartDate as string);
+    try {
+      const {data} = await getReservation(targetStartDate as string);
 
-			if (data.length) {
-				setReservationData(data[0]);
-				return;
-			}
+      if (data.length) {
+        setReservationData(data[0]);
+        return;
+      }
 
-			setReservationData(emptyReservation);
-		} catch (err) {
-			console.log(err.response);
-		}
-	});
+      setReservationData(emptyReservation);
+    } catch (err) {
+      console.log(err.response);
+    }
+  });
 
   useEffect(() => {
-		if (isFocused) {
-			(async () => handleUpdateReservationData())();
-		}
-	}, [targetDateValue, isFocused]);
+    if (isFocused) {
+      (async () => handleUpdateReservationData())();
+    }
+  }, [targetDateValue, isFocused]);
 
   return (
     <ScreenWrapper headerTitle="예약하기">
@@ -215,34 +211,34 @@ export function ReservationTimeTable() {
         buttonList={modalBtn}
       />
       <View style={styles.row}>
-      <View>
-					<DropDownPicker
-						open={open}
-						value={targetDateValue}
-						items={startDates}
-						setOpen={setOpen}
-						setValue={setTargetDateValue}
-						setItems={setStartDates}
-						style={styles.dropDown}
-						textStyle={styles.dropDownText}
-						dropDownContainerStyle={styles.dropDownContainer}
-						placeholderStyle={styles.placeholder}
-					/>
-				</View>
+        <View>
+          <DropDownPicker
+            open={open}
+            value={targetDateValue}
+            items={startDates}
+            setOpen={setOpen}
+            setValue={setTargetDateValue}
+            setItems={setStartDates}
+            style={styles.dropDown}
+            textStyle={styles.dropDownText}
+            dropDownContainerStyle={styles.dropDownContainer}
+            placeholderStyle={styles.placeholder}
+          />
+        </View>
         <TouchableOpacity
           style={styles.reserveBtn}
           onPress={reserveBtnListener}>
           <Text style={styles.reserveBtnText}>예약하기</Text>
         </TouchableOpacity>
       </View>
-			<ScrollView>
-				{targetDateValue && reservationData && (
-					<TimeTable
-						isLoading={isUpdatingReservationData}
-						reservationData={reservationData}
-					/>
-				)}
-			</ScrollView>
-		</ScreenWrapper>
+      <ScrollView>
+        {targetDateValue && reservationData && (
+          <TimeTable
+            isLoading={isUpdatingReservationData}
+            reservationData={reservationData}
+          />
+        )}
+      </ScrollView>
+    </ScreenWrapper>
   );
 }

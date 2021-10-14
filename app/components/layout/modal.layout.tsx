@@ -154,6 +154,7 @@ const styles = StyleSheet.create({
     fontSize: fontPercentage(17),
     textAlign: 'center',
     color: 'white',
+    lineHeight: heightPercentage(31),
   },
 });
 

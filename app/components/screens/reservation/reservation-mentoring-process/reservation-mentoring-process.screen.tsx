@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     fontSize: fontPercentage(20),
     textAlign: 'center',
     color: '#ffffff',
+    lineHeight: heightPercentage(31),
   },
   dropDown: {
     width: widthPercentage(154),
